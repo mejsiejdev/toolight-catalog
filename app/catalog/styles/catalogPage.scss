@@ -1,0 +1,9 @@
+.products-container {
+	@apply grid items-center justify-between p-4 xs:gap-4;
+	max-width: 1440px;
+	margin: 0 auto;
+
+	grid-template-columns: repeat(auto-fit, minmax(284px, 1fr));
+}
+
+

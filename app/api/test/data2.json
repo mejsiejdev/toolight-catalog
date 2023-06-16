@@ -1,0 +1,47 @@
+[
+	{
+		"storeId": 3888,
+		"variantId": 32020,
+		"title": "Lampa sufitowa wisząca pojedyncza CALI APP001-1CP",
+		"category": "Lampy Wiszące",
+		"ean": 5902557337989,
+		"sku": "OSW-00200",
+		"description": "Lampa Cali wykonana jest głównie z aluminium. Drewniany akcent nadaje lampie wyjątkowego klimatu, który wpasuje się w niemal każdą aranżację. Prosty styl sprawia, że lampa pasować będzie do każdego pomieszczenia – zarówno do kuchni, salonu czy pokoju dziecięcego.",
+		"attributes": [
+			{
+				"name": "Model",
+				"value": "CALI APP001-1CP"
+			},
+			{
+				"name": "Rodzaj lampy",
+				"value": "Sufitowa - wisząca"
+			},
+			{
+				"name": "Seria lampionów",
+				"value": "Cali"
+			},
+			{
+				"name": "Zasilanie",
+				"value": "Sieciowe ~220V - ~240V"
+			},
+			{
+				"name": "Zastosowany gwint",
+				"value": "E27"
+			}
+		],
+		"images": [
+			"https://tutumi.pl/picture/fit-in/2000x2000/filters:quality(80)/ad14170fb203c081a42212eab30eae2a",
+			"https://tutumi.pl/picture/fit-in/2000x2000/filters:quality(80)/c0ce2bccfc8ff9bd6155d91f864a02ba",
+			"https://tutumi.pl/picture/fit-in/2000x2000/filters:quality(80)/a80253956e462dd87304bcca2b57636a",
+			"https://tutumi.pl/picture/fit-in/2000x2000/filters:quality(80)/1e7060100960bd52b9b10e3333fbfc57",
+			"https://tutumi.pl/picture/fit-in/2000x2000/filters:quality(80)/f28b0321c56936d1068892caed36c6a7"
+		],
+		"euLabel": "",
+		"priceNet": 20.33,
+		"priceGros": 25,
+		"vat": 23,
+		"quantity": 49,
+		"weight": 3,
+		"url": "https://toolight.pl/lampa-sufitowa-wiszaca-pojedyncza-cali-app001-1cp.html"
+	}
+]

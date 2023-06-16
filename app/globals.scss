@@ -1,0 +1,18 @@
+
+.glow {
+	animation: glow 4s infinite;
+	background: linear-gradient(90deg, #f3f3f3, #d9d9d9, #f3f3f3);
+	background-size: 400% 400%;
+}
+
+@keyframes glow {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

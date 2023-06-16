@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'IBM Plex Sans';
+	src: url('../../../../public/fonts/IBM Plex Sans Var-Roman.woff2') format('woff2');
+	font-weight: auto;
+}
+
+@font-face {
+	font-family: 'IBM Plex Sans Condensed';
+	src: url('../../../../public/fonts/IBMPlexSansCondensed-Text.woff2') format('woff2');
+	font-weight: auto;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.wrapper {
+}

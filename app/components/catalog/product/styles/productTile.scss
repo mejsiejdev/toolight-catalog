@@ -1,0 +1,73 @@
+.product-tile {
+	@apply bg-white font-ibm-sans flex flex-col overflow-hidden rounded-2xl border-2 border-gray-300 cursor-pointer transition hover:border-yellow-200;
+	height: 550px;
+
+	&:hover {
+		transform: scale(1.01)
+	}
+}
+
+.product-tile__thumbnail {
+	@apply flex items-center justify-center overflow-hidden;
+	height: 400px;
+}
+
+.product-tile__image {
+	@apply aspect-square object-contain object-center block p-2;
+	width: 100%;
+	height: 350px;
+
+}
+
+.product-tile__details {
+	@apply p-4 flex flex-col justify-between text-yellow-800;
+	height: 150px;
+}
+
+.description__tags {
+	@apply flex justify-between items-center w-full;
+}
+
+.description__category {
+	@apply text-xs font-ibm-sans-con uppercase mb-2 py-1 px-3 bg-yellow-300 block rounded-full;
+}
+
+.description__new {
+	@apply text-sm font-ibm-sans-con text-yellow-300 uppercase mb-2 block ;
+}
+
+.description__title {
+	@apply uppercase;
+	line-height: 1.5rem;
+}
+
+.details__ids-prices {
+	@apply flex justify-between font-ibm-sans-con;
+	font-size: 12px;
+}
+
+.ids__ean, .ids__sku, .prices__gross, .prices__net {
+	@apply flex items-center;
+}
+
+.ids__ean strong, .ids__sku strong, .prices__net strong, .prices__gross strong {
+	@apply font-medium pr-1;
+}
+
+.glow {
+	animation: glow 4s infinite;
+	background: linear-gradient(90deg, #f3f3f3, #d9d9d9, #f3f3f3);
+	background-size: 400% 400%;
+}
+
+@keyframes glow {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

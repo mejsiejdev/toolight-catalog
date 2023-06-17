@@ -1,5 +1,5 @@
 .product-tile {
-	@apply bg-white font-ibm-sans flex flex-col overflow-hidden rounded-2xl border-2 border-gray-300 cursor-pointer transition hover:border-yellow-200;
+	@apply bg-white font-ibm-sans flex flex-col rounded-2xl overflow-hidden border-2 border-gray-300 cursor-pointer transition hover:border-yellow-200;
 	height: 550px;
 
 	&:hover {
@@ -8,15 +8,19 @@
 }
 
 .product-tile__thumbnail {
-	@apply flex items-center justify-center overflow-hidden;
+	@apply flex items-center overflow-hidden justify-center;
 	height: 400px;
 }
 
 .product-tile__image {
-	@apply aspect-square object-contain object-center block p-2;
-	width: 100%;
+	@apply aspect-square object-contain object-center block p-2 absolute;
+	width: 350px;
 	height: 350px;
+	transition: 0.3s;
+}
 
+.product-tile__image--second {
+	@apply absolute;
 }
 
 .product-tile__details {

@@ -1,21 +1,18 @@
 'use client';
 import './styles/productTile.scss';
 import { useState } from 'react';
+import ImageAnimation from '@/app/components/catalog/product/ImageAnimation';
 
 const ProductTile = ({ products }) => {
-  const [active, setActive] = useState(products.images[0]);
+  const [active, setActive] = useState(false);
   return (
     <div
       className="product-tile"
-      onMouseEnter={() => setActive(() => products.images[1])}
-      onMouseLeave={() => setActive(() => products.images[0])}
+      onMouseEnter={() => setActive(() => true)}
+      onMouseLeave={() => setActive(() => false)}
     >
       <div className="product-tile__thumbnail">
-        <img
-          className="product-tile__image"
-          src={`${active}`}
-          alt={products.title}
-        />
+        <ImageAnimation isActive={active} images={products.images} />
       </div>
       <div className="product-tile__details">
         <div className="details__description">

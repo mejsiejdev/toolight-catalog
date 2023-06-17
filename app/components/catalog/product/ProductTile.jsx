@@ -36,11 +36,11 @@ const ProductTile = ({ products }) => {
           {/*<div className="ids-prices__prices">*/}
           {/*  <p className="prices__net">*/}
           {/*    <strong>Netto: </strong>*/}
-          {/*    {products.priceNet} zł*/}
+          {/*    {catalog.priceNet} zł*/}
           {/*  </p>*/}
           {/*  <p className="prices__gross">*/}
           {/*    <strong>Brutto: </strong>*/}
-          {/*    {products.priceGros} zł*/}
+          {/*    {catalog.priceGros} zł*/}
           {/*  </p>*/}
           {/*</div>*/}
         </div>

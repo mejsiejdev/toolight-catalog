@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74e842f5-a128-4313-9a1e-b804115c6567" name="Changes" comment="initial">
-      <change afterPath="$PROJECT_DIR$/app/components/catalog/product/ImageAnimation.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/catalog/product/styles/imageAnimation.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/catalog/route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/catalog/product/Pagination.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/catalog/product/styles/pagination.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/middleware/pagination.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/products/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/products/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/products/route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/test/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/test/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/page.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/catalog/styles/catalogPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/styles/catalogPage.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/catalog/product/ProductTile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/catalog/product/ProductTile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/catalog/product/ProductTileSkeleton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/catalog/product/ProductTileSkeleton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/catalog/product/styles/imageAnimation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/catalog/product/styles/imageAnimation.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/catalog/product/styles/productTile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/catalog/product/styles/productTile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/loading.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/loading.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,11 +75,11 @@
       <recent name="$PROJECT_DIR$/app/api/test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/catalog" />
       <recent name="$PROJECT_DIR$/app/components/layout" />
       <recent name="$PROJECT_DIR$/app/components/catalog/product/styles" />
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/api/delete" />
-      <recent name="$PROJECT_DIR$/public/assets" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -96,7 +102,8 @@
       <workItem from="1686942207418" duration="10000000" />
       <workItem from="1686985667816" duration="599000" />
       <workItem from="1686986892262" duration="196000" />
-      <workItem from="1686987175889" duration="7940000" />
+      <workItem from="1686987175889" duration="8189000" />
+      <workItem from="1687008752718" duration="18012000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1686952164590</created>
@@ -105,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686952164590</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="initial">
+      <created>1686996826596</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686996826596</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,0 +1,36 @@
+.pagination {
+	@apply flex flex-wrap md:justify-end p-4 justify-center;
+	max-width: 1440px;
+	margin: 32px auto;
+
+	&:nth-child(1) {
+		background-color: red;
+	}
+}
+
+.pagination__button {
+	@apply text-sm w-10 h-10 flex items-center justify-center border-t-2 border-b-2 font-ibm-sans border-t-yellow-300 border-b-yellow-300 hover:bg-yellow-300 transition;
+	&--arrow {
+		@apply w-5 h-5;
+	}
+
+	&--prev {
+		@apply w-20 rounded-tl-xl rounded-bl-xl bg-yellow-300 border-yellow-300 hover:border-yellow-hover-300 hover:bg-yellow-hover-300;
+	}
+
+	&--current {
+		@apply text-yellow-300  hover:text-black border-yellow-300 hover:border-yellow-hover-300 hover:bg-yellow-hover-300;
+	}
+
+	&--next {
+		@apply w-20 rounded-tr-xl rounded-br-xl bg-yellow-300 border-yellow-300 hover:border-yellow-hover-300 hover:bg-yellow-hover-300;
+	}
+
+	&:nth-child(1) {
+		@apply border-l-yellow-300 border-l-2;
+	}
+
+	&:nth-child(4) {
+		@apply border-r-yellow-300 border-r-2;
+	}
+}

@@ -1,5 +1,6 @@
 'use client';
 import './styles/imageAnimation.scss';
+import { useEffect } from 'react';
 
 const ImageAnimation = ({ isActive, images }) => {
   const isAciveStyle = {
@@ -18,7 +19,9 @@ const ImageAnimation = ({ isActive, images }) => {
     if (images.length >= 2) return !isActive ? isAciveStyle : isInactiveStyle;
     return isAciveStyle;
   };
-  handleImagesCount();
+  useEffect(() => {
+    handleImagesCount();
+  }, [images]);
   return (
     <div className="product-tile__animation-container">
       <img

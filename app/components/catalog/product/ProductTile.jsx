@@ -3,11 +3,12 @@ import './styles/productTile.scss';
 import { useState } from 'react';
 import ImageAnimation from '@/app/components/catalog/product/ImageAnimation';
 
-const ProductTile = ({ products }) => {
+const ProductTile = ({ products, innerRef }) => {
   const [active, setActive] = useState(false);
   return (
     <div
       className="product-tile"
+      ref={innerRef}
       onMouseEnter={() => setActive(() => true)}
       onMouseLeave={() => setActive(() => false)}
     >

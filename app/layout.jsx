@@ -1,5 +1,3 @@
-'use client';
-
 import './components/layout/styles/index.scss';
 import './globals.scss';
 

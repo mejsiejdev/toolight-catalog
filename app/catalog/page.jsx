@@ -1,48 +1,57 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useCallback, useState, useRef } from 'react';
 import './styles/catalogPage.scss';
 import ProductTile from '@/app/components/catalog/product/ProductTile';
 import ProductTileSkeleton from '@/app/components/catalog/product/ProductTileSkeleton';
 import setIsNew from '../../utilities/setIsNew';
-import Pagination from '@/app/components/catalog/product/Pagination';
+import useGetData from '@/hooks/useGetData';
+// import Pagination from '@/app/components/catalog/product/Pagination';
 
-const ProductsPage = async () => {
-  const [data, setData] = useState(() => []);
+const ProductsPage = () => {
   const [page, setPage] = useState(1);
-  const [pages, setPages] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
-  useEffect(() => {
-    const getData = async () => {
-      await fetch(`http://localhost:3000/api/catalog?page=${page}`)
-        .then((res) => res.json())
-        .then(
-          (data) => (
-            setData((currentData) => (currentData = data.products)),
-            setPages((currentPage) => (currentPage = data.pages))
-          )
-        );
-    };
-    getData();
-    setIsLoading(true);
-  }, [page]);
-  const getPage = (e) => {
-    return setPage(
-      (currentState) => (currentState = parseInt(e.target.dataset.page))
-    );
-  };
+  const { isLoading, error, products, hasMore } = useGetData(page);
+  const observer = useRef(null);
+  const lastProductElement = useCallback(
+    (currentItem) => {
+      if (isLoading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          setPage((prevPageNumber) => prevPageNumber + 1);
+          console.log(page);
+        }
+      });
+      if (currentItem) observer.current.observe(currentItem);
+    },
+    [isLoading, hasMore]
+  );
+  console.log(products);
 
   return (
     <>
       <div className="products-container">
         {isLoading ? (
-          setIsNew(data).map((dat) => (
-            <ProductTile products={dat} key={crypto.randomUUID()} />
-          ))
-        ) : (
           <ProductTileSkeleton count={20} />
+        ) : (
+          setIsNew(products[0]).map((dat, index) => {
+            if (products[0].length - 1 === index) {
+              return (
+                <ProductTile
+                  innerRef={lastProductElement}
+                  products={dat}
+                  key={crypto.randomUUID()}
+                />
+              );
+            } else {
+              return <ProductTile products={dat} key={crypto.randomUUID()} />;
+            }
+          })
         )}
       </div>
-      <Pagination changePage={getPage} pages={pages} currentPage={page} />
+
+      <div>{isLoading && 'Loading...'}</div>
+      <div>{error && 'Error'}</div>
+      {/*<Pagination changePage={getPage} pages={pages} currentPage={page} />*/}
     </>
   );
 };

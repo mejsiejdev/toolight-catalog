@@ -1,57 +1,49 @@
 'use client';
-import { useCallback, useState, useRef } from 'react';
+import { useRef, useCallback, useState } from 'react';
 import './styles/catalogPage.scss';
+import '../components/layout/styles/loading.scss';
 import ProductTile from '@/app/components/catalog/product/ProductTile';
-import ProductTileSkeleton from '@/app/components/catalog/product/ProductTileSkeleton';
 import setIsNew from '../../utilities/setIsNew';
 import useGetData from '@/hooks/useGetData';
-// import Pagination from '@/app/components/catalog/product/Pagination';
+import LoadMore from '@/app/components/catalog/LoadMore';
 
 const ProductsPage = () => {
   const [page, setPage] = useState(1);
   const { isLoading, error, products, hasMore } = useGetData(page);
-  const observer = useRef(null);
-  const lastProductElement = useCallback(
-    (currentItem) => {
-      if (isLoading) return;
-      if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasMore) {
-          setPage((prevPageNumber) => prevPageNumber + 1);
-          console.log(page);
-        }
-      });
-      if (currentItem) observer.current.observe(currentItem);
-    },
-    [isLoading, hasMore]
-  );
-  console.log(products);
+
+  // const observer = useRef(null);
+  // const lastProductElement = useCallback(
+  //   (currentItem) => {
+  //     if (isLoading) return;
+  //     if (observer.current) observer.current.disconnect();
+  //     observer.current = new IntersectionObserver((entries) => {
+  //       if (entries[0].isIntersecting && hasMore) {
+  //         setPage((prevPageNumber) => prevPageNumber + 1);
+  //         console.log(page);
+  //       }
+  //     });
+  //     if (currentItem) observer.current.observe(currentItem);
+  //   },
+  //   [isLoading, hasMore]
+  // );
 
   return (
     <>
       <div className="products-container">
-        {isLoading ? (
-          <ProductTileSkeleton count={20} />
-        ) : (
-          setIsNew(products[0]).map((dat, index) => {
-            if (products[0].length - 1 === index) {
-              return (
-                <ProductTile
-                  innerRef={lastProductElement}
-                  products={dat}
-                  key={crypto.randomUUID()}
-                />
-              );
-            } else {
-              return <ProductTile products={dat} key={crypto.randomUUID()} />;
-            }
-          })
-        )}
+        {setIsNew(products).map((dat) => (
+          <ProductTile product={dat} key={crypto.randomUUID()} />
+        ))}
       </div>
 
-      <div>{isLoading && 'Loading...'}</div>
+      <div className="flex flex-col items-center justify-center">
+        {isLoading && (
+          <div className="spin-loader py-8" aria-hidden="true"></div>
+        )}
+        <LoadMore
+          handleData={() => setPage((prevPage) => prevPage + 1)}
+        ></LoadMore>
+      </div>
       <div>{error && 'Error'}</div>
-      {/*<Pagination changePage={getPage} pages={pages} currentPage={page} />*/}
     </>
   );
 };

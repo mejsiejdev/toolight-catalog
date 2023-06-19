@@ -6,14 +6,11 @@ const useGetData = (pageNumber) => {
   const [error, setError] = useState(false);
   const [products, setProducts] = useState([]);
   const [hasMore, setHasMore] = useState(true);
-  const [length, setLength] = useState(0);
-  const [abort, setAbort] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
     setError(false);
-    setAbort(false);
-    let totalProducts;
+    let controller = new AbortController();
     axios({
       method: 'GET',
       url: `http://localhost:3000/api/catalog?page=${pageNumber}`,
@@ -21,18 +18,16 @@ const useGetData = (pageNumber) => {
     })
       .then((res) => {
         setProducts((prevProducts) => {
-          totalProducts = res.data.count;
-          return [...prevProducts, res.data.products];
+          return [...prevProducts, ...res.data.products];
         });
-        setAbort(true);
-        setLength(products.length);
-        setHasMore(totalProducts < length);
+        setHasMore(res.data.count > 0);
         setIsLoading(false);
       })
       .catch((error) => {
         if (axios.isCancel(error)) return;
         console.log(error);
       });
+    return () => controller.abort();
   }, [pageNumber]);
   return { isLoading, error, products, hasMore };
 };

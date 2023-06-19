@@ -1,0 +1,60 @@
+.navbar-toggle {
+	@apply p-1;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: fit-content;
+	height: fit-content;
+}
+
+.toggle-icon {
+	width: 48px;
+	height: 48px;
+	cursor: pointer;
+	fill-rule: evenodd;
+	clip-rule: evenodd;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 1.5;
+}
+
+.toggle-icon path {
+	fill: none;
+	stroke: #000000;
+	stroke-width: 2px;
+
+}
+
+.toggle-icon:hover {
+	stroke: #f1c21b;
+}
+
+#top,
+#bottom {
+	transition: all 0.5s cubic-bezier(0.6, 0.33, 0.67, 1.29);
+	stroke-dasharray: 30, 75.39;
+}
+
+.toggle-icon.active #top,
+.toggle-icon.active #bottom {
+	stroke-dasharray: 75.39;
+	stroke-dashoffset: -60;
+}
+
+.toggle-icon:nth-child(2) {
+	transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	transform: rotate(0deg);
+}
+
+.toggle-icon:nth-child(2) path {
+	transition: all 0.3s ease-in-out 0.4s;
+}
+
+.toggle-icon:nth-child(2).active {
+	transform: rotate(180deg);
+}
+
+.rocket #top {
+	stroke-dasharray: 30, 88;
+}

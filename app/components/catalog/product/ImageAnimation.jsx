@@ -6,13 +6,13 @@ const ImageAnimation = ({ isActive, images }) => {
   const isAciveStyle = {
     top: '0',
     left: '0',
-    transform: 'translateX(0px)',
+    // transform: 'translateX(0px)',
     opacity: '1',
   };
   const isInactiveStyle = {
     top: '0',
     left: '0',
-    transform: 'translateX(350px)',
+    // transform: 'translateX(350px)',
     opacity: '0',
   };
   const handleImagesCount = () => {

@@ -1,9 +1,9 @@
 .product-tile {
-	@apply bg-white font-ibm-sans flex flex-col rounded-2xl overflow-hidden border-2 border-gray-300 cursor-pointer transition hover:border-yellow-200;
-
-	&:hover {
-		transform: scale(1.01)
-	}
+	@apply bg-white font-ibm-sans flex flex-col overflow-hidden border border-gray-300 cursor-pointer transition;
+	margin: -1px;
+	//&:hover {
+	//	transform: scale(1.01)
+	//}
 }
 
 .product-tile__thumbnail {

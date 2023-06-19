@@ -1,11 +1,15 @@
 import './components/layout/styles/index.scss';
 import './globals.scss';
+import Navbar from '@/app/components/layout/navbar/Navbar';
+import Footer from '@/app/components/layout/footer/Footer';
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang="en">
+    <html lang="pl">
       <body>
-        <div className="wrapper">{children}</div>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );

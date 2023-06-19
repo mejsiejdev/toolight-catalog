@@ -1,6 +1,7 @@
 .products-container {
-	@apply grid p-4 xs:gap-4;
+	@apply grid p-4;
 	max-width: 1440px;
+	min-height: 1003px;
 	margin: 0 auto;
 
 	grid-template-columns: repeat(auto-fill, minmax(284px, 1fr));

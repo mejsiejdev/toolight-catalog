@@ -1,0 +1,20 @@
+.primary-button {
+	@apply border border-toolight-primary bg-toolight-primary flex justify-center items-center rounded px-8 py-3 transition m-4 mb-8 hover:bg-toolight-primary-hover-dark active:bg-toolight-primary-active;
+}
+
+.secondary-button {
+	@apply border border-toolight-secondary bg-toolight-secondary text-white flex justify-center items-center rounded px-8 py-3 transition m-4 mb-8 hover:bg-toolight-secondary-hover-light active:bg-toolight-secondary-active;
+}
+
+.tertiary-button {
+	@apply bg-white border border-toolight-tertiary flex justify-center items-center rounded px-8 py-3 transition m-4 mb-8 hover:border-toolight-tertiary-hover-light active:bg-toolight-tertiary-hover-light active:text-white;
+}
+
+.danger-button {
+	@apply border border-toolight-danger bg-toolight-danger text-white flex justify-center items-center rounded px-8 py-3 transition m-4 mb-8 hover:bg-toolight-danger-hover-dark;
+}
+
+.success-button {
+	@apply border border-toolight-success bg-toolight-success text-white flex justify-center items-center rounded px-8 py-3 transition m-4 mb-8 hover:bg-toolight-success-hover-dark;
+
+}

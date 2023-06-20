@@ -1,3 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'Supreme';
+	src: url('../public/fonts/Supreme-Variable.ttf') format('truetype'),
+	url('../public/fonts/Supreme-Variable.woff') format('woff'),
+	url('../public/fonts/Supreme-Variable.woff2') format('woff2');
+	font-weight: auto;
+}
+
+@font-face {
+	font-family: 'Supreme Italic';
+	src: url('../public/fonts/Supreme-VariableItalic.ttf') format('truetype'),
+	url('../public/fonts/Supreme-VariableItalic.woff') format('woff'),
+	url('../public/fonts/Supreme-VariableItalic.woff2') format('woff2');
+	font-weight: auto;
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+
 .wrapper {
 	max-width: 1440px;
 	margin: 0 auto;

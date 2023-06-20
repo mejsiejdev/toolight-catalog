@@ -1,0 +1,404 @@
+Index: app/catalog/page.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>'use client';\r\nimport { useCallback, useState, useRef } from 'react';\r\nimport './styles/catalogPage.scss';\r\nimport ProductTile from '@/app/components/catalog/product/ProductTile';\r\nimport ProductTileSkeleton from '@/app/components/catalog/product/ProductTileSkeleton';\r\nimport setIsNew from '../../utilities/setIsNew';\r\nimport useGetData from '@/hooks/useGetData';\r\n// import Pagination from '@/app/components/catalog/product/Pagination';\r\n\r\nconst ProductsPage = () => {\r\n  const [page, setPage] = useState(1);\r\n  const { isLoading, error, products, hasMore } = useGetData(page);\r\n  const observer = useRef(null);\r\n  const lastProductElement = useCallback(\r\n    (currentItem) => {\r\n      if (isLoading) return;\r\n      if (observer.current) observer.current.disconnect();\r\n      observer.current = new IntersectionObserver((entries) => {\r\n        if (entries[0].isIntersecting && hasMore) {\r\n          setPage((prevPageNumber) => prevPageNumber + 1);\r\n          console.log(page);\r\n        }\r\n      });\r\n      if (currentItem) observer.current.observe(currentItem);\r\n    },\r\n    [isLoading, hasMore]\r\n  );\r\n  console.log(products);\r\n\r\n  return (\r\n    <>\r\n      <div className=\"products-container\">\r\n        {isLoading ? (\r\n          <ProductTileSkeleton count={20} />\r\n        ) : (\r\n          setIsNew(products[0]).map((dat, index) => {\r\n            if (products[0].length - 1 === index) {\r\n              return (\r\n                <ProductTile\r\n                  innerRef={lastProductElement}\r\n                  products={dat}\r\n                  key={crypto.randomUUID()}\r\n                />\r\n              );\r\n            } else {\r\n              return <ProductTile products={dat} key={crypto.randomUUID()} />;\r\n            }\r\n          })\r\n        )}\r\n      </div>\r\n\r\n      <div>{isLoading && 'Loading...'}</div>\r\n      <div>{error && 'Error'}</div>\r\n      {/*<Pagination changePage={getPage} pages={pages} currentPage={page} />*/}\r\n    </>\r\n  );\r\n};\r\nexport default ProductsPage;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/catalog/page.jsx b/app/catalog/page.jsx
+--- a/app/catalog/page.jsx	(revision 8bdecaca098e2928ec3c6eb1d59652e1982cce12)
++++ b/app/catalog/page.jsx	(date 1687197195605)
+@@ -2,14 +2,13 @@
+ import { useCallback, useState, useRef } from 'react';
+ import './styles/catalogPage.scss';
+ import ProductTile from '@/app/components/catalog/product/ProductTile';
+-import ProductTileSkeleton from '@/app/components/catalog/product/ProductTileSkeleton';
+ import setIsNew from '../../utilities/setIsNew';
+ import useGetData from '@/hooks/useGetData';
+-// import Pagination from '@/app/components/catalog/product/Pagination';
+ 
+ const ProductsPage = () => {
+   const [page, setPage] = useState(1);
+   const { isLoading, error, products, hasMore } = useGetData(page);
++
+   const observer = useRef(null);
+   const lastProductElement = useCallback(
+     (currentItem) => {
+@@ -18,26 +17,23 @@
+       observer.current = new IntersectionObserver((entries) => {
+         if (entries[0].isIntersecting && hasMore) {
+           setPage((prevPageNumber) => prevPageNumber + 1);
+-          console.log(page);
+         }
+       });
+       if (currentItem) observer.current.observe(currentItem);
+     },
+     [isLoading, hasMore]
+   );
+-  console.log(products);
++  console.log(products)
+ 
+   return (
+     <>
+       <div className="products-container">
+-        {isLoading ? (
+-          <ProductTileSkeleton count={20} />
+-        ) : (
+-          setIsNew(products[0]).map((dat, index) => {
+-            if (products[0].length - 1 === index) {
++        {
++          setIsNew(products).map((dat, index) => {
++            if (products.length - 1 === index) {
+               return (
+                 <ProductTile
+-                  innerRef={lastProductElement}
++                  childRef={lastProductElement}
+                   products={dat}
+                   key={crypto.randomUUID()}
+                 />
+@@ -45,13 +41,12 @@
+             } else {
+               return <ProductTile products={dat} key={crypto.randomUUID()} />;
+             }
+-          })
++          }
+         )}
+       </div>
+ 
+-      <div>{isLoading && 'Loading...'}</div>
++      <div className='test'>{isLoading && <div className="spin-loader" aria-hidden="true"></div>}</div>
+       <div>{error && 'Error'}</div>
+-      {/*<Pagination changePage={getPage} pages={pages} currentPage={page} />*/}
+     </>
+   );
+ };
+Index: app/layout.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import './components/layout/styles/index.scss';\r\nimport './globals.scss';\r\n\r\nconst RootLayout = ({ children }) => {\r\n  return (\r\n    <html lang=\"en\">\r\n      <body>\r\n        <div className=\"wrapper\">{children}</div>\r\n      </body>\r\n    </html>\r\n  );\r\n};\r\n\r\nexport default RootLayout;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/layout.jsx b/app/layout.jsx
+--- a/app/layout.jsx	(revision 8bdecaca098e2928ec3c6eb1d59652e1982cce12)
++++ b/app/layout.jsx	(date 1687163419121)
+@@ -5,7 +5,13 @@
+   return (
+     <html lang="en">
+       <body>
++      <header>
++	      <h1>navabar</h1>
++      </header>
+         <div className="wrapper">{children}</div>
++      <footer>
++	      <h3>footer</h3>
++      </footer>
+       </body>
+     </html>
+   );
+Index: app/components/catalog/product/ProductTile.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>'use client';\r\nimport './styles/productTile.scss';\r\nimport { useState } from 'react';\r\nimport ImageAnimation from '@/app/components/catalog/product/ImageAnimation';\r\n\r\nconst ProductTile = ({ products, innerRef }) => {\r\n  const [active, setActive] = useState(false);\r\n  return (\r\n    <div\r\n      className=\"product-tile\"\r\n      ref={innerRef}\r\n      onMouseEnter={() => setActive(() => true)}\r\n      onMouseLeave={() => setActive(() => false)}\r\n    >\r\n      <div className=\"product-tile__thumbnail\">\r\n        <ImageAnimation isActive={active} images={products.images} />\r\n      </div>\r\n      <div className=\"product-tile__details\">\r\n        <div className=\"details__description\">\r\n          <div className=\"description__tags\">\r\n            <p className=\"description__category\">{products.category}</p>\r\n            {products.isNew && <p className=\"description__new\">Nowość</p>}\r\n          </div>\r\n          <h3 className=\"description__title\">{products.title}</h3>\r\n        </div>\r\n        <div className=\"details__ids-prices\">\r\n          <div className=\"ids-prices__ids\">\r\n            <p className=\"ids__ean\">\r\n              <strong>EAN: </strong>\r\n              {products.ean}\r\n            </p>\r\n            <p className=\"ids__sku\">\r\n              <strong>SKU: </strong>\r\n              {products.sku}\r\n            </p>\r\n          </div>\r\n          {/*<div className=\"ids-prices__prices\">*/}\r\n          {/*  <p className=\"prices__net\">*/}\r\n          {/*    <strong>Netto: </strong>*/}\r\n          {/*    {catalog.priceNet} zł*/}\r\n          {/*  </p>*/}\r\n          {/*  <p className=\"prices__gross\">*/}\r\n          {/*    <strong>Brutto: </strong>*/}\r\n          {/*    {catalog.priceGros} zł*/}\r\n          {/*  </p>*/}\r\n          {/*</div>*/}\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default ProductTile;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/components/catalog/product/ProductTile.jsx b/app/components/catalog/product/ProductTile.jsx
+--- a/app/components/catalog/product/ProductTile.jsx	(revision 8bdecaca098e2928ec3c6eb1d59652e1982cce12)
++++ b/app/components/catalog/product/ProductTile.jsx	(date 1687156569193)
+@@ -3,12 +3,12 @@
+ import { useState } from 'react';
+ import ImageAnimation from '@/app/components/catalog/product/ImageAnimation';
+ 
+-const ProductTile = ({ products, innerRef }) => {
++const ProductTile = ({ products, childRef }) => {
+   const [active, setActive] = useState(false);
+   return (
+     <div
+       className="product-tile"
+-      ref={innerRef}
++      ref={childRef}
+       onMouseEnter={() => setActive(() => true)}
+       onMouseLeave={() => setActive(() => false)}
+     >
+Index: hooks/useGetData.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { useEffect, useState } from 'react';\r\nimport axios from 'axios';\r\n\r\nconst useGetData = (pageNumber) => {\r\n  const [isLoading, setIsLoading] = useState(true);\r\n  const [error, setError] = useState(false);\r\n  const [products, setProducts] = useState([]);\r\n  const [hasMore, setHasMore] = useState(true);\r\n  const [length, setLength] = useState(0);\r\n  const [abort, setAbort] = useState(false);\r\n\r\n  useEffect(() => {\r\n    setIsLoading(true);\r\n    setError(false);\r\n    setAbort(false);\r\n    let totalProducts;\r\n    axios({\r\n      method: 'GET',\r\n      url: `http://localhost:3000/api/catalog?page=${pageNumber}`,\r\n      params: { page: pageNumber },\r\n    })\r\n      .then((res) => {\r\n        setProducts((prevProducts) => {\r\n          totalProducts = res.data.count;\r\n          return [...prevProducts, res.data.products];\r\n        });\r\n        setAbort(true);\r\n        setLength(products.length);\r\n        setHasMore(totalProducts < length);\r\n        setIsLoading(false);\r\n      })\r\n      .catch((error) => {\r\n        if (axios.isCancel(error)) return;\r\n        console.log(error);\r\n      });\r\n  }, [pageNumber]);\r\n  return { isLoading, error, products, hasMore };\r\n};\r\n\r\nexport default useGetData;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hooks/useGetData.js b/hooks/useGetData.js
+--- a/hooks/useGetData.js	(revision 8bdecaca098e2928ec3c6eb1d59652e1982cce12)
++++ b/hooks/useGetData.js	(date 1687161717881)
+@@ -6,33 +6,28 @@
+   const [error, setError] = useState(false);
+   const [products, setProducts] = useState([]);
+   const [hasMore, setHasMore] = useState(true);
+-  const [length, setLength] = useState(0);
+-  const [abort, setAbort] = useState(false);
+ 
+   useEffect(() => {
+     setIsLoading(true);
+     setError(false);
+-    setAbort(false);
+-    let totalProducts;
++	let controller = new AbortController()
+     axios({
+       method: 'GET',
+       url: `http://localhost:3000/api/catalog?page=${pageNumber}`,
+       params: { page: pageNumber },
+     })
+       .then((res) => {
+-        setProducts((prevProducts) => {
+-          totalProducts = res.data.count;
+-          return [...prevProducts, res.data.products];
++		    setProducts((prevProducts) => {
++          return [...prevProducts, ...res.data.products];
+         });
+-        setAbort(true);
+-        setLength(products.length);
+-        setHasMore(totalProducts < length);
++        setHasMore(res.data.count > 0);
+         setIsLoading(false);
+       })
+       .catch((error) => {
+         if (axios.isCancel(error)) return;
+         console.log(error);
+       });
++	return () => controller.abort()
+   }, [pageNumber]);
+   return { isLoading, error, products, hasMore };
+ };
+Index: app/components/layout/styles/index.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n\r\n@font-face {\r\n\tfont-family: 'IBM Plex Sans';\r\n\tsrc: url('../../../../public/fonts/IBM Plex Sans Var-Roman.woff2') format('woff2');\r\n\tfont-weight: auto;\r\n}\r\n\r\n@font-face {\r\n\tfont-family: 'IBM Plex Sans Condensed';\r\n\tsrc: url('../../../../public/fonts/IBMPlexSansCondensed-Text.woff2') format('woff2');\r\n\tfont-weight: auto;\r\n}\r\n\r\n* {\r\n\tbox-sizing: border-box;\r\n}\r\n\r\n.wrapper {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/components/layout/styles/index.scss b/app/components/layout/styles/index.scss
+--- a/app/components/layout/styles/index.scss	(revision 8bdecaca098e2928ec3c6eb1d59652e1982cce12)
++++ b/app/components/layout/styles/index.scss	(date 1687163909792)
+@@ -18,5 +18,74 @@
+ 	box-sizing: border-box;
+ }
+ 
+-.wrapper {
++.test {
++	@apply flex justify-center items-center;
++	height: 200px;
++}
++.load {
++	@apply text-5xl p-6 bg-yellow-300 flex items-center justify-center;
++}
++
++$spinner_speed: .775s;
++$spinner_radius: 80%;
++$spinner_fill_radius: 90px;
++
++$spinner_size: 100px;
++$spinner_thickness: 20px;
++$spinner_inner_circle: $spinner_size - $spinner_thickness;
++
++$spinner_color: #f1c21b;
++$spinner_bg: #ffffff;
++$spinner_inner_bg: #ffffff;
++
++
++
++.spin-loader {
++	position: relative;
++	display: block;
++	width: $spinner_size;
++	height: $spinner_size;
++	animation: spin $spinner_speed linear 0s infinite normal;
++	border-radius: 80%;
++	background: $spinner_bg;
++
++	&:before,
++	&:after {
++		position: absolute;
++		display: block;
++		content: '';
++	}
++
++	&:before {
++		z-index: 1;
++		top: 0;
++		right: 0;
++		width: 50%;
++		height: $spinner_size;
++		border-radius: 0 $spinner_fill_radius $spinner_fill_radius 0;
++		background: $spinner_color;
++		background-image: linear-gradient($spinner_bg, $spinner_color);
++	}
++
++	&:after {
++		z-index: 1;
++		top: 50%;
++		left: 50%;
++		width: $spinner_inner_circle;
++		height: $spinner_inner_circle;
++		transform: translate(-50%, -50%);
++		border-radius: $spinner_radius;
++		background: $spinner_inner_bg;
++	}
++}
++
++@keyframes spin {
++	to {
++		transform: rotate(360deg);
++	}
++}
++
++
++footer, header {
++	@apply flex justify-center items-center bg-yellow-300 py-20;
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"74e842f5-a128-4313-9a1e-b804115c6567\" name=\"Changes\" comment=\"initial\">\r\n      <change afterPath=\"$PROJECT_DIR$/app/not-found.jsx\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/hooks/useGetData.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/catalog/page.jsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/catalog/page.jsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/components/catalog/product/ImageAnimation.jsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/components/catalog/product/ImageAnimation.jsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/components/catalog/product/ProductTile.jsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/components/catalog/product/ProductTile.jsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/layout.jsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/layout.jsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/loading.jsx\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/package-lock.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/package-lock.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/package.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/package.json\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"JsBowerSettings\">\r\n    <bower-package value=\"\" />\r\n    <bower.json value=\"\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"PackageJsonUpdateNotifier\">\r\n    <dismissed value=\"$PROJECT_DIR$/package.json\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2RCQVpodWDFvIodY4pmj7lfjAyy\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"NewWatcherDialog.advanced.open\": \"true\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"js.linters.configure.manually.selectedeslint\": \"true\",\r\n    \"last_opened_file_path\": \"/Users/drteski/Web/toolight-catalog/app/api/test\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.standard\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.standard\": \"\",\r\n    \"node.js.selected.package.stylelint\": \"\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_interpreter_path\": \"node\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"prettierjs.PrettierConfiguration.Package\": \"/usr/local/lib/node_modules/prettier\",\r\n    \"rearrange.code.on.save\": \"true\",\r\n    \"settings.editor.selected.configurable\": \"preferences.sourceCode.SCSS\",\r\n    \"settings.editor.splitter.proportion\": \"0.20100273\",\r\n    \"ts.external.directory.path\": \"/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"$PROJECT_DIR$/app/api/test\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"$PROJECT_DIR$\" />\r\n      <recent name=\"$PROJECT_DIR$/app\" />\r\n      <recent name=\"$PROJECT_DIR$/app/catalog\" />\r\n      <recent name=\"$PROJECT_DIR$/app/components/layout\" />\r\n      <recent name=\"$PROJECT_DIR$/app/components/catalog/product/styles\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration>$USER_HOME$/.subversion</configuration>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"74e842f5-a128-4313-9a1e-b804115c6567\" name=\"Changes\" comment=\"\" />\r\n      <created>1686751610149</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1686751610149</updated>\r\n      <workItem from=\"1686751612264\" duration=\"1098000\" />\r\n      <workItem from=\"1686752713814\" duration=\"15663000\" />\r\n      <workItem from=\"1686838628073\" duration=\"25770000\" />\r\n      <workItem from=\"1686924367092\" duration=\"1600000\" />\r\n      <workItem from=\"1686926650070\" duration=\"9050000\" />\r\n      <workItem from=\"1686935731364\" duration=\"6447000\" />\r\n      <workItem from=\"1686942207418\" duration=\"10000000\" />\r\n      <workItem from=\"1686985667816\" duration=\"599000\" />\r\n      <workItem from=\"1686986892262\" duration=\"196000\" />\r\n      <workItem from=\"1686987175889\" duration=\"8189000\" />\r\n      <workItem from=\"1687008752718\" duration=\"18173000\" />\r\n      <workItem from=\"1687074720483\" duration=\"9498000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"initial\">\r\n      <created>1686952164590</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1686952164590</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"initial\">\r\n      <created>1686996826596</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1686996826596</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"initial\">\r\n      <created>1687028672253</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687028672253</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"initial\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"initial\" />\r\n    <option name=\"REFORMAT_BEFORE_PROJECT_COMMIT\" value=\"true\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\r\n          <url>file://$PROJECT_DIR$/app/components/products/product/ProductTile.tsx</url>\r\n          <line>4</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 8bdecaca098e2928ec3c6eb1d59652e1982cce12)
++++ b/.idea/workspace.xml	(date 1687238016322)
+@@ -5,15 +5,13 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="74e842f5-a128-4313-9a1e-b804115c6567" name="Changes" comment="initial">
+-      <change afterPath="$PROJECT_DIR$/app/not-found.jsx" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/hooks/useGetData.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/api/catalog/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/catalog/route.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/catalog/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/page.jsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/components/catalog/product/ImageAnimation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/catalog/product/ImageAnimation.jsx" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/components/catalog/product/ProductTile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/catalog/product/ProductTile.jsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/components/layout/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/styles/index.scss" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.jsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/loading.jsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/hooks/useGetData.js" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useGetData.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -42,31 +40,31 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "NewWatcherDialog.advanced.open": "true",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "git-widget-placeholder": "main",
+-    "js.linters.configure.manually.selectedeslint": "true",
+-    "last_opened_file_path": "/Users/drteski/Web/toolight-catalog/app/api/test",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.standard": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.standard": "",
+-    "node.js.selected.package.stylelint": "",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_interpreter_path": "node",
+-    "nodejs_package_manager_path": "npm",
+-    "prettierjs.PrettierConfiguration.Package": "/usr/local/lib/node_modules/prettier",
+-    "rearrange.code.on.save": "true",
+-    "settings.editor.selected.configurable": "preferences.sourceCode.SCSS",
+-    "settings.editor.splitter.proportion": "0.20100273",
+-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;NewWatcherDialog.advanced.open&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;/Users/drteski/Web/toolight-catalog/app/api/test&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
++    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/usr/local/lib/node_modules/prettier&quot;,
++    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.SCSS&quot;,
++    &quot;settings.editor.splitter.proportion&quot;: &quot;0.20100273&quot;,
++    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="$PROJECT_DIR$/app/api/test" />
+@@ -102,6 +100,8 @@
+       <workItem from="1686987175889" duration="8189000" />
+       <workItem from="1687008752718" duration="18173000" />
+       <workItem from="1687074720483" duration="9498000" />
++      <workItem from="1687153176565" duration="8105000" />
++      <workItem from="1687196366638" duration="2063000" />
+     </task>
+     <task id="LOCAL-00001" summary="initial">
+       <created>1686952164590</created>
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"name\": \"toolight\",\r\n  \"version\": \"0.1.0\",\r\n  \"private\": true,\r\n  \"scripts\": {\r\n    \"dev\": \"next dev\",\r\n    \"build\": \"next build\",\r\n    \"start\": \"next start\",\r\n    \"lint\": \"next lint\"\r\n  },\r\n  \"dependencies\": {\r\n\t  \"@prisma/client\": \"^4.15.0\",\r\n\t  \"autoprefixer\": \"10.4.14\",\r\n\t  \"axios\": \"^1.4.0\",\r\n\t  \"csvtojson\": \"^2.0.10\",\r\n\t  \"eslint\": \"8.42.0\",\r\n\t  \"eslint-config-next\": \"13.4.6\",\r\n\t  \"moment\": \"^2.29.4\",\r\n\t  \"next\": \"13.4.6\",\r\n\t  \"postcss\": \"8.4.24\",\r\n\t  \"prisma\": \"^4.15.0\",\r\n\t  \"react\": \"18.2.0\",\r\n\t  \"react-dom\": \"18.2.0\",\r\n\t  \"react-icons\": \"^4.9.0\",\r\n\t  \"tailwindcss\": \"3.3.2\"\r\n  },\r\n\t\"devDependencies\": {\r\n\t\t\"prettier\": \"^2.8.8\",\r\n\t\t\"sass\": \"^1.63.4\"\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package.json b/package.json
+--- a/package.json	(revision 8bdecaca098e2928ec3c6eb1d59652e1982cce12)
++++ b/package.json	(date 1687153593076)
+@@ -9,23 +9,23 @@
+     "lint": "next lint"
+   },
+   "dependencies": {
+-	  "@prisma/client": "^4.15.0",
+-	  "autoprefixer": "10.4.14",
+-	  "axios": "^1.4.0",
+-	  "csvtojson": "^2.0.10",
+-	  "eslint": "8.42.0",
+-	  "eslint-config-next": "13.4.6",
+-	  "moment": "^2.29.4",
+-	  "next": "13.4.6",
+-	  "postcss": "8.4.24",
+-	  "prisma": "^4.15.0",
+-	  "react": "18.2.0",
+-	  "react-dom": "18.2.0",
+-	  "react-icons": "^4.9.0",
+-	  "tailwindcss": "3.3.2"
++    "@prisma/client": "^4.15.0",
++    "autoprefixer": "10.4.14",
++    "axios": "^1.4.0",
++    "csvtojson": "^2.0.10",
++    "eslint": "8.42.0",
++    "eslint-config-next": "13.4.6",
++    "moment": "^2.29.4",
++    "next": "13.4.6",
++    "postcss": "8.4.24",
++    "prisma": "^4.15.0",
++    "react": "18.2.0",
++    "react-dom": "18.2.0",
++    "react-icons": "^4.9.0",
++    "tailwindcss": "3.3.2"
+   },
+-	"devDependencies": {
+-		"prettier": "^2.8.8",
+-		"sass": "^1.63.4"
+-	}
++  "devDependencies": {
++    "prettier": "^2.8.8",
++    "sass": "^1.63.4"
++  }
+ }

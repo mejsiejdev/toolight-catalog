@@ -11,6 +11,11 @@ $spinner_color: #f1c21b;
 $spinner_bg: #ffffff;
 $spinner_inner_bg: #ffffff;
 
+.spinner-wrapper {
+	@apply flex justify-center items-center;
+	width: 100vw;
+	height: 1500px;
+}
 
 .spin-loader {
 	position: relative;

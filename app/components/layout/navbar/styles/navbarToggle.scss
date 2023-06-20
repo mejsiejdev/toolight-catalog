@@ -20,14 +20,12 @@
 }
 
 .toggle-icon path {
-	fill: none;
-	stroke: #000000;
-	stroke-width: 2px;
+	@apply fill-none stroke-toolight-secondary stroke-2;
 
 }
 
 .toggle-icon:hover {
-	stroke: #f1c21b;
+	@apply stroke-toolight-primary;
 }
 
 #top,

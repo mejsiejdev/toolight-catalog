@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const useGetData = (pageNumber, query) => {
+const useGetDataQuery = (query) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [products, setProducts] = useState([]);
@@ -13,8 +13,8 @@ const useGetData = (pageNumber, query) => {
     let controller = new AbortController();
     axios({
       method: 'GET',
-      url: `http://localhost:3000/api/catalog?page=${pageNumber}`,
-      params: { page: pageNumber, search: query },
+      url: `http://localhost:3000/api/search?search=${query}`,
+      params: { search: query },
     })
       .then((res) => {
         setProducts((prevProducts) => {
@@ -28,8 +28,8 @@ const useGetData = (pageNumber, query) => {
         console.log(error);
       });
     return () => controller.abort();
-  }, [pageNumber, query]);
+  }, [query]);
   return { isLoading, error, products, hasMore };
 };
 
-export default useGetData;
+export default useGetDataQuery;

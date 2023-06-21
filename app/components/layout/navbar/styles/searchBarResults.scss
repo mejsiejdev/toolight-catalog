@@ -1,0 +1,30 @@
+.search-bar-results {
+	@apply absolute bg-white w-full border-b-4 border-b-toolight-primary transition;
+	z-index: -5;
+	top: 0;
+}
+
+.search-items {
+	@apply overflow-y-scroll transition;
+	max-height: 400px;
+}
+
+.search-bar__wrapper {
+	@apply w-full flex items-center;
+}
+
+.search-items__item {
+	@apply px-4 block border-b border-toolight-border-gray-dark hover:bg-toolight-primary-hover-light transition;
+}
+
+.search-items__item:last-child {
+	@apply border-0
+}
+
+.search-items__image {
+	@apply h-20;
+}
+
+.search-items__title {
+	@apply text-xl px-4 font-light;
+}

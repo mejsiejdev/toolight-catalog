@@ -1,0 +1,37 @@
+.navbar__menu {
+	@apply h-full justify-self-center;
+	@media screen and (max-width: 1024px) {
+		display: none;
+	}
+}
+
+.menu-container {
+	@apply h-full px-4;
+}
+
+.menu {
+	@apply flex items-center h-full;
+}
+
+.menu-item {
+	@apply h-full z-10;
+	&__link {
+		@apply flex justify-center items-center text-xs  h-full px-4 uppercase hover:text-toolight-primary transition;
+
+	}
+
+	.menu-hover &__link:active {
+		background-color: rgba(241, 194, 27, 0.25);
+	}
+}
+
+.menu-hover {
+	@apply absolute block pointer-events-none;
+	z-index: 0;
+	top: 0;
+	background-color: rgba(241, 194, 27, 0.15);
+
+	&:active {
+		background-color: rgba(241, 194, 27, 0.25);
+	}
+}

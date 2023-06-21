@@ -1,0 +1,21 @@
+.navbar__logo {
+	@apply justify-self-start;
+	max-width: 180px;
+	@media screen and (max-width: 1024px) {
+		@apply justify-self-center
+	}
+	@media screen and (max-width: 768px) {
+		@apply px-3;
+	}
+}
+
+.logo {
+	width: 180px;
+	transition: 0.4s;
+	filter: brightness(1);
+
+	&:hover {
+		filter: brightness(1.3);
+	}
+}
+

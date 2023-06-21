@@ -1,12 +1,9 @@
 .button {
-	@apply flex justify-center items-center px-4 py-2 rounded transition m-4 mb-8;
+	@apply flex justify-center items-center px-4 py-2 rounded transition m-4 ;
 	&-content {
 		@apply flex items-center justify-center;
 	}
 
-	&-title {
-		@apply pl-3 px-2;
-	}
 
 	&--primary {
 		@apply border border-toolight-primary bg-toolight-primary;

@@ -1,0 +1,22 @@
+.search-button {
+	@apply text-toolight-primary p-3 rounded-md transition;
+	&:hover {
+		background-color: rgba(241, 194, 27, 0.15);
+	}
+
+	&:active {
+		background-color: rgba(241, 194, 27, 0.25);
+	}
+
+	@media screen and (max-width: 768px) {
+		@apply p-2;
+	}
+
+}
+
+.search-icon {
+	@media screen and (max-width: 768px) {
+		width: 24px;
+		height: 24px;
+	}
+}

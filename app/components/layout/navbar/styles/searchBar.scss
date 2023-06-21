@@ -1,0 +1,12 @@
+.search-bar {
+	@apply absolute w-full bg-white border-b-4 border-b-toolight-primary;
+	z-index: -1;
+	top: 0;
+}
+
+.search-input {
+	@apply relative;
+	z-index: 10;
+}
+
+

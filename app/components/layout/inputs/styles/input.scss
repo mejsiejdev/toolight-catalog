@@ -1,0 +1,25 @@
+.input-container {
+	@apply relative m-4;
+}
+
+.input {
+	@apply border-2 border-toolight-border-gray-dark py-3 px-4 outline-none rounded w-full transition;
+	&:hover {
+		border-color: rgba(241, 194, 27, 0.75);
+		box-shadow: 0 0 0 4px rgba(241, 194, 27, 0.1);
+
+	}
+
+	&::placeholder {
+		@apply text-toolight-border-gray-light;
+	}
+
+	&:focus {
+		border-color: rgba(241, 194, 27, 0.75);
+		box-shadow: 0 0 0 4px rgba(241, 194, 27, 0.5);
+	}
+}
+
+.searchbar-button {
+	@apply absolute m-4 right-0 text-toolight-border-gray-dark;
+}

@@ -1,3 +1,4 @@
 .product-tile__animation-container {
-	@apply overflow-hidden relative w-full h-full;
+	@apply flex justify-center items-center overflow-hidden relative w-full h-full;
 }
+

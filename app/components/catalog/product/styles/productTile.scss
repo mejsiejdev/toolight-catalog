@@ -4,7 +4,7 @@
 }
 
 .product-tile__thumbnail {
-	@apply flex items-center overflow-hidden justify-center;
+	@apply flex justify-center items-center overflow-hidden;
 	height: 350px;
 }
 

@@ -3,10 +3,7 @@ header {
 }
 
 .navbar-container {
-	@apply w-full bg-white ;
-	box-shadow: 0 2.3px 5.3px rgba(0, 0, 0, 0.04),
-	0 7.8px 17.9px rgba(0, 0, 0, 0.06),
-	0 35px 80px rgba(0, 0, 0, 0.1);
+	@apply w-full bg-white;
 }
 
 .nav {

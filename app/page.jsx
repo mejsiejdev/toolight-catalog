@@ -1,5 +1,7 @@
+'use client';
+
 const HomePage = async () => {
-	return <></>;
+  return <></>;
 };
 
 export default HomePage;

@@ -1,5 +1,6 @@
 .login-button {
 	@apply text-toolight-primary p-3 rounded-md transition;
+
 	&:hover {
 		background-color: rgba(241, 194, 27, 0.15);
 	}

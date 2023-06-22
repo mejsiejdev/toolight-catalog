@@ -1,12 +1,11 @@
 .search-bar-results {
-	@apply absolute bg-white w-full border-b-4 border-b-toolight-primary transition;
+	@apply absolute bg-white w-full border-t border-t-toolight-border-gray-light  border-b border-b-toolight-border-gray-light transition;
 	z-index: -5;
 	top: 0;
 }
 
 .search-items {
 	@apply overflow-y-scroll transition;
-	max-height: 400px;
 }
 
 .search-bar__wrapper {
@@ -21,8 +20,12 @@
 	@apply border-0
 }
 
+.search-items__image-bg {
+	@apply bg-white;
+}
+
 .search-items__image {
-	@apply h-20;
+	@apply h-20 w-20 object-contain;
 }
 
 .search-items__title {

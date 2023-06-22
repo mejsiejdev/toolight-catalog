@@ -1,5 +1,6 @@
 .search-button {
-	@apply text-toolight-primary p-3 rounded-md transition;
+	@apply text-toolight-primary p-3 rounded-md transition justify-self-end;
+
 	&:hover {
 		background-color: rgba(241, 194, 27, 0.15);
 	}
@@ -11,7 +12,6 @@
 	@media screen and (max-width: 768px) {
 		@apply p-2;
 	}
-
 }
 
 .search-icon {

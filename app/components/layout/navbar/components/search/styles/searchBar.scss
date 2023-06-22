@@ -1,5 +1,5 @@
 .search-bar {
-	@apply absolute w-full bg-white border-b-4 border-b-toolight-primary;
+	@apply absolute w-full bg-white border-t border-t-toolight-border-gray-light ;
 	z-index: -1;
 	top: 0;
 }

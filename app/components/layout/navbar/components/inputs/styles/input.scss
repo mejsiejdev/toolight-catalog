@@ -1,0 +1,17 @@
+.input-container {
+	@apply relative;
+}
+
+.input {
+	@apply text-2xl py-4 outline-none w-full text-toolight-paragraph transition font-light;
+
+
+	&::placeholder {
+		@apply text-toolight-border-gray-light;
+	}
+
+}
+
+.searchbar-button {
+	@apply absolute m-4 right-0 text-toolight-border-gray-dark;
+}

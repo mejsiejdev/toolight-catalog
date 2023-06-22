@@ -1,8 +1,8 @@
-"use client";
-import "./styles/wrapper.scss";
+'use client';
+import './styles/wrapper.scss';
 
-const Wrapper = ({ children }) => {
-	return <div className="wrapper">{children}</div>;
+const Wrapper = ({ children, className }) => {
+  return <div className={`wrapper ${className}`}>{children}</div>;
 };
 
 export default Wrapper;

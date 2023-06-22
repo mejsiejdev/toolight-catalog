@@ -3,14 +3,14 @@ header {
 }
 
 .navbar-container {
-	@apply w-full border-b-4 bg-white border-b-toolight-primary;
+	@apply w-full bg-white ;
 	box-shadow: 0 2.3px 5.3px rgba(0, 0, 0, 0.04),
 	0 7.8px 17.9px rgba(0, 0, 0, 0.06),
 	0 35px 80px rgba(0, 0, 0, 0.1);
 }
 
 .nav {
-	@apply grid items-center h-24 mx-4;
+	@apply grid items-center;
 	grid-template-columns: 200px 1fr 52px 52px;
 	@media screen and (max-width: 1024px) {
 		grid-template-columns: 104px 2fr 52px 52px;

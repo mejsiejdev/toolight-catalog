@@ -1,5 +1,5 @@
 footer {
-	@apply border-t-2 border-b-toolight-primary;
+	@apply border-t border-toolight-border-gray-light;
 }
 
 footer small {
@@ -7,7 +7,7 @@ footer small {
 }
 
 .footer {
-	@apply flex flex-wrap justify-between my-8 px-4;
+	@apply flex flex-wrap justify-between my-8;
 }
 
 .footer-column {

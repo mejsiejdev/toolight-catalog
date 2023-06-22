@@ -1,35 +1,39 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const useGetDataQuery = (query) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [products, setProducts] = useState([]);
-  const [hasMore, setHasMore] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState(false);
+	const [products, setProducts] = useState([]);
+	const [hasMore, setHasMore] = useState(true);
 
-  useEffect(() => {
-    setIsLoading(true);
-    setError(false);
-    let controller = new AbortController();
-    axios({
-      method: 'GET',
-      url: `http://localhost:3000/api/search?search=${query}`,
-      params: { search: query },
-    })
-      .then((res) => {
-        setProducts((prevProducts) => {
-          return [...prevProducts, ...res.data.products];
-        });
-        setHasMore(res.data.count > 0);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        if (axios.isCancel(error)) return;
-        console.log(error);
-      });
-    return () => controller.abort();
-  }, [query]);
-  return { isLoading, error, products, hasMore };
+	useEffect(() => {
+		setProducts([]);
+	}, [query]);
+
+	useEffect(() => {
+		setIsLoading(true);
+		setError(false);
+		let controller = new AbortController();
+		axios({
+			method: "GET",
+			url: `http://localhost:3000/api/search?search=${query}`,
+			params: { search: query },
+		})
+			.then((res) => {
+				setProducts((prevProducts) => {
+					return [...prevProducts, ...res.data.products];
+				});
+				setHasMore(res.data.count > 0);
+				setIsLoading(false);
+			})
+			.catch((error) => {
+				if (axios.isCancel(error)) return;
+				console.log(error);
+			});
+		return () => controller.abort();
+	}, [query]);
+	return { isLoading, error, products, hasMore };
 };
 
 export default useGetDataQuery;

@@ -1,7 +1,11 @@
-'use client';
+"use client";
 
-const HomePage = async () => {
-  return <></>;
+const HomePage = () => {
+  return (
+    <>
+      <img src="/assets/baner.jpg" alt="Baner" />
+    </>
+  );
 };
 
 export default HomePage;

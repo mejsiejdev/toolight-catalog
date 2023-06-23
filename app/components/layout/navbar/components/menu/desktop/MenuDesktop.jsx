@@ -1,31 +1,28 @@
-'use client';
-import Link from 'next/link';
-import './styles/menuDesktop.scss';
-import { useState } from 'react';
+"use client";
+import Link from "next/link";
+import "./styles/menuDesktop.scss";
+import { useState } from "react";
 
 const MenuDesktop = ({ items }) => {
   const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
   const [left, setLeft] = useState(0);
   const [opacity, setOpacity] = useState(0);
   const style = {
     left: `${left}px`,
     width: `${width}px`,
-    height: `${height}px`,
+    height: `${4}px`,
     opacity: `${opacity}`,
-    transition: '0.3s all',
+    transition: "0.3s all",
   };
   const mouseEnterItem = (e) => {
-    const { width, height, x } = e.currentTarget.getBoundingClientRect();
+    const { width, x } = e.currentTarget.getBoundingClientRect();
     setWidth(width);
-    setHeight(height);
     setLeft(x);
     setOpacity(1);
   };
   const mouseLeaveItem = (e) => {
-    const { width, height, x } = e.currentTarget.getBoundingClientRect();
+    const { width, x } = e.currentTarget.getBoundingClientRect();
     setWidth(width);
-    setHeight(height);
     setLeft(x);
     setOpacity(0);
   };

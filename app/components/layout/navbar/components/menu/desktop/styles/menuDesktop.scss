@@ -3,6 +3,7 @@
 	@media screen and (max-width: 1024px) {
 		display: none;
 	}
+	grid-column: 2/3;
 }
 
 .menu-container {
@@ -26,12 +27,12 @@
 }
 
 .menu-hover {
-	@apply absolute block pointer-events-none;
+	@apply absolute block pointer-events-none bg-toolight-primary;
 	z-index: 0;
-	top: 0;
-	background-color: rgba(241, 194, 27, 0.15);
-
+	bottom: 0;
+	//background-color: rgba(241, 194, 27, 0.35);
+	
 	&:active {
-		background-color: rgba(241, 194, 27, 0.25);
+		@apply bg-toolight-primary-active
 	}
 }

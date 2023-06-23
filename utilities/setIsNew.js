@@ -8,6 +8,7 @@ const setIsNew = (data) => {
     return {
       ...item,
       isNew: bool ? numberOfDays < 30 : 0 < 30,
+      euLabel: "https://files.lazienka-rea.com.pl/Label.png",
     };
   });
 };

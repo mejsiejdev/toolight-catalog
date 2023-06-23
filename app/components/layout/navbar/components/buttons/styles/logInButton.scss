@@ -1,14 +1,18 @@
-.login-button {
-	@apply text-toolight-primary p-3 rounded-md transition;
+.navbar__user {
+	grid-column: 4/5;
+}
 
+.login-button {
+	@apply block text-toolight-primary p-3 rounded-md transition;
+	
 	&:hover {
 		background-color: rgba(241, 194, 27, 0.15);
 	}
-
+	
 	&:active {
 		background-color: rgba(241, 194, 27, 0.25);
 	}
-
+	
 	@media screen and (max-width: 768px) {
 		@apply p-2;
 	}

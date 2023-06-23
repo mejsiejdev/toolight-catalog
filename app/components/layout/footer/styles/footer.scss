@@ -1,28 +1,26 @@
 footer {
-	@apply border-t border-toolight-border-gray-light;
+	@apply border-t border-toolight-border-gray-light py-4;
 }
-
 footer small {
-	@apply px-4;
+	@apply text-toolight-border-gray-dark;
 }
 
-.footer {
-	@apply flex flex-wrap justify-between my-8;
+.footer-content {
+	@apply grid justify-between my-8 gap-28;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	@media screen and (max-width: 1440px) {
+		@apply gap-24;
+	}
+	@media screen and (max-width: 1024px) {
+		@apply gap-16;
+	}
+	@media screen and (max-width: 768px) {
+		@apply gap-8;
+	}
+	@media screen and (max-width: 768px) {
+		grid-template-columns: 1fr;
+	}
 }
 
-.footer-column {
-	@apply w-1/3;
-	min-width: 320px;
-}
 
-.footer-heading {
-	@apply text-xl pb-4;
-}
 
-.company-details, .contact-details {
-	@apply text-sm;
-}
-
-.company-description {
-	@apply pt-8 text-sm;
-}

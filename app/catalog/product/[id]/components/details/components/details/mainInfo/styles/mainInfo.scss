@@ -1,0 +1,33 @@
+.details__main-info {
+	@apply flex flex-col justify-between;
+	height: 500px;
+	@media screen and (max-width: 768px) {
+		height: fit-content;
+	}
+}
+
+.identifier__tag {
+	@apply text-sm text-toolight-paragraph py-0.5;
+}
+
+.main-info__prices {
+	@apply flex flex-col;
+	@media screen and (max-width: 768px) {
+		@apply py-4;
+	}
+}
+
+.prices__title {
+	@apply text-2xl font-medium text-toolight-primary;
+}
+
+.prices__tags {
+	@apply flex flex-col;
+}
+
+.tag {
+	@apply flex flex-col text-3xl items-start py-1;
+	strong {
+		@apply text-sm text-toolight-border-gray-dark;
+	}
+}

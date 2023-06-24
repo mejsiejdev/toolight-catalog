@@ -1,0 +1,23 @@
+.product-header {
+	@apply flex flex-wrap justify-between items-end my-4 gap-2;
+	@media screen and (max-width: 768px) {
+		@apply gap-0;
+	}
+}
+
+.product-title {
+	@apply text-4xl flex flex-col;
+	@media screen and (max-width: 1024px) {
+		@apply text-3xl;
+	}
+	@media screen and (max-width: 768px) {
+		@apply flex-col items-start pb-4;
+	}
+}
+
+.product-new {
+	@apply text-xl font-medium font-supreme text-toolight-primary uppercase mb-2 block;
+	@media screen and (max-width: 1024px) {
+		@apply text-sm;
+	}
+}

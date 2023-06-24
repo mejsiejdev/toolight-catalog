@@ -1,5 +1,5 @@
 .button {
-	@apply flex justify-center items-center px-4 py-2 rounded transition m-4 ;
+	@apply flex justify-center items-center px-4 py-2 rounded transition;
 	&-content {
 		@apply flex items-center justify-center;
 	}

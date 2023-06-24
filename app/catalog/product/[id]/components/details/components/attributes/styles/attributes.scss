@@ -1,0 +1,27 @@
+.product-attributes__header-title {
+	@apply text-2xl py-4;
+}
+
+
+.product-attributes__table {
+	@apply border border-toolight-border-gray-light w-full;
+	border-collapse: collapse;
+
+}
+
+.product-attributes {
+	&__name {
+		@apply font-bold;
+	}
+
+	&__name, &__value {
+		@apply text-sm border border-toolight-border-gray-light px-1 py-2;
+	}
+}
+
+.product-attributes__container {
+	overflow: hidden;
+	height: 0;
+	margin: -1px;
+	transition: 0.3s;
+}

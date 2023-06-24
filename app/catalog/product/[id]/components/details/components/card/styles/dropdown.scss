@@ -1,0 +1,29 @@
+.dropdown__header {
+	@apply flex justify-between items-center py-4 border-b border-toolight-border-gray-light;
+	@media screen and (max-width: 1024px) {
+		@apply cursor-pointer;
+	}
+}
+
+.dropdown__header-icon {
+	@apply mr-3;
+	transition: 0.3s;
+	transform: rotate(0deg);
+	@media screen and (min-width: 1024px) {
+		display: none;
+	}
+}
+
+.dropdown__header--active {
+	.dropdown__header-icon {
+		transition: 0.3s;
+		transform: rotate(180deg);
+	}
+}
+
+.dropdown__header-title {
+	@apply text-2xl;
+}
+
+
+

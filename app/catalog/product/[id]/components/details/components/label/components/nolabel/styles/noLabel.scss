@@ -1,0 +1,19 @@
+.nolabel {
+	@apply flex flex-col justify-center items-center;
+	height: 200px;
+}
+
+.nolabel__placeholder {
+	@apply text-sm;
+	&--heading {
+		@apply text-xl text-center font-bold uppercase py-4;
+	}
+}
+
+.nolabel__container {
+	overflow: hidden;
+	height: 0;
+	margin: -1px;
+	transition: 0.3s;
+	//opacity: 0;
+}

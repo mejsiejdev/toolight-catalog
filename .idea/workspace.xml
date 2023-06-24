@@ -5,18 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74e842f5-a128-4313-9a1e-b804115c6567" name="Changes" comment="initial">
-      <change afterPath="$PROJECT_DIR$/app/components/MobileMenu.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/styles/mobileMenu.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_06_2023_07_13__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_06_2023_07_13__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_06_2023__20_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_06_2023__20_15__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/breadcrumbs/Breadcrumbs.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/breadcrumbs/styles/breadcrumbs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/Details.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/attributes/Attributes.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/attributes/styles/attributes.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/card/dropdown.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/card/styles/dropdown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/details/mainInfo/MainInfo.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/details/mainInfo/styles/mainInfo.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/LabelContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/label/Label.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/label/styles/label.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/NoLabel.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/styles/noLabel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/styles/labelContainer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/styles/details.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/Gallery.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/styles/gallery.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/header/Header.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/header/styles/header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[uid]/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[uid]/styles/test.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/styles/test.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/catalog/LoadMore.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/catalog/styles/loadmore.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/layout/buttons/styles/buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/buttons/styles/buttons.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/layout/navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/navbar/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/layout/navbar/styles/navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/navbar/styles/navbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EditorConfigPreviewManager">
+    <editorConfig file="$PROJECT_DIR$/.editorconfig" previewFile="$PROJECT_DIR$/app/components/layout/navbar/components/search/SearchBar.jsx" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,31 +71,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "NewWatcherDialog.advanced.open": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "/Users/drteski/Web/toolight-catalog/app/components/layout/navbar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\krzys\\Web\\toolight-catalog\\node_modules\\prettier",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "settings.editor.splitter.proportion": "0.20100273",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;NewWatcherDialog.advanced.open&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/drteski/Web/toolight-catalog/app/components/layout/navbar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/drteski/Web/toolight-catalog/node_modules/prettier&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Prisma&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.20100273&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;typescript.add.unambiguous.imports.on.the.fly&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/components/layout/navbar" />
@@ -71,11 +103,11 @@
       <recent name="$PROJECT_DIR$/app/api/test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\krzys\Web\toolight-catalog" />
-      <recent name="$PROJECT_DIR$/app/components/layout/navbar/styles" />
-      <recent name="$PROJECT_DIR$/app/components/layout/navbar" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/attributes" />
+      <recent name="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel" />
+      <recent name="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components" />
+      <recent name="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/styles" />
+      <recent name="$PROJECT_DIR$/app/components/layout/navbar/components/search/styles" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -105,9 +137,9 @@
       <workItem from="1687192083448" duration="9269000" />
       <workItem from="1687291219289" duration="1441000" />
       <workItem from="1687362485929" duration="14900000" />
-      <workItem from="1687417547799" duration="78000" />
-      <workItem from="1687417692548" duration="1259000" />
-      <workItem from="1687420707416" duration="3386000" />
+      <workItem from="1687445939510" duration="13787000" />
+      <workItem from="1687459881657" duration="4582000" />
+      <workItem from="1687626822246" duration="7615000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1686952164590</created>

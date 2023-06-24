@@ -1,0 +1,9 @@
+.label__container {
+	@apply flex justify-center items-start overflow-hidden h-0;
+	margin: -1px;
+	transition: 0.3s;
+}
+
+.label__image {
+	width: 250px;
+}

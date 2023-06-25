@@ -40,14 +40,14 @@
 
 }
 
-.product__description {
+.product-description {
 	grid-column: 2/4;
 	@media screen and (max-width: 1024px) {
 		@apply pb-4;
 	}
 }
 
-.description__title {
+.product-description__title {
 	@apply text-2xl py-4;
 
 }

@@ -1,6 +1,9 @@
 .nolabel {
 	@apply flex flex-col justify-center items-center;
 	height: 200px;
+	@media screen and (min-width: 1024px) {
+		height: 500px;
+	}
 }
 
 .nolabel__placeholder {

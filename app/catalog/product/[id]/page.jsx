@@ -1,5 +1,5 @@
 'use client';
-import './styles/test.scss';
+import './styles/productPage.scss';
 import Wrapper from '@/app/components/layout/Wrapper';
 import { useEffect, useState } from 'react';
 import Spinner from '@/app/components/layout/spinners/Spinner';
@@ -12,6 +12,7 @@ import Attributes from '@/app/catalog/product/[id]/components/details/components
 import LabelContainer from '@/app/catalog/product/[id]/components/details/components/label/LabelContainer';
 import Details from '@/app/catalog/product/[id]/components/details/Details';
 import useWindowResize from '@/hooks/useWindowResize';
+import Gallery from '@/app/catalog/product/[id]/components/gallery/Gallery';
 
 const ProductPage = ({ params }) => {
   const [product, setProduct] = useState({});
@@ -44,7 +45,7 @@ const ProductPage = ({ params }) => {
 
             <div className="product-body">
               <div className="product__gallery">
-                <img src={product.images[0]} alt="" />
+                <Gallery images={product.images} />
               </div>
 
               {width > 1024 && <LabelContainer label={product.euLabel} />}
@@ -58,16 +59,20 @@ const ProductPage = ({ params }) => {
                 />
               )}
               {width > 1024 && (
-                <div className="product__description">
-                  <h4 className="description__title">Opis</h4>
-                  <p className="description__text">{product.description}</p>
+                <div className="product-description">
+                  <h4 className="product-description__title">Opis</h4>
+                  <p className="product-description__text">
+                    {product.description}
+                  </p>
                 </div>
               )}
             </div>
             {width <= 1024 && (
-              <div className="product__description">
-                <h4 className="description__title">Opis</h4>
-                <p className="description__text">{product.description}</p>
+              <div className="product-description">
+                <h4 className="product-description__title">Opis</h4>
+                <p className="product-description__text">
+                  {product.description}
+                </p>
               </div>
             )}
             {width <= 1024 && <LabelContainer label={product.euLabel} />}

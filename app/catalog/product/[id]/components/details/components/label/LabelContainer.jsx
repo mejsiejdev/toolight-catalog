@@ -18,7 +18,8 @@ const LabelContainer = ({ label }) => {
       setActive(!active);
     }
   };
-  const isMobile = width <= 1024 ? 0 : '532px';
+  const isMobile = width <= 1024 ? 0 : 532;
+  const isDesktop = width > 1024 ? 500 : 200;
   const mobilePadding = width <= 1024 ? 16 : 0;
 
   const styles = {
@@ -27,7 +28,8 @@ const LabelContainer = ({ label }) => {
       padding: active ? mobilePadding : 0,
     },
     noLabel: {
-      height: active ? '200px' : 0,
+      height: active ? isDesktop : 0,
+      border: isMobile ? '1px solid #c6c6c6' : 0,
     },
   };
 
@@ -39,7 +41,7 @@ const LabelContainer = ({ label }) => {
         </Dropdown>
       )}
 
-      {label ? (
+      {!label ? (
         <Label labelRef={labelRef} label={label} styles={styles.label} />
       ) : (
         <NoLabel labelRef={labelRef} styles={styles.noLabel} />

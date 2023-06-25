@@ -5,34 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74e842f5-a128-4313-9a1e-b804115c6567" name="Changes" comment="initial">
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/breadcrumbs/Breadcrumbs.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/breadcrumbs/styles/breadcrumbs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/Details.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/attributes/Attributes.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/attributes/styles/attributes.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/card/dropdown.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/card/styles/dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/details/mainInfo/MainInfo.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/details/mainInfo/styles/mainInfo.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/LabelContainer.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/label/Label.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/label/styles/label.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/NoLabel.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/styles/noLabel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/styles/labelContainer.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/styles/details.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/Gallery.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/styles/gallery.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/header/Header.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/header/styles/header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/product/[uid]/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/product/[uid]/styles/test.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/styles/test.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/catalog/LoadMore.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/catalog/styles/loadmore.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/layout/buttons/styles/buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/buttons/styles/buttons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/layout/navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/navbar/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/layout/navbar/styles/navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/navbar/styles/navbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/LabelContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/LabelContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/NoLabel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/NoLabel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/styles/noLabel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/styles/noLabel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/Gallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/Gallery.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/styles/gallery.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/styles/gallery.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/styles/test.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/styles/productPage.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -139,7 +119,8 @@
       <workItem from="1687362485929" duration="14900000" />
       <workItem from="1687445939510" duration="13787000" />
       <workItem from="1687459881657" duration="4582000" />
-      <workItem from="1687626822246" duration="7615000" />
+      <workItem from="1687626822246" duration="8002000" />
+      <workItem from="1687677912875" duration="8504000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1686952164590</created>
@@ -169,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687084391999</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="initial">
+      <created>1687634789927</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687634789927</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

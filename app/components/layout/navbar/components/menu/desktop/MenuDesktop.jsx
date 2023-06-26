@@ -1,7 +1,8 @@
-"use client";
-import Link from "next/link";
-import "./styles/menuDesktop.scss";
-import { useState } from "react";
+'use client';
+import Link from 'next/link';
+import './styles/menuDesktop.scss';
+import { useState } from 'react';
+import Categories from '@/app/components/layout/navbar/components/menu/desktop/components/Categories';
 
 const MenuDesktop = ({ items }) => {
   const [width, setWidth] = useState(0);
@@ -12,7 +13,7 @@ const MenuDesktop = ({ items }) => {
     width: `${width}px`,
     height: `${4}px`,
     opacity: `${opacity}`,
-    transition: "0.3s all",
+    transition: '0.3s all',
   };
   const mouseEnterItem = (e) => {
     const { width, x } = e.currentTarget.getBoundingClientRect();

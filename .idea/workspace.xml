@@ -5,14 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74e842f5-a128-4313-9a1e-b804115c6567" name="Changes" comment="initial">
+      <change afterPath="$PROJECT_DIR$/app/components/layout/navbar/components/menu/desktop/components/styles/categories.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/label/styles/labelContainer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/product/[id]/components/details/styles/details.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hooks/useGetCategories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/LabelContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/LabelContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/NoLabel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/NoLabel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/styles/noLabel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/styles/noLabel.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/Gallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/Gallery.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/styles/gallery.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/styles/gallery.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/styles/test.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/product/[id]/styles/productPage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/test/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/test/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/components/ImageAnimation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(category)/[category]/components/ImageAnimation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/components/Pagination.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(category)/[category]/components/Pagination.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/components/ProductTile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(category)/[category]/components/ProductTile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/components/ProductTileSkeleton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(category)/[category]/components/ProductTileSkeleton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/components/styles/imageAnimation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/(category)/[category]/components/styles/imageAnimation.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/components/styles/pagination.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/(category)/[category]/components/styles/pagination.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/components/styles/productTile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/(category)/[category]/components/styles/productTile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/components/styles/productTileSkeleton.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/(category)/[category]/components/styles/productTileSkeleton.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(category)/[category]/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/breadcrumbs/Breadcrumbs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/breadcrumbs/Breadcrumbs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/breadcrumbs/styles/breadcrumbs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/breadcrumbs/styles/breadcrumbs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/Details.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/Details.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/attributes/Attributes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/attributes/Attributes.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/attributes/styles/attributes.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/attributes/styles/attributes.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/card/dropdown.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/card/dropdown.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/card/styles/dropdown.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/card/styles/dropdown.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/details/mainInfo/MainInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/details/mainInfo/MainInfo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/details/mainInfo/styles/mainInfo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/details/mainInfo/styles/mainInfo.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/LabelContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/label/LabelContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/label/Label.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/label/components/label/Label.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/label/styles/label.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/label/components/label/styles/label.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/NoLabel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/label/components/nolabel/NoLabel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel/styles/noLabel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/details/components/label/components/nolabel/styles/noLabel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/styles/labelContainer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/categories/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/details/styles/details.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/navbar/components/menu/desktop/components/Categories.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/Gallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/gallery/Gallery.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/styles/gallery.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/gallery/styles/gallery.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/components/header/styles/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/components/header/styles/header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/product/[id]/styles/productPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/styles/productPage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catalog/styles/catalogPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/(category)/[category]/styles/catalogPage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/layout/navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/layout/navbar/components/menu/desktop/MenuDesktop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/navbar/components/menu/desktop/MenuDesktop.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/layout/navbar/components/menu/desktop/styles/menuDesktop.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/navbar/components/menu/desktop/styles/menuDesktop.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useWindowScroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useWindowScroll.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -83,11 +117,11 @@
       <recent name="$PROJECT_DIR$/app/api/test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/(category)" />
+      <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/attributes" />
       <recent name="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components/label/components/nolabel" />
       <recent name="$PROJECT_DIR$/app/catalog/product/[id]/components/details/components" />
-      <recent name="$PROJECT_DIR$/app/catalog/product/[id]/components/gallery/styles" />
-      <recent name="$PROJECT_DIR$/app/components/layout/navbar/components/search/styles" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -120,7 +154,8 @@
       <workItem from="1687445939510" duration="13787000" />
       <workItem from="1687459881657" duration="4582000" />
       <workItem from="1687626822246" duration="8002000" />
-      <workItem from="1687677912875" duration="8504000" />
+      <workItem from="1687677912875" duration="8555000" />
+      <workItem from="1687704334061" duration="12034000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1686952164590</created>
@@ -157,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687634789927</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="initial">
+      <created>1687687039407</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687687039407</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

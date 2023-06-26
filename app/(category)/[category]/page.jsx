@@ -1,18 +1,18 @@
-"use client";
-import { useState } from "react";
-import "./styles/catalogPage.scss";
-import "../components/layout/styles/loading.scss";
-import ProductTile from "@/app/catalog/components/ProductTile";
-import setIsNew from "../../utilities/setIsNew";
-import useGetData from "@/hooks/useGetData";
-import Wrapper from "@/app/components/layout/Wrapper";
-import Spinner from "@/app/components/layout/spinners/Spinner";
-import { PrimaryButton } from "@/app/components/layout/buttons/Buttons";
+'use client';
+import { useState } from 'react';
+import './styles/catalogPage.scss';
+import '@/app/components/layout/styles/loading.scss';
+import ProductTile from '@/app/(category)/[category]/components/ProductTile';
+import setIsNew from '@/utilities/setIsNew';
+import useGetData from '@/hooks/useGetData';
+import Wrapper from '@/app/components/layout/Wrapper';
+import Spinner from '@/app/components/layout/spinners/Spinner';
+import { PrimaryButton } from '@/app/components/layout/buttons/Buttons';
 
-const ProductsPage = () => {
+const ProductsPage = ({ params }) => {
   const [page, setPage] = useState(1);
   const { isLoading, error, products, hasMore } = useGetData(page);
-
+  console.log(params.category);
   return (
     <>
       <Wrapper>
@@ -26,7 +26,7 @@ const ProductsPage = () => {
             ))}
           </div>
         ) : (
-          <Spinner fullPage={true} pageHeight={"80vh"} />
+          <Spinner fullPage={true} pageHeight={'80vh'} />
         )}
       </Wrapper>
       <Wrapper className="flex items-center justify-center py-8">
@@ -37,7 +37,7 @@ const ProductsPage = () => {
         </PrimaryButton>
       </Wrapper>
 
-      <div>{error && "Error"}</div>
+      <div>{error && 'Error'}</div>
     </>
   );
 };

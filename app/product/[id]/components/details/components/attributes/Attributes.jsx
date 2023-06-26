@@ -2,7 +2,7 @@
 import './styles/attributes.scss';
 import { useLayoutEffect, useRef, useState } from 'react';
 import useWindowResize from '@/hooks/useWindowResize';
-import Dropdown from '@/app/catalog/product/[id]/components/details/components/card/dropdown';
+import Dropdown from '@/app/[[...catalog]]/product/[id]/components/details/components/card/dropdown';
 
 const Attributes = ({ productDetails }) => {
   const [tableHeight, setTableHeight] = useState(0);

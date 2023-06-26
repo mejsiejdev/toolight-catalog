@@ -12,6 +12,7 @@ import Wrapper from '@/app/components/layout/Wrapper';
 import useWindowSize from '@/hooks/useWindowResize';
 import useWindowScroll from '@/hooks/useWindowScroll';
 import useClickOutside from '@/hooks/useClickOutside';
+import Categories from '@/app/components/layout/navbar/components/menu/desktop/components/Categories';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -58,7 +59,7 @@ const Navbar = () => {
     },
     {
       title: 'Katalog',
-      link: '/catalog',
+      link: '/',
     },
     {
       title: 'Punkty sprzedaży',
@@ -104,6 +105,7 @@ const Navbar = () => {
           </Wrapper>
           <SearchBar getRef={ref} isOpen={searchBar} />
         </div>
+        <Categories />
       </header>
       <MenuMobile clickedItem={clickedItem} items={test} isOpen={open} />
     </>

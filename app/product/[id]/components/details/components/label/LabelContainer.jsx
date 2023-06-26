@@ -3,9 +3,9 @@ import './styles/labelContainer.scss';
 import useWindowResize from '@/hooks/useWindowResize';
 import { useState, useRef } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
-import Label from '@/app/catalog/product/[id]/components/details/components/label/components/label/Label';
-import NoLabel from '@/app/catalog/product/[id]/components/details/components/label/components/nolabel/NoLabel';
-import Dropdown from '@/app/catalog/product/[id]/components/details/components/card/dropdown';
+import Label from '@/app/[[...catalog]]/product/[id]/components/details/components/label/components/label/Label';
+import NoLabel from '@/app/[[...catalog]]/product/[id]/components/details/components/label/components/nolabel/NoLabel';
+import Dropdown from '@/app/[[...catalog]]/product/[id]/components/details/components/card/dropdown';
 
 const LabelContainer = ({ label }) => {
   const [active, setActive] = useState(true);

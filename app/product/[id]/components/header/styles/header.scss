@@ -11,7 +11,7 @@
 		@apply text-3xl;
 	}
 	@media screen and (max-width: 768px) {
-		@apply flex-col items-start pb-4;
+		@apply text-2xl flex-col items-start pb-4;
 	}
 }
 

@@ -7,7 +7,7 @@ const useWindowSize = () => {
       setScroll(window.scrollY);
     };
     window.addEventListener('scroll', updateSize);
-    // updateSize();
+    updateSize();
     return () => window.removeEventListener('scroll', updateSize);
   }, []);
   return scroll;

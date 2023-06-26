@@ -44,7 +44,7 @@ export async function GET() {
   console.log(data.length);
   await prisma.products.createMany({ data });
 
-  // catalog.forEach(async (product) => {
+  // [category].forEach(async (product) => {
   //   await prisma.product.create({ data: product });
   // });
   return NextResponse.json({

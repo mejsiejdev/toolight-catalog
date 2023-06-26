@@ -6,13 +6,13 @@ import Spinner from '@/app/components/layout/spinners/Spinner';
 import axios from 'axios';
 import setIsNew from '@/utilities/setIsNew';
 import Barcode from 'react-barcode';
-import Breadcrumbs from '@/app/catalog/product/[id]/components/breadcrumbs/Breadcrumbs';
-import Header from '@/app/catalog/product/[id]/components/header/Header';
-import Attributes from '@/app/catalog/product/[id]/components/details/components/attributes/Attributes';
-import LabelContainer from '@/app/catalog/product/[id]/components/details/components/label/LabelContainer';
-import Details from '@/app/catalog/product/[id]/components/details/Details';
+import Breadcrumbs from '@/app/product/[id]/components/breadcrumbs/Breadcrumbs';
+import Header from '@/app/product/[id]/components/header/Header';
+import Attributes from '@/app/product/[id]/components/details/components/attributes/Attributes';
+import LabelContainer from '@/app/product/[id]/components/details/components/label/LabelContainer';
+import Details from '@/app/product/[id]/components/details/Details';
 import useWindowResize from '@/hooks/useWindowResize';
-import Gallery from '@/app/catalog/product/[id]/components/gallery/Gallery';
+import Gallery from '@/app/product/[id]/components/gallery/Gallery';
 
 const ProductPage = ({ params }) => {
   const [product, setProduct] = useState({});

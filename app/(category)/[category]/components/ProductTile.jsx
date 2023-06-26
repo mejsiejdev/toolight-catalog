@@ -1,14 +1,17 @@
 'use client';
 import './styles/productTile.scss';
 import { useState } from 'react';
-import ImageAnimation from '@/app/catalog/components/ImageAnimation';
+import ImageAnimation from '@/app/(category)/[category]/components/ImageAnimation';
 import Link from 'next/link';
 
 const ProductTile = ({ product, productRef }) => {
   const [active, setActive] = useState(false);
   return (
     <Link
-      href={`/catalog/product/${product.id}`}
+      href={{
+        pathname: '/',
+        query: { id: product.id },
+      }}
       className="product-tile"
       ref={productRef}
       onMouseEnter={() => setActive(() => true)}

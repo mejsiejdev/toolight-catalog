@@ -26,12 +26,16 @@
 	}
 }
 
+.menu-item__link--dropdown {
+	@apply relative;
+}
+
 .menu-hover {
 	@apply absolute block pointer-events-none bg-toolight-primary;
 	z-index: 0;
 	bottom: 0;
 	//background-color: rgba(241, 194, 27, 0.35);
-	
+
 	&:active {
 		@apply bg-toolight-primary-active
 	}

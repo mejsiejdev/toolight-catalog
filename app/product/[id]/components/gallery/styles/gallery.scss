@@ -191,7 +191,7 @@
 	left: auto;
 	display: flex;
 	justify-content: flex-end;
-	padding: var(--yarl__toolbar_padding, 8px);
+	padding: var(--yarl__toolbar_padding, 0);
 }
 
 [dir=rtl] .yarl__toolbar {

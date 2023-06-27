@@ -1,4 +1,4 @@
-import MainInfo from '@/app/[[...catalog]]/product/[id]/components/details/components/details/mainInfo/MainInfo';
+import MainInfo from "@/app/product/[id]/components/details/components/details/mainInfo/MainInfo";
 
 const Details = ({ productDetails }) => {
   return (

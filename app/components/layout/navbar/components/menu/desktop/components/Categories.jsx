@@ -17,7 +17,7 @@ const Categories = ({}) => {
   };
   const style = {
     height: 'fit-content',
-    top: scroll > 1 ? '86px' : '116px',
+    top: scroll > 1 ? '86px' : '100px',
     transition: '0.3s',
   };
 

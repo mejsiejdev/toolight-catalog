@@ -59,7 +59,7 @@ const Navbar = () => {
     },
     {
       title: "Katalog",
-      link: "/"
+      link: "/catalog"
     },
     {
       title: "Punkty sprzedaży",
@@ -71,7 +71,7 @@ const Navbar = () => {
     },
     {
       title: "Kontakt",
-      link: "/"
+      link: "/contact"
     }
   ];
   

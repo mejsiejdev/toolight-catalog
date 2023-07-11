@@ -21,8 +21,8 @@ const ProductsPage = ({ params }) => {
         </h1>
         {!isLoading ? (
           <div className="products-container">
-            {setIsNew(products).map((dat) => (
-              <ProductTile product={dat} key={crypto.randomUUID()} />
+            {setIsNew(products).map((dat, key) => (
+              <ProductTile product={dat} key={key} />
             ))}
           </div>
         ) : (

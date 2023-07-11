@@ -1,4 +1,4 @@
-import { prisma } from "@/dp";
+import prisma from "@/dp";
 import pagination from "@/app/middleware/pagination";
 import { NextResponse } from "next/server";
 
@@ -14,9 +14,12 @@ export async function GET(request) {
       skip: pag.startIndex,
       take: pag.limit,
       where: {
-        title: {
-          contains: search,
-        },
+        AND: search
+          .trim()
+          .split(" ")
+          .map((word) => {
+            return { title: { contains: word, mode: "insensitive" } };
+          }),
       },
     });
     return NextResponse.json({

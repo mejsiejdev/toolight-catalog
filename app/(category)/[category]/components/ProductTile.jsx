@@ -8,10 +8,7 @@ const ProductTile = ({ product, productRef }) => {
   const [active, setActive] = useState(false);
   return (
     <Link
-      href={{
-        pathname: '/',
-        query: { id: product.id },
-      }}
+      href={`product/${product.id}`}
       className="product-tile"
       ref={productRef}
       onMouseEnter={() => setActive(() => true)}

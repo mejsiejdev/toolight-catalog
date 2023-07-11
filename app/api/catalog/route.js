@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/dp';
+import prisma from '@/dp';
 import pagination from '@/app/middleware/pagination';
 
 export async function GET(request) {

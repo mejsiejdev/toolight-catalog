@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from "react";
 
 const useWindowSize = () => {
   const [scroll, setScroll] = useState(0);
@@ -6,9 +6,9 @@ const useWindowSize = () => {
     const updateSize = (e) => {
       setScroll(window.scrollY);
     };
-    window.addEventListener('scroll', updateSize);
+    window.addEventListener("scroll", updateSize);
     updateSize();
-    return () => window.removeEventListener('scroll', updateSize);
+    return () => window.removeEventListener("scroll", updateSize);
   }, []);
   return scroll;
 };

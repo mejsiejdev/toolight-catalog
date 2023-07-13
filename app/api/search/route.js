@@ -10,6 +10,7 @@ export async function GET(request) {
     const pag = await pagination(getCount, 1)
       .then((res) => res)
       .catch((error) => error);
+    console.log("search:", search);
     const getProducts = await prisma.products.findMany({
       skip: pag.startIndex,
       take: pag.limit,
@@ -22,6 +23,7 @@ export async function GET(request) {
           }),
       },
     });
+    console.log("getProducts:", typeof getProducts);
     return NextResponse.json({
       products: getProducts,
       count: getProducts.length,

@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const useGetCategories = (test) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -11,8 +11,8 @@ const useGetCategories = (test) => {
     setError(false);
     let controller = new AbortController();
     axios({
-      method: 'GET',
-      url: `http://localhost:3000/api/categories`,
+      method: "GET",
+      url: `/api/categories`,
     })
       .then((res) => {
         setCategories(res.data.categories);

@@ -32,6 +32,8 @@ export async function GET(request) {
     const hue = searchParams.get("hue");
     const startIndex = page !== 1 ? searchParams.get("lastIndex") : 0;
 
+    console.log("Is type empty?", empty(type));
+
     const pag = await pagination(getCount, page)
       .then((res) => res)
       .catch((error) => error);
@@ -121,7 +123,11 @@ export async function GET(request) {
     }
     console.log("Last product's index:", lastProductIndex);
     return NextResponse.json({
-      products: lastProductIndex >= startIndex ? filtered : [],
+      products:
+        lastProductIndex >= startIndex ||
+        !isAnyFilterSet([type, numberOfLightPoints, thread, color, hue])
+          ? filtered
+          : [],
       count: lastProductIndex >= startIndex ? filtered.length : 0,
       pages: pag.getPages,
       lastIndex: lastProductIndex,

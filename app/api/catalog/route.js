@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import prisma from "@/dp";
 import pagination from "@/app/middleware/pagination";
 
+export const dynamic = "force-dynamic";
+
 /**
  * Function for checking if a string is empty (`""`), `null` or `undefined`.
  * @param {string} value - string to check

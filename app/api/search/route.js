@@ -2,6 +2,8 @@ import prisma from "@/dp";
 import pagination from "@/app/middleware/pagination";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request) {
   try {
     const getCount = await prisma.products.count();

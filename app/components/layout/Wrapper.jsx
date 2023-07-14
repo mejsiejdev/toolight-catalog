@@ -1,4 +1,3 @@
-"use client";
 import "./styles/wrapper.scss";
 
 const Wrapper = ({ children, className }) => {

@@ -19,13 +19,12 @@ const Attributes = ({ productDetails }) => {
   useLayoutEffect(() => {
     setTableHeight(() => tableRef.current.getBoundingClientRect().height);
   }, [tableHeight]);
-  
+
   const desktopTableSize = width <= 1024 ? 0 : tableHeight;
-  
+
   const style = {
-    height: active ? tableHeight : desktopTableSize
+    height: active ? tableHeight : desktopTableSize,
   };
-  console.log(productDetails);
   return (
     <div className="product-attributes" ref={mainRef}>
       {width <= 1024 ? (
@@ -38,23 +37,20 @@ const Attributes = ({ productDetails }) => {
       <div className="product-attributes__container" style={style}>
         <table ref={tableRef} className="product-attributes__table">
           <tbody>
-          {productDetails.attributes.map((attr) => {
-            return (
-              <tr
-                className="product-attributes__attribute"
-                key={crypto.randomUUID()}
-              >
-                <td className="product-attributes__name">{attr.name}</td>
-                <td className="product-attributes__value">{attr.value}</td>
-              </tr>
-            );
-          })}
-          <tr className="product-attributes__attribute">
-            <td className="product-attributes__name">Waga</td>
-            <td className="product-attributes__value">
-              {productDetails.weight} kg
-            </td>
-          </tr>
+            {productDetails.attributes.map((attr, key) => {
+              return (
+                <tr className="product-attributes__attribute" key={key}>
+                  <td className="product-attributes__name">{attr.name}</td>
+                  <td className="product-attributes__value">{attr.value}</td>
+                </tr>
+              );
+            })}
+            <tr className="product-attributes__attribute">
+              <td className="product-attributes__name">Waga</td>
+              <td className="product-attributes__value">
+                {productDetails.weight} kg
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

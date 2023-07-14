@@ -1,15 +1,15 @@
-'use client';
-import Lightbox from 'yet-another-react-lightbox';
-import Inline from 'yet-another-react-lightbox/plugins/inline';
-import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
-import { useLayoutEffect, useState } from 'react';
-import './styles/gallery.scss';
+"use client";
+import Lightbox from "yet-another-react-lightbox";
+import Inline from "yet-another-react-lightbox/plugins/inline";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import { useLayoutEffect, useState } from "react";
+import "./styles/gallery.scss";
 import {
   FiChevronRight,
   FiChevronLeft,
   FiX,
   FiAlertTriangle,
-} from 'react-icons/fi';
+} from "react-icons/fi";
 
 const Gallery = ({ images }) => {
   const [open, setOpen] = useState(false);
@@ -38,7 +38,7 @@ const Gallery = ({ images }) => {
         carousel={{
           padding: 0,
           spacing: 0,
-          imageFit: 'cover',
+          imageFit: "cover",
         }}
       />
       <Lightbox

@@ -1,6 +1,8 @@
-import './styles/header.scss';
-import { FiPrinter } from 'react-icons/fi';
-import { PrimaryButton } from '@/app/components/layout/buttons/Buttons';
+"use client";
+
+import "./styles/header.scss";
+import { FiPrinter } from "react-icons/fi";
+import { PrimaryButton } from "@/app/components/layout/buttons/Buttons";
 
 const Header = ({ title, isNew }) => {
   return (
@@ -9,7 +11,7 @@ const Header = ({ title, isNew }) => {
         {isNew && <p className="product-new">Nowość</p>}
         {title}
       </h1>
-      <PrimaryButton actionOnClick={() => alert('ta')} icon={<FiPrinter />}>
+      <PrimaryButton actionOnClick={() => alert("ta")} icon={<FiPrinter />}>
         Karta produktu
       </PrimaryButton>
     </header>

@@ -1,6 +1,7 @@
 "use client";
 
 import "./styles/searchBarResults.scss";
+import Image from "next/image";
 import Link from "next/link";
 import Wrapper from "@/app/components/layout/Wrapper";
 import { useEffect, useRef, useState } from "react";
@@ -40,7 +41,7 @@ const SearchBarResults = ({ results, isActive, searchBarClosed }) => {
                   <Link href={`/catalog/product/${result.id}`}>
                     <Wrapper className="search-bar__wrapper">
                       <div className="search-items__image-bg">
-                        <img
+                        <Image
                           className="search-items__image"
                           src={result.images[0]}
                           alt=""

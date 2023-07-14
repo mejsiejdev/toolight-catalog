@@ -1,9 +1,11 @@
-"use client";
+import Image from "next/image";
+// Import baner
+import Baner from "@/public/assets/baner.jpg";
 
 const HomePage = () => {
   return (
     <>
-      <img src="/assets/baner.jpg" alt="Baner" />
+      <Image src={Baner} alt="Baner" />
     </>
   );
 };

@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 /**
  * Function for checking if a string is empty (`""`), `null` or `undefined`.
- * @param {string} value - string to check
+ * @param {string} value string to check
  * @returns {boolean} Returns `true` if string is empty, `null` or `undefined`.
  */
 const empty = (value) =>
@@ -32,19 +32,17 @@ export async function GET(request) {
     const thread = searchParams.get("thread");
     const color = searchParams.get("color");
     const hue = searchParams.get("hue");
-    const startIndex = page !== 1 ? searchParams.get("lastIndex") : 0;
-
-    console.log("Is type empty?", empty(type));
-
+    const startIndex = searchParams.get("lastIndex");
     const pag = await pagination(getCount, page)
       .then((res) => res)
       .catch((error) => error);
+    /*
     console.log(
       "startIndexes:",
       !isAnyFilterSet([type, numberOfLightPoints, thread, color, hue]),
       pag.startIndex,
       startIndex
-    );
+    );*/
     const getProducts = await prisma.products.findMany({
       where: {
         /**
@@ -66,52 +64,45 @@ export async function GET(request) {
     let lastProductIndex = 0;
 
     if (isAnyFilterSet([type, numberOfLightPoints, thread, color, hue])) {
+      console.time("Filtering");
+      let amountOfChecksToPass = 0;
+      if (!empty(type)) {
+        amountOfChecksToPass -= 1;
+      }
+      if (!empty(numberOfLightPoints)) {
+        amountOfChecksToPass -= 1;
+      }
+      if (!empty(thread)) {
+        amountOfChecksToPass -= 1;
+      }
+      if (!empty(color)) {
+        amountOfChecksToPass -= 1;
+      }
+      if (!empty(hue)) {
+        amountOfChecksToPass -= 1;
+      }
       // ! Wcześniej wspomniane filtrowanie
       for (const product of getProducts) {
         lastProductIndex++;
-        let check = 0;
-        if (!empty(type)) {
-          check -= 1;
-        }
-        if (!empty(numberOfLightPoints)) {
-          check -= 1;
-        }
-        if (!empty(thread)) {
-          check -= 1;
-        }
-        if (!empty(color)) {
-          check -= 1;
-        }
-        if (!empty(hue)) {
-          check -= 1;
-        }
+        let check = amountOfChecksToPass;
         // Sprawdzanie atrybutów
         product.attributes.forEach((attribute) => {
-          // Sprawdzanie rodzaju
-          if (attribute.name === "Rodzaj lampy" && attribute.value === type) {
-            check += 1;
-          }
-          // Sprawdzanie koloru
-          if (attribute.name === "Kolor lampy" && attribute.value === color) {
-            check += 1;
-          }
-          // Sprawdzanie gwintu
-          if (
-            attribute.name === "Zastosowany gwint" &&
-            attribute.value === thread
-          ) {
-            check += 1;
-          }
-          // Sprawdzanie liczby punktów światła
-          if (
-            attribute.name === "Liczba punktów światła" &&
-            attribute.value === numberOfLightPoints
-          ) {
-            check += 1;
-          }
-          // Sprawdzanie barwy światła
-          if (attribute.name === "Barwa światła" && attribute.value === hue) {
-            check += 1;
+          switch (attribute.name) {
+            case "Rodzaj lampy":
+              if (attribute.value === type) check += 1;
+              break;
+            case "Kolor lampy":
+              if (attribute.value === color) check += 1;
+              break;
+            case "Zastosowany gwint":
+              if (attribute.value === thread) check += 1;
+              break;
+            case "Liczba punktów światła":
+              if (attribute.value === numberOfLightPoints) check += 1;
+              break;
+            case "Barwa światła":
+              if (attribute.value === hue) check += 1;
+              break;
           }
         });
         if (check >= 0) {
@@ -120,10 +111,10 @@ export async function GET(request) {
         // Limit the filtered products' length
         if (filtered.length === pag.limit) break;
       }
+      console.timeEnd("Filtering");
     } else {
       filtered = getProducts;
     }
-    console.log("Last product's index:", lastProductIndex);
     return NextResponse.json({
       products:
         lastProductIndex >= startIndex ||

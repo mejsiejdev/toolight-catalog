@@ -33,7 +33,7 @@ const useGetData = (
         thread: thread,
         color: color,
         hue: hue,
-        lastIndex: lastIndex,
+        lastIndex: pageNumber !== 1 ? lastIndex : 0,
       },
     })
       .then((res) => {

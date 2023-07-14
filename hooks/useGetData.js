@@ -24,7 +24,7 @@ const useGetData = (
     let controller = new AbortController();
     axios({
       method: "GET",
-      url: `http://localhost:3000/api/catalog`,
+      url: `/api/catalog`,
       params: {
         page: pageNumber,
         query: query,
@@ -33,7 +33,7 @@ const useGetData = (
         thread: thread,
         color: color,
         hue: hue,
-        lastIndex: lastIndex,
+        lastIndex: pageNumber !== 1 ? lastIndex : 0,
       },
     })
       .then((res) => {

@@ -6,7 +6,7 @@ const CompanyDescription = () => {
     <div className="footer__description footer-column">
       <Image
         className="company-logo"
-        src="/../public/assets/logo.png"
+        src="/assets/logo.png"
         width={250}
         height={100}
         alt="Logo Toolight"

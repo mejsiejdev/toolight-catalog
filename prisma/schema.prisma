@@ -38,6 +38,7 @@ model User {
     surName   String
     email     String   @unique
     password  String
+    isAdmin   Boolean  @default(false)
     isLogged  Boolean  @default(false)
     createdAt DateTime @default(now())
 }

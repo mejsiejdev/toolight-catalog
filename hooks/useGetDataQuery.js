@@ -21,9 +21,7 @@ const useGetDataQuery = (query) => {
       params: { search: query },
     })
       .then((res) => {
-        setProducts((prevProducts) => {
-          return [...prevProducts, ...res.data.products];
-        });
+        setProducts(res.data.products);
         setHasMore(res.data.count > 0);
         setIsLoading(false);
       })

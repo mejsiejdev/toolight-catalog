@@ -52,7 +52,7 @@ const ProductPage = async ({ params: { id } }) => {
         ) : (
           <div className="product-container">
             <Breadcrumbs category={product.category} title={product.title} />
-            <Header title={product.title} isNew={product.isNew} />
+            <Header title={product.title} id={id} isNew={product.isNew} />
 
             <div className="product-body">
               <div className="product__gallery">

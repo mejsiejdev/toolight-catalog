@@ -54,7 +54,7 @@ const Button = () => {
     <button
       type="submit"
       disabled={pending}
-      className="bg-toolight-primary hover:bg-toolight-primary-hover-dark transition p-2 font-semibold cursor-pointer flex flex-col items-center"
+      className="bg-toolight-primary hover:bg-toolight-primary-hover-dark transition p-2 cursor-pointer flex flex-col items-center"
     >
       {!pending ? "Kontynuuj" : <MdRefresh className="animate-spin text-xl" />}
     </button>

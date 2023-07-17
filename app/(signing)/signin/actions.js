@@ -33,5 +33,7 @@ export async function checkData(data) {
     return [false, "Nieprawidłowe hasło."];
   }
 
+  // TODO: If the passwords match, create and save a JWT token.
+
   return [true, user.isAdmin];
 }

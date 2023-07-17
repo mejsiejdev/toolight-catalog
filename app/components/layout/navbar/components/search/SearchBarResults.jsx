@@ -45,6 +45,8 @@ const SearchBarResults = ({ results, isActive, searchBarClosed }) => {
                           className="search-items__image"
                           src={result.images[0]}
                           alt=""
+                          width={500}
+                          height={500}
                         />
                       </div>
                       <p className="search-items__title">{result.title}</p>

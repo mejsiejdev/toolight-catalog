@@ -7,19 +7,31 @@ import Link from "next/link";
 
 import { addUser } from "./actions";
 import Success from "../components/Success";
+import Error from "../components/Error";
 
 const Add = () => {
   const router = useRouter();
   const id = useId();
   const [completed, setCompleted] = useState(false);
+  const [error, setError] = useState();
   const handleSubmit = async (data) => {
-    await addUser(data);
+    const error = await addUser(data);
+    if (error) {
+      setError(error);
+    }
     setCompleted(true);
   };
   return (
     <Modal>
       {completed ? (
-        <Success message="Pomyślnie dodano użytkownika do bazy danych!" />
+        error ? (
+          <Error
+            name={error}
+            message="Wystąpił błąd w trakcie dodawania użytkownika."
+          />
+        ) : (
+          <Success message="Pomyślnie dodano użytkownika do bazy danych!" />
+        )
       ) : (
         <>
           <p className="text-2xl font-semibold">Dodaj nowego użytkownika</p>

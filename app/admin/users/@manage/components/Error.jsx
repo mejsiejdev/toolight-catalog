@@ -7,13 +7,17 @@ const Error = ({ name, message }) => {
   const router = useRouter();
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-2">
         <div className="flex flex-col items-center gap-2">
           <MdError className="text-5xl text-toolight-danger" />
           <p className="text-3xl">Błąd!</p>
         </div>
-        <p className="text-toolight-secondary text-center w-full">{message}</p>
-        <p className="text-toolight-border-gray-dark text-center w-full">{`Nazwa błędu: ${name}`}</p>
+        <div>
+          <p className="text-toolight-secondary text-center w-full">
+            {message}
+          </p>
+          <p className="text-toolight-border-gray-dark text-center w-full">{`Nazwa błędu: ${name}`}</p>
+        </div>
       </div>
       <button
         onClick={() => {

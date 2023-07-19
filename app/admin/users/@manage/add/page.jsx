@@ -34,28 +34,28 @@ const Add = () => {
         )
       ) : (
         <>
-          <p className="text-2xl font-semibold">Dodaj nowego użytkownika</p>
+          <p className="text-xl text-center font-semibold">
+            Dodaj nowego użytkownika
+          </p>
           <form action={handleSubmit}>
             <div className="flex flex-col gap-4 w-full">
-              <div className="flex flex-row gap-4 w-full">
-                <div className="flex flex-col gap-2">
-                  <label htmlFor={`${id}-name`}>Imię</label>
-                  <input
-                    id={`${id}-name`}
-                    type="text"
-                    name="name"
-                    className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor={`${id}-surname`}>Nazwisko</label>
-                  <input
-                    id={`${id}-surname`}
-                    type="text"
-                    name="surname"
-                    className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
-                  />
-                </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor={`${id}-name`}>Imię</label>
+                <input
+                  id={`${id}-name`}
+                  type="text"
+                  name="name"
+                  className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor={`${id}-surname`}>Nazwisko</label>
+                <input
+                  id={`${id}-surname`}
+                  type="text"
+                  name="surname"
+                  className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor={`${id}-email`}>Email</label>
@@ -75,30 +75,32 @@ const Add = () => {
                   className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
                 />
               </div>
-              <div className="flex flex-row justify-end gap-2">
-                <label htmlFor={`${id}-admin`}>Admin?</label>
-                <input
-                  id={`${id}-admin`}
-                  type="checkbox"
-                  name="admin"
-                  className="text-2xl"
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                <Link
-                  href="/admin/users"
-                  onClick={() => router.back()}
-                  className="px-4 py-2 border rounded border-toolight-border-gray-light font-semibold w-full hover:bg-white-hover/50 transition text-center"
+              <div className="flex flex-col gap-2">
+                <label htmlFor={`${id}-role`}>Rola</label>
+                <select
+                  id={`${id}-role`}
+                  name="role"
+                  className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
                 >
-                  Anuluj
-                </Link>
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-toolight-success rounded font-semibold text-white w-full hover:bg-toolight-success-hover-dark transition"
-                >
-                  Zapisz zmiany
-                </button>
+                  <option>Obserwator</option>
+                  <option value="Uzytkownik">Użytkownik</option>
+                  <option>Moderator</option>
+                  <option>Administrator</option>
+                </select>
               </div>
+              <button
+                type="submit"
+                className="mt-2 px-4 py-2 bg-toolight-success rounded font-semibold text-white w-full hover:bg-toolight-success-hover-dark transition"
+              >
+                Zapisz zmiany
+              </button>
+              <Link
+                href="/admin/users"
+                onClick={() => router.back()}
+                className="px-4 py-2 border rounded border-toolight-border-gray-light font-semibold w-full hover:bg-white-hover/50 transition text-center"
+              >
+                Anuluj
+              </Link>
             </div>
           </form>
         </>

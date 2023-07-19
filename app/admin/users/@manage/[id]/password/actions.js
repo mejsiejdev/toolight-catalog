@@ -1,23 +1,23 @@
 "use server";
 
+import { hash } from "bcrypt";
 import prisma from "@/dp";
 import { revalidatePath } from "next/cache";
 
-export async function editUser(data, id) {
+export const changePassword = async (data, id) => {
+  // Hash the password
+  const hashed = await hash(data.get("password"), 12);
   try {
     await prisma.user.update({
       where: {
         id: id,
       },
       data: {
-        name: data.get("name"),
-        surName: data.get("surname"),
-        email: data.get("email"),
-        role: data.get("role"),
+        password: hashed,
       },
     });
     revalidatePath("/admin/users");
   } catch (error) {
-    throw new Error("Wystąpił błąd w trakcie usuwania użytkownika.");
+    return error.name;
   }
-}
+};

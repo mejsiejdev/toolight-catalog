@@ -13,7 +13,7 @@ export async function addUser(data) {
         name: data.get("name"),
         surName: data.get("surname"),
         email: data.get("email"),
-        isAdmin: data.get("admin") === "on",
+        role: data.get("role"),
         password: hashed,
       },
     });

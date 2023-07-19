@@ -35,7 +35,7 @@ const Delete = () => {
                 Czy napewno chcesz usunąć użytkownika?
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-4 pt-4">
               <button
                 onClick={() => router.back()}
                 className="px-4 py-2 border rounded border-toolight-border-gray-light font-semibold w-full hover:bg-white-hover/50 transition"

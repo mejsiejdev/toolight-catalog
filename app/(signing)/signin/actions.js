@@ -2,6 +2,8 @@
 
 import prisma from "@/dp";
 import { compare } from "bcrypt";
+import { sign } from "jsonwebtoken";
+import { cookies } from "next/headers";
 
 export async function checkData(data) {
   // Try finding a user with this email
@@ -10,6 +12,7 @@ export async function checkData(data) {
       email: data.get("email"),
     },
     select: {
+      id: true,
       password: true,
       isAdmin: true,
     },
@@ -33,7 +36,11 @@ export async function checkData(data) {
     return [false, "Nieprawidłowe hasło."];
   }
 
-  // TODO: If the passwords match, create and save a JWT token.
+  // If the passwords match, create and save a JWT token.
+  const token = sign({ id: user.id }, process.env.JWT_SECRET, {
+    expiresIn: "1d",
+  });
+  cookies().set({ name: "token", value: token, httpOnly: true, secure: true });
 
   return [true, user.isAdmin];
 }

@@ -14,7 +14,7 @@ export async function checkData(data) {
     select: {
       id: true,
       password: true,
-      isAdmin: true,
+      role: true,
     },
   });
 
@@ -42,5 +42,5 @@ export async function checkData(data) {
   });
   cookies().set({ name: "token", value: token, httpOnly: true, secure: true });
 
-  return [true, user.isAdmin];
+  return [true, user.role === "Administrator"];
 }

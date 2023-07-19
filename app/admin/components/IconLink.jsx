@@ -1,6 +1,16 @@
 import Link from "next/link";
+import { MdRefresh } from "react-icons/md";
 
-const IconLink = ({ href, title, icon, pathname }) => {
+/**
+ * IconLink
+ * @param {string} [href]
+ * @param {string} title
+ * @param {IconType} icon
+ * @param {string} [pathname]
+ * @param {boolean} [loading]
+ * @returns {JSX.Element}
+ */
+const IconLink = ({ href, title, icon, pathname, loading, onClick }) => {
   return typeof href !== "undefined" ? (
     <Link
       title={title}
@@ -15,9 +25,15 @@ const IconLink = ({ href, title, icon, pathname }) => {
     <button
       type="button"
       title={title}
-      className="p-1 flex flex-col items-center justify-center rounded text-3xl text-toolight-secondary cursor-pointer hover:bg-white-hover"
+      disabled={loading}
+      onClick={onClick}
+      className={`p-1 flex flex-col items-center justify-center rounded text-3xl text-toolight-secondary ${
+        !loading
+          ? "hover:bg-white-hover cursor-pointer"
+          : "animate-pulse cursor-wait"
+      }`}
     >
-      {icon}
+      {loading ? <MdRefresh className="animate-spin" /> : icon}
     </button>
   );
 };

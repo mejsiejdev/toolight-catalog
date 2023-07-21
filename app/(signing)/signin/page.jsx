@@ -16,7 +16,7 @@ const Signin = () => {
       setError(result[1]);
       return;
     }
-    router.push(result[1] ? "/admin" : "/user");
+    router.push("/admin");
   };
   return (
     <div className="flex flex-col max-w-md w-full gap-4">

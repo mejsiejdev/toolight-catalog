@@ -9,6 +9,7 @@ import fetcher from "@/app/lib/fetcher";
 import { useEffect, useRef, useState } from "react";
 import useOnScreen from "@/hooks/useOnScreen";
 import { AnimatePresence, motion } from "framer-motion";
+import Table from "../components/Table/Table";
 
 const Users = () => {
   const ref = useRef(null);
@@ -32,7 +33,6 @@ const Users = () => {
   );
 
   useEffect(() => {
-    console.log("Is visible?", isVisible);
     if (isVisible && data) {
       setSize(size + 1);
     }
@@ -54,7 +54,7 @@ const Users = () => {
           Dodaj użytkownika
         </Link>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="w-full flex flex-col gap-4">
         <form className="flex flex-row gap-4 items-center">
           <input
             onChange={(e) => setName(e.target.value)}
@@ -71,100 +71,42 @@ const Users = () => {
             placeholder="Email"
             className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
           />
-          <select
-            required
-            onChange={(e) => setRole(e.target.value)}
-            className="invalid:text-toolight-border-gray-dark border border-toolight-border-gray-light py-1 rounded"
-          >
-            <option value="" selected></option>
-            <option>Obserwator</option>
-            <option value="Uzytkownik">Użytkownik</option>
-            <option>Moderator</option>
-            <option>Administrator</option>
-          </select>
           <input
             type="reset"
             onClick={() => {
               setName();
               setSurname();
               setEmail();
-              setRole();
             }}
             value="Wyczyść filtry"
-            className="border text-toolight-secondary border-toolight-border-gray-light hover:bg-white-hover/50 transition py-1 px-4 rounded"
+            className="border text-toolight-secondary border-toolight-border-gray-light hover:border-toolight-border-gray-light/50 transition py-1 px-4 rounded"
           />
         </form>
         <AnimatePresence>
           {data && (
-            <motion.table
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="shadow table-auto border border-toolight-border-gray-light rounded border-separate border-spacing-0 w-full"
-            >
-              <thead>
-                <tr align="left" className="bg-white-hover/50">
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    Imię i nazwisko
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    Email
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    Rola
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light" />
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((users) =>
-                  users.map((user, key) => (
-                    <>
-                      <tr
-                        key={key}
-                        className="group hover:bg-white-hover/20 transition"
-                      >
-                        <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">{`${user.name} ${user.surName}`}</td>
-                        <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">
-                          {user.email}
-                        </td>
-                        <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">
-                          <p
-                            className={`${
-                              user.role === "Obserwator"
-                                ? "bg-white-hover text-toolight-paragraph"
-                                : user.role === "Uzytkownik"
-                                ? "bg-[#3b82f6] text-white"
-                                : user.role === "Moderator"
-                                ? "bg-[#8b5cf6] text-white"
-                                : "bg-[#ef4444] text-white"
-                            } font-semibold px-2 py-1 w-min rounded`}
-                          >
-                            {user.role === "Uzytkownik"
-                              ? "Użytkownik"
-                              : user.role}
-                          </p>
-                        </td>
-                        <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none flex flex-row justify-end gap-2">
-                          <IconLink
-                            href={`/admin/users/${user.id}/edit?name=${user.name}&surname=${user.surName}&email=${user.email}&role=${user.role}`}
-                            icon={<MdEdit />}
-                          />
-                          <IconLink
-                            href={`/admin/users/${user.id}/password`}
-                            icon={<MdPassword />}
-                          />
-                          <IconLink
-                            href={`/admin/users/${user.id}/delete`}
-                            icon={<MdClear />}
-                          />
-                        </td>
-                      </tr>
-                    </>
-                  ))
-                )}
-              </tbody>
-            </motion.table>
+            <Table
+              headings={["Imię i nazwisko", "Email", ""]}
+              rows={data.flatMap((users) =>
+                users.map((user, key) => [
+                  `${user.name} ${user.surName}`,
+                  user.email,
+                  <div className="flex flex-row justify-end gap-2" key={key}>
+                    <IconLink
+                      href={`/admin/users/${user.id}/edit?name=${user.name}&surname=${user.surName}&email=${user.email}&role=${user.role}`}
+                      icon={<MdEdit />}
+                    />
+                    <IconLink
+                      href={`/admin/users/${user.id}/password`}
+                      icon={<MdPassword />}
+                    />
+                    <IconLink
+                      href={`/admin/users/${user.id}/delete`}
+                      icon={<MdClear />}
+                    />
+                  </div>,
+                ])
+              )}
+            />
           )}
         </AnimatePresence>
       </div>

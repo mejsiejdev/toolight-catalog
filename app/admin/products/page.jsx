@@ -12,6 +12,7 @@ import useOnScreen from "@/hooks/useOnScreen";
 import { AnimatePresence, motion } from "framer-motion";
 import currencyFormatter from "currency-formatter";
 import Modal from "@/app/admin/components/Modal";
+import Table from "@/app/admin/components/Table";
 
 const Products = () => {
   const ref = useRef(null);
@@ -58,7 +59,7 @@ const Products = () => {
           Dodaj produkt
         </Link>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="w-full flex flex-col gap-4">
         <form className="flex flex-row gap-4 items-center">
           <input
             onChange={(e) => setId(e.target.value)}
@@ -109,103 +110,51 @@ const Products = () => {
         </form>
         <AnimatePresence>
           {data && (
-            <motion.table
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="shadow table-auto border border-toolight-border-gray-light rounded border-separate border-spacing-0 w-full"
-            >
-              <thead>
-                <tr align="left" className="bg-white-hover/50">
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    ID
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    Variant ID
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    SKU
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    EAN
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    Kategoria
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    Nazwa
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    Netto
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    Brutto
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light">
-                    Ilość
-                  </th>
-                  <th className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light" />
-                </tr>
-              </thead>
-              <tbody>
-                {data.map(
-                  (products) =>
-                    products &&
-                    products.map((product, key) => (
-                      <>
-                        <tr
-                          key={key}
-                          className="group hover:bg-white-hover/20 transition"
-                        >
-                          <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">
-                            {product.storeId}
-                          </td>
-                          <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">
-                            {product.variantId}
-                          </td>
-                          <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">
-                            {product.sku}
-                          </td>
-                          <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">
-                            {product.ean}
-                          </td>
-                          <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">
-                            {product.category}
-                          </td>
-                          <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">
-                            {product.title}
-                          </td>
-                          <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">
-                            {currencyFormatter.format(product.priceNet, {
-                              code: "PLN",
-                            })}
-                          </td>
-                          <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">
-                            {currencyFormatter.format(product.priceGros, {
-                              code: "PLN",
-                            })}
-                          </td>
-                          <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none">
-                            {product.quantity}
-                          </td>
-                          <td className="first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light group-last:border-none flex flex-row justify-end gap-2">
-                            <IconLink icon={<MdLink />} href={product.url} />
-                            <AdditionalInfo attributes={product.attributes} />
-                            <IconLink
-                              href={`/admin/products/${product.id}`}
-                              icon={<MdEdit />}
-                            />
-                            <IconLink
-                              href={`/admin/products/${product.id}/delete`}
-                              icon={<MdClear />}
-                            />
-                          </td>
-                        </tr>
-                      </>
-                    ))
-                )}
-              </tbody>
-            </motion.table>
+            <Table
+              headings={[
+                "ID",
+                "Variant ID",
+                "SKU",
+                "EAN",
+                "Kategoria",
+                "Nazwa",
+                "Netto",
+                "Brutto",
+                "Ilość",
+                "",
+              ]}
+              rows={data.flatMap(
+                (products) =>
+                  products &&
+                  products.map((product, key) => [
+                    product.storeId,
+                    product.variantId,
+                    product.sku,
+                    product.ean,
+                    product.category,
+                    product.title,
+                    currencyFormatter.format(product.priceNet, {
+                      code: "PLN",
+                    }),
+                    currencyFormatter.format(product.priceGros, {
+                      code: "PLN",
+                    }),
+                    product.quantity,
+                    <div className="flex flex-row justify-end gap-2" key={key}>
+                      <IconLink icon={<MdLink />} href={product.url} />
+                      <AdditionalInfo attributes={product.attributes} />
+                      <IconLink
+                        href={`/admin/products/${product.id}`}
+                        icon={<MdEdit />}
+                      />
+                      <IconLink
+                        href={`/admin/products/${product.id}/delete`}
+                        icon={<MdClear />}
+                      />
+                    </div>,
+                  ])
+              )}
+            />
           )}
         </AnimatePresence>
       </div>

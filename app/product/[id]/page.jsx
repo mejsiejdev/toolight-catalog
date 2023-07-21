@@ -16,7 +16,7 @@ import prisma from "@/dp";
  * ! UWAGA:
  * ! Przejście na SSG przyśpieszy wczytywanie stron dla użytkowników,
  * ! ale każda zmiana w produktach będzie wymagać ponownego generowania
- * ! WSZYSTKICH stron (a jest ich 45 tysięcy) które potrwa z 10 minut.
+ * ! WSZYSTKICH stron.
 export const generateStaticParams = async () => {
   const products = await prisma.products.findMany({
     select: {

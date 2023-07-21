@@ -56,20 +56,6 @@ const Edit = ({ params, searchParams }) => {
                   className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
                 />
               </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor={`${id}-role`}>Rola</label>
-                <select
-                  defaultValue={searchParams.role}
-                  id={`${id}-role`}
-                  name="role"
-                  className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
-                >
-                  <option>Obserwator</option>
-                  <option value="Uzytkownik">Użytkownik</option>
-                  <option>Moderator</option>
-                  <option>Administrator</option>
-                </select>
-              </div>
               <button
                 type="submit"
                 className="mt-2 px-4 py-2 bg-toolight-success rounded font-semibold text-white w-full hover:bg-toolight-success-hover-dark transition"

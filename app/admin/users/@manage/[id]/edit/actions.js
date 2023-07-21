@@ -13,7 +13,6 @@ export async function editUser(data, id) {
         name: data.get("name"),
         surName: data.get("surname"),
         email: data.get("email"),
-        role: data.get("role"),
       },
     });
     revalidatePath("/admin/users");

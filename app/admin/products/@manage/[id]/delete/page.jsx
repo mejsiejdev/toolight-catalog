@@ -5,8 +5,8 @@ import { useParams, useRouter } from "next/navigation";
 import { useState, useEffect, useTransition } from "react";
 import { MdRefresh, MdWarning } from "react-icons/md";
 
-import { deleteProduct } from "./actions";
-import Success from "@/app/admin/components//Success";
+import { deleteProduct } from "../../../actions";
+import Success from "@/app/admin/components/Success";
 
 const Delete = () => {
   const router = useRouter();
@@ -23,7 +23,7 @@ const Delete = () => {
     <Modal>
       {!loading ? (
         completed ? (
-          <Success message="Pomyślnie usunięto użytkownika z bazy danych" />
+          <Success message="Pomyślnie usunięto produkt z bazy danych" />
         ) : (
           <>
             <div className="flex flex-col">
@@ -32,7 +32,7 @@ const Delete = () => {
                 <p className="text-3xl">Ostrzeżenie</p>
               </div>
               <p className="text-toolight-secondary text-center w-full">
-                Czy napewno chcesz usunąć użytkownika?
+                Czy napewno chcesz usunąć ten produkt?
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-4">

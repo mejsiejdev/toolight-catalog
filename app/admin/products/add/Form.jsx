@@ -4,26 +4,24 @@ import Image from "next/image";
 import { useId, useRef, useState } from "react";
 import SubmitButton from "../../components/SubmitButton";
 import { MdAdd, MdAddPhotoAlternate, MdClear } from "react-icons/md";
-import { editProduct } from "../actions";
+import { createProduct } from "../actions";
+import { useRouter } from "next/navigation";
 
 const Form = ({ product, categories }) => {
+  const router = useRouter();
   const id = useId();
+  const handleSubmit = async (data) => {
+    const productId = await createProduct(data);
+    router.push(`/admin/products/${productId}`);
+  };
   return (
-    <form className="flex flex-col gap-8" action={editProduct}>
-      <input
-        id={`${id}-id`}
-        type="hidden"
-        value={product.id}
-        readOnly
-        name="id"
-      />
+    <form className="flex flex-col gap-8" action={handleSubmit}>
       <div className="flex flex-col gap-4">
         <div className="flex flex-row gap-4">
           <div className="flex flex-col gap-2 w-full">
             <label htmlFor={`${id}-name`}>Nazwa</label>
             <input
               id={`${id}-name`}
-              defaultValue={product.title}
               type="text"
               name="title"
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
@@ -32,7 +30,6 @@ const Form = ({ product, categories }) => {
           <div className="flex flex-col gap-2">
             <label htmlFor={`${id}-category`}>Kategoria</label>
             <select
-              defaultValue={product.category}
               id={`${id}-category`}
               name="category"
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
@@ -47,7 +44,6 @@ const Form = ({ product, categories }) => {
           <label htmlFor={`${id}-description`}>Opis</label>
           <textarea
             id={`${id}-description`}
-            defaultValue={product.description}
             name="description"
             rows={5}
             className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded h-full"
@@ -57,7 +53,6 @@ const Form = ({ product, categories }) => {
           <label htmlFor={`${id}-url`}>Link do produktu</label>
           <input
             id={`${id}-url`}
-            defaultValue={product.url}
             type="text"
             name="url"
             className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
@@ -66,7 +61,7 @@ const Form = ({ product, categories }) => {
       </div>
       <hr className="text-toolight-border-gray-light" />
       <div className="flex flex-col gap-4 w-full">
-        <Images {...product.images} />
+        <Images />
       </div>
       <hr className="text-toolight-border-gray-light" />
       <div className="flex flex-col gap-4">
@@ -76,8 +71,8 @@ const Form = ({ product, categories }) => {
             <label htmlFor={`${id}-priceNet`}>Netto</label>
             <input
               id={`${id}-priceNet`}
-              defaultValue={product.priceNet}
               type="number"
+              defaultValue={0}
               step={0.1}
               name="priceNet"
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
@@ -87,8 +82,8 @@ const Form = ({ product, categories }) => {
             <label htmlFor={`${id}-priceGros`}>Brutto</label>
             <input
               id={`${id}-priceGros`}
-              defaultValue={product.priceGros}
               type="number"
+              defaultValue={0}
               step={0.1}
               name="priceGros"
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
@@ -104,8 +99,8 @@ const Form = ({ product, categories }) => {
             <label htmlFor={`${id}-storeId`}>ID</label>
             <input
               id={`${id}-storeId`}
-              defaultValue={product.storeId}
               type="number"
+              defaultValue={0}
               name="storeId"
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
             />
@@ -114,8 +109,8 @@ const Form = ({ product, categories }) => {
             <label htmlFor={`${id}-variantId`}>Variant ID</label>
             <input
               id={`${id}-variantId`}
-              defaultValue={product.variantId}
               type="number"
+              defaultValue={0}
               name="variantId"
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
             />
@@ -124,7 +119,6 @@ const Form = ({ product, categories }) => {
             <label htmlFor={`${id}-ean`}>EAN</label>
             <input
               id={`${id}-ean`}
-              defaultValue={product.ean}
               type="text"
               name="ean"
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
@@ -134,7 +128,6 @@ const Form = ({ product, categories }) => {
             <label htmlFor={`${id}-ean`}>SKU</label>
             <input
               id={`${id}-sku`}
-              defaultValue={product.sku}
               type="text"
               name="sku"
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
@@ -144,7 +137,7 @@ const Form = ({ product, categories }) => {
       </div>
       <hr className="text-toolight-border-gray-light" />
       <div className="flex flex-col gap-4">
-        <Attributes {...product.attributes} />
+        <Attributes />
       </div>
       <hr className="text-toolight-border-gray-light" />
       <div className="flex flex-col gap-4">
@@ -154,8 +147,8 @@ const Form = ({ product, categories }) => {
             <label htmlFor={`${id}-quantity`}>Liczba sztuk</label>
             <input
               id={`${id}-quantity`}
-              defaultValue={product.quantity}
               type="number"
+              defaultValue={0}
               name="quantity"
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
             />
@@ -164,8 +157,8 @@ const Form = ({ product, categories }) => {
             <label htmlFor={`${id}-weight`}>Waga (w kg)</label>
             <input
               id={`${id}-weight`}
-              defaultValue={product.weight}
               type="number"
+              defaultValue={0}
               name="weight"
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
             />
@@ -174,7 +167,6 @@ const Form = ({ product, categories }) => {
             <label htmlFor={`${id}-euLabel`}>Etykieta energetyczna</label>
             <input
               id={`${id}-euLabel`}
-              defaultValue={product.euLabel}
               type="text"
               name="euLabel"
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"

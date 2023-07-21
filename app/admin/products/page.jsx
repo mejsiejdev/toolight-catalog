@@ -52,7 +52,7 @@ const Products = () => {
           </h2>
         </div>
         <Link
-          href="/admin/users/add"
+          href="/admin/products/add"
           className="bg-toolight-primary hover:bg-toolight-primary-hover-dark transition py-2 px-4 cursor-pointer flex flex-col items-center rounded font-semibold"
         >
           Dodaj produkt

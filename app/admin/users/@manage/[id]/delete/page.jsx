@@ -1,12 +1,12 @@
 "use client";
 
-import Modal from "../../components/Modal";
+import Modal from "@/app/admin/components/Modal";
 import { useParams, useRouter } from "next/navigation";
 import { useState, useEffect, useTransition } from "react";
 import { MdRefresh, MdWarning } from "react-icons/md";
 
 import { deleteUser } from "./actions";
-import Success from "../../components/Success";
+import Success from "@/app/admin/components/Success";
 
 const Delete = () => {
   const router = useRouter();

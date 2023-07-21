@@ -1,12 +1,11 @@
 "use client";
 
 import { useState, useId } from "react";
-import Modal from "../../components/Modal";
+import Modal from "@/app/admin/components/Modal";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 import { editUser } from "./actions";
-import Success from "../../components/Success";
+import Success from "@/app/admin/components/Success";
 
 const Edit = ({ params, searchParams }) => {
   const router = useRouter();

@@ -1,7 +1,7 @@
 "use client";
 
-import Modal from "../../components/Modal";
-import Success from "../../components/Success";
+import Modal from "@/app/admin/components/Modal";
+import Success from "@/app/admin/components/Success";
 import { useRouter } from "next/navigation";
 import { useId, useState } from "react";
 import { changePassword } from "./actions";

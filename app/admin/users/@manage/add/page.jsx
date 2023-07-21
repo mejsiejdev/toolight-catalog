@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useId } from "react";
-import Modal from "../components/Modal";
+import Modal from "@/app/admin/components/Modal";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 import { addUser } from "./actions";
-import Success from "../components/Success";
-import Error from "../components/Error";
+import Success from "@/app/admin/components/Success";
+import Error from "@/app/admin/components/Error";
 
 const Add = () => {
   const router = useRouter();

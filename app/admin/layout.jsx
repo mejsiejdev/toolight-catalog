@@ -21,7 +21,11 @@ const Layout = ({ children }) => {
   return (
     <body className="w-full h-full min-h-screen flex flex-row">
       <Sidebar />
-      <main className="ml-16 w-full flex flex-col gap-8 p-8">{children}</main>
+      <main className="ml-16 w-full flex flex-row justify-center p-8">
+        <div className="w-full flex flex-col items-start max-w-[100rem] gap-8">
+          {children}
+        </div>
+      </main>
     </body>
   );
 };

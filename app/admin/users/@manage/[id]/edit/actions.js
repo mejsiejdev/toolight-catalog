@@ -18,6 +18,6 @@ export async function editUser(data, id) {
     });
     revalidatePath("/admin/users");
   } catch (error) {
-    throw new Error("Wystąpił błąd w trakcie usuwania użytkownika.");
+    throw new Error("Wystąpił błąd w trakcie edytowania użytkownika.");
   }
 }

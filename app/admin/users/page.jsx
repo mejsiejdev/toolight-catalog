@@ -55,7 +55,7 @@ const Users = () => {
         </Link>
       </div>
       <div className="flex flex-col gap-4">
-        <form className="flex flex-row justify-end gap-4 items-center">
+        <form className="flex flex-row gap-4 items-center">
           <input
             onChange={(e) => setName(e.target.value)}
             placeholder="Imię"

@@ -36,6 +36,7 @@ module.exports = {
       toolight: {
         primary: "#f1c21b",
         "primary-hover-dark": "#ddb00e",
+        "primary-hover-darker": "#a8860b",
         "primary-hover-light": "#f8e6a0",
         "primary-active": "#b28600",
         danger: "#da1e28",

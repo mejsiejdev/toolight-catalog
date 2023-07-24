@@ -1,9 +1,9 @@
 import Image from "next/image";
 import prisma from "@/dp";
+import Link from "next/link";
 // Moment for date formatting
 import moment from "moment/moment";
 import "moment/locale/pl";
-import Link from "next/link";
 
 const getLastModifiedProducts = async () => {
   const products = await prisma.products.findMany({
@@ -64,8 +64,8 @@ const Admin = async () => {
                 height="300"
                 className="object-contain w-full aspect-square rounded-t-lg"
               />
-              <div className="p-6 w-full flex flex-col gap-2">
-                <p>{product.title}</p>
+              <div className="p-6 w-full flex flex-col h-full justify-between gap-2">
+                <p className="">{product.title}</p>
                 <p className="text-toolight-secondary/75 text-sm">
                   Zmodyfikowane {moment(product.updatedAt).fromNow()}
                 </p>
@@ -90,7 +90,7 @@ const Admin = async () => {
                 height="300"
                 className="object-contain w-full aspect-square rounded-t-lg"
               />
-              <div className="p-6 w-full flex flex-col gap-2">
+              <div className="p-6 w-full flex flex-col h-full justify-between gap-2">
                 <p>{product.title}</p>
                 <p className="text-toolight-secondary/75 text-sm">
                   {`Pozostało ${product.quantity} sztuk produktu`}

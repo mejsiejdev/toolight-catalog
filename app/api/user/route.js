@@ -10,7 +10,6 @@ export async function GET(request) {
   const name = searchParams.get("name");
   const surname = searchParams.get("surname");
   const email = searchParams.get("email");
-  const role = searchParams.get("role");
   const users = await prisma.user.findMany({
     where: {
       name: {
@@ -18,7 +17,6 @@ export async function GET(request) {
       },
       surName: { contains: empty(surname) ? undefined : surname },
       email: { contains: empty(email) ? undefined : email },
-      role: empty(role) ? undefined : role,
     },
     take: limit,
     skip: page * limit !== 0 ? page * limit : undefined,

@@ -130,7 +130,7 @@ const Filter = ({ id, open, setOpen, name, elements, state, setState }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="absolute bg-white py-4 pl-4 pr-6 mt-8 border border-toolight-border-gray-light rounded z-0 shadow-lg"
+            className="z-10 absolute bg-white py-4 pl-4 pr-6 mt-8 border border-toolight-border-gray-light rounded shadow-lg"
           >
             <fieldset className="flex flex-col gap-1">
               {elements.map((element, key) => (

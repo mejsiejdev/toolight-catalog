@@ -18,8 +18,8 @@ const RootLayout = ({ children }) => {
     <html lang="pl">
       {!pathname.includes("signin") && !pathname.includes("admin") ? (
         <body style={dynamicPadding}>
-          <Navbar />
           {children}
+          <Navbar />
           <Footer />
         </body>
       ) : (

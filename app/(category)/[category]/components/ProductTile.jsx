@@ -9,7 +9,7 @@ const ProductTile = ({ product, productRef }) => {
   return (
     <Link
       href={`product/${product.id}`}
-      className="product-tile -z-10"
+      className="product-tile"
       ref={productRef}
       onMouseEnter={() => setActive(() => true)}
       onMouseLeave={() => setActive(() => false)}

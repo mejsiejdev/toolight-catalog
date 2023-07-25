@@ -10,7 +10,10 @@ export const dynamic = "force-dynamic";
  * @returns {boolean} Returns `true` if string is empty, `null` or `undefined`.
  */
 const empty = (value) =>
-  value === null || value === "" || typeof value === "undefined";
+  value === null ||
+  value === "" ||
+  typeof value === "undefined" ||
+  value.length === 0;
 
 const isAnyFilterSet = (array) => {
   let returnValue = false;
@@ -27,15 +30,16 @@ export async function GET(request) {
     const getCount = await prisma.products.count();
     const { searchParams } = new URL(request.url);
     const page = searchParams.get("page");
-    const type = searchParams.get("type");
-    const numberOfLightPoints = searchParams.get("numberOfLightPoints");
-    const thread = searchParams.get("thread");
-    const color = searchParams.get("color");
-    const hue = searchParams.get("hue");
+    const categories = searchParams.getAll("category[]");
+    const color = searchParams.getAll("color[]");
+    const numberOfLightPoints = searchParams.getAll("numberOfLightPoints[]");
+    const thread = searchParams.getAll("thread[]");
+    const hue = searchParams.getAll("hue[]");
     const startIndex = searchParams.get("lastIndex");
     const pag = await pagination(getCount, page)
       .then((res) => res)
       .catch((error) => error);
+    console.log("color:", color);
     /*
     console.log(
       "startIndexes:",
@@ -50,12 +54,19 @@ export async function GET(request) {
          * ! z tego powodu (niestety) trzeba najpierw pobrać wszystko i samemu
          * ! to przefiltrować... optymalizacyjnie słabo, no ale trudno.
          */
-        attributes: {},
+        OR:
+          categories.length !== 0
+            ? categories.map((value) => {
+                return {
+                  category: value,
+                };
+              })
+            : [{ category: { not: "" } }],
       },
-      skip: !isAnyFilterSet([type, numberOfLightPoints, thread, color, hue])
+      skip: !isAnyFilterSet([numberOfLightPoints, thread, color, hue])
         ? pag.startIndex
         : parseInt(startIndex),
-      take: !isAnyFilterSet([type, numberOfLightPoints, thread, color, hue])
+      take: !isAnyFilterSet([numberOfLightPoints, thread, color, hue])
         ? pag.limit
         : undefined,
     });
@@ -63,12 +74,9 @@ export async function GET(request) {
     let filtered = [];
     let lastProductIndex = 0;
 
-    if (isAnyFilterSet([type, numberOfLightPoints, thread, color, hue])) {
+    if (isAnyFilterSet([numberOfLightPoints, thread, color, hue])) {
       console.time("Filtering");
       let amountOfChecksToPass = 0;
-      if (!empty(type)) {
-        amountOfChecksToPass -= 1;
-      }
       if (!empty(numberOfLightPoints)) {
         amountOfChecksToPass -= 1;
       }
@@ -88,20 +96,17 @@ export async function GET(request) {
         // Sprawdzanie atrybutów
         product.attributes.forEach((attribute) => {
           switch (attribute.name) {
-            case "Rodzaj lampy":
-              if (attribute.value === type) check += 1;
-              break;
             case "Kolor lampy":
-              if (attribute.value === color) check += 1;
+              if (color.includes(attribute.value)) check += 1;
               break;
             case "Zastosowany gwint":
-              if (attribute.value === thread) check += 1;
+              if (thread.includes(attribute.value)) check += 1;
               break;
             case "Liczba punktów światła":
-              if (attribute.value === numberOfLightPoints) check += 1;
+              if (numberOfLightPoints.includes(attribute.value)) check += 1;
               break;
             case "Barwa światła":
-              if (attribute.value === hue) check += 1;
+              if (hue.includes(attribute.value)) check += 1;
               break;
           }
         });
@@ -118,7 +123,7 @@ export async function GET(request) {
     return NextResponse.json({
       products:
         lastProductIndex >= startIndex ||
-        !isAnyFilterSet([type, numberOfLightPoints, thread, color, hue])
+        !isAnyFilterSet([numberOfLightPoints, thread, color, hue])
           ? filtered
           : [],
       count: lastProductIndex >= startIndex ? filtered.length : 0,

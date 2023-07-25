@@ -4,7 +4,7 @@ import axios from "axios";
 const useGetData = (
   pageNumber,
   query,
-  type,
+  category,
   color,
   thread,
   hue,
@@ -28,7 +28,7 @@ const useGetData = (
       params: {
         page: pageNumber,
         query: query,
-        type: type,
+        category: category,
         numberOfLightPoints: numberOfLightPoints,
         thread: thread,
         color: color,
@@ -38,7 +38,7 @@ const useGetData = (
     })
       .then((res) => {
         setProducts((prevProducts) => {
-          if ((type !== null || type !== "") && pageNumber < 2) {
+          if ((category !== null || category !== "") && pageNumber < 2) {
             return [...res.data.products];
           }
           return [...prevProducts, ...res.data.products];
@@ -57,7 +57,7 @@ const useGetData = (
         console.log(error);
       });
     return () => controller.abort();
-  }, [pageNumber, query, type, color, thread, hue, numberOfLightPoints]);
+  }, [pageNumber, query, category, color, thread, hue, numberOfLightPoints]);
   return { isLoading, error, products, hasMore };
 };
 

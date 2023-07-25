@@ -9,11 +9,19 @@ export async function GET() {
     const products = await prisma.products.findMany({
       select: {
         attributes: true,
+        category: true,
+      },
+      where: {
+        NOT: {
+          category: {
+            contains: "5W",
+          },
+        },
       },
     });
 
-    // Rodzaje
-    let types = [];
+    // Kategorie
+    let categories = [];
 
     // Liczba punktów światła
     let numberOfLightPoints = [];
@@ -28,21 +36,16 @@ export async function GET() {
     let hues = [];
 
     /**
-     * Rodzaj lampy
      * Liczba punktów światła
      * Gwint
      * Kolor lampy
      * Barwa światła
      */
     products.forEach((product) => {
+      if (!categories.includes(product.category)) {
+        categories.push(product.category);
+      }
       product.attributes.forEach((attribute) => {
-        // Rodzaje
-        if (
-          attribute.name === "Rodzaj lampy" &&
-          !types.includes(attribute.value)
-        ) {
-          types.push(attribute.value);
-        }
         // Liczba punktów światła
         if (
           attribute.name === "Liczba punktów światła" &&
@@ -73,12 +76,13 @@ export async function GET() {
         }
       });
     });
+    categories.sort();
     colors.sort();
     hues.sort();
     numberOfLightPoints.sort((a, b) => a - b);
     // TODO: Przed zwróceniem danych powinno się je jeszcze posortować
     return NextResponse.json({
-      types: types,
+      categories: categories,
       numberOfLightPoints: numberOfLightPoints,
       threads: threads,
       colors: colors,

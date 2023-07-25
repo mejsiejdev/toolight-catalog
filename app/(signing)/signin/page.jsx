@@ -5,7 +5,10 @@ import { useRouter } from "next/navigation";
 import { checkData } from "./actions";
 import Image from "next/image";
 import Logo from "@/public/assets/toolight.svg";
-import { MdRefresh } from "react-icons/md";
+import { MdArrowBack, MdArrowLeft, MdRefresh } from "react-icons/md";
+import Link from "next/link";
+
+import Input from "@/app/components/Input";
 
 const Signin = () => {
   const router = useRouter();
@@ -30,21 +33,13 @@ const Signin = () => {
         {error && <p className="text-toolight-danger text-sm">{error}</p>}
         <Button />
       </form>
+      <Link href="/">
+        <div className="w-full flex flex-row justify-center gap-2 items-center text-toolight-secondary hover:text-toolight-secondary/75 transition">
+          <MdArrowBack className="text-xl" />
+          <p>Powrót do strony głównej</p>
+        </div>
+      </Link>
     </div>
-  );
-};
-
-const Input = ({ type, name, required, placeholder }) => {
-  const { pending } = useFormStatus();
-  return (
-    <input
-      type={type}
-      name={name}
-      required={required}
-      disabled={pending}
-      placeholder={placeholder}
-      className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light p-2 rounded-none"
-    />
   );
 };
 
@@ -54,7 +49,7 @@ const Button = () => {
     <button
       type="submit"
       disabled={pending}
-      className="bg-toolight-primary hover:bg-toolight-primary-hover-dark transition p-2 cursor-pointer flex flex-col items-center"
+      className="bg-toolight-primary hover:bg-toolight-primary-hover-dark transition p-2 cursor-pointer flex flex-col items-center rounded font-semibold"
     >
       {!pending ? "Kontynuuj" : <MdRefresh className="animate-spin text-xl" />}
     </button>

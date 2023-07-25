@@ -1,15 +1,15 @@
-'use client';
-import './styles/productTile.scss';
-import { useState } from 'react';
-import ImageAnimation from '@/app/(category)/[category]/components/ImageAnimation';
-import Link from 'next/link';
+"use client";
+import "./styles/productTile.scss";
+import { useState } from "react";
+import ImageAnimation from "@/app/(category)/[category]/components/ImageAnimation";
+import Link from "next/link";
 
 const ProductTile = ({ product, productRef }) => {
   const [active, setActive] = useState(false);
   return (
     <Link
       href={`product/${product.id}`}
-      className="product-tile"
+      className="product-tile -z-10"
       ref={productRef}
       onMouseEnter={() => setActive(() => true)}
       onMouseLeave={() => setActive(() => false)}

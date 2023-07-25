@@ -58,7 +58,8 @@ export const editProduct = async (data) => {
         euLabel: data.get("euLabel"),
       },
     });
-    revalidatePath(`/admin/products/[id]}`);
+    revalidatePath("/admin");
+    revalidatePath(`/admin/products/[id]`);
   } catch {
     throw new Error("Wystąpił błąd w trakcie edytowania produktu.");
   }

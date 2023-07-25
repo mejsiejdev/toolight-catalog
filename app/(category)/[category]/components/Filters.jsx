@@ -1,26 +1,17 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import fetcher from "@/app/lib/fetcher";
+import { useRef } from "react";
 import { MdClear } from "react-icons/md";
+import useSWR from "swr";
 
 const Filters = ({ type, color, thread, hue, numberOfLightPoints }) => {
   /**
    * Ref for controlling the selects.
    */
   const formRef = useRef();
-  const [attributes, setAttributes] = useState();
   // Fetch all of the available attributes.
-  useEffect(() => {
-    fetch("/api/attributes", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((data) => data.json())
-      .then((attributes) => {
-        setAttributes(attributes);
-      });
-  }, []);
+  const { data } = useSWR("/api/attributes", fetcher);
   /**
    * Function for clearing the filter states and resetting the selects.
    */
@@ -32,15 +23,15 @@ const Filters = ({ type, color, thread, hue, numberOfLightPoints }) => {
     numberOfLightPoints();
     formRef.current.reset();
   };
-  return attributes ? (
+  return data ? (
     <form className="flex flex-row gap-4 items-end" ref={formRef}>
-      <Filter name="Rodzaj" elements={attributes.types} onChange={type} />
-      <Filter name="Kolor" elements={attributes.colors} onChange={color} />
-      <Filter name="Gwint" elements={attributes.threads} onChange={thread} />
-      <Filter name="Barwa światła" elements={attributes.hues} onChange={hue} />
+      <Filter name="Rodzaj" elements={data.types} onChange={type} />
+      <Filter name="Kolor" elements={data.colors} onChange={color} />
+      <Filter name="Gwint" elements={data.threads} onChange={thread} />
+      <Filter name="Barwa światła" elements={data.hues} onChange={hue} />
       <Filter
         name="Liczba punktów światła"
-        elements={attributes.numberOfLightPoints}
+        elements={data.numberOfLightPoints}
         onChange={numberOfLightPoints}
       />
       <MdClear

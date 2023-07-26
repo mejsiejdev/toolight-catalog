@@ -50,7 +50,7 @@ const HomePage = async () => {
       </div>
       <Wrapper className="py-16 flex flex-col gap-8">
         <h2 className="text-4xl">Kategorie</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-x-4 gap-y-8 md:gap-8">
           {featured.map((product, key) => (
             <Link
               href={`/${product.category}`}

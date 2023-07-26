@@ -1,21 +1,21 @@
-import './styles/breadcrumbs.scss';
-import Link from 'next/link';
-import { FiHome, FiChevronRight } from 'react-icons/fi';
+import "./styles/breadcrumbs.scss";
+import Link from "next/link";
+import { MdHome, MdArrowForwardIos } from "react-icons/md";
 
 const Breadcrumbs = ({ category, title }) => {
   return (
     <span className="breadcrumbs">
       <Link href={`/`} className="breadcrumb__link">
-        <FiHome />
+        <MdHome className="text-xl" />
       </Link>
-      <span className="breadcrumb__category">
-        <FiChevronRight />
-        <Link href={`/catalog/${category}`} className="breadcrumb__link">
+      <div className="breadcrumb__category">
+        <MdArrowForwardIos className="text-xs text-toolight-secondary/75" />
+        <Link href={`/${category}`} className="breadcrumb__link">
           {category}
         </Link>
-      </span>
+      </div>
       <span className="breadcrumb__category">
-        <FiChevronRight />
+        <MdArrowForwardIos className="text-xs text-toolight-secondary/75" />
         <span>{title}</span>
       </span>
     </span>

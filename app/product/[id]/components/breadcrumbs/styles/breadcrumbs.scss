@@ -1,21 +1,20 @@
 .breadcrumbs {
-	@apply flex items-center;
-	@media screen and (max-width: 768px) {
-		@apply flex-wrap;
-	}
+  @apply flex items-center flex-row gap-2;
+  @media screen and (max-width: 768px) {
+    @apply flex-wrap;
+  }
 }
 
 .breadcrumb__category {
-	@apply flex items-center;
-	@media screen and (max-width: 768px) {
-		@apply flex-wrap;
-		&:last-child {
-			display: none;
-		}
-	}
-
+  @apply flex items-center flex-row gap-2;
+  @media screen and (max-width: 768px) {
+    @apply flex-wrap;
+    &:last-child {
+      display: none;
+    }
+  }
 }
 
 .breadcrumb__link {
-	@apply hover:text-toolight-primary transition;
+  @apply hover:text-toolight-primary transition;
 }

@@ -41,9 +41,9 @@ const ProductsPage = ({ params }) => {
 
   return (
     <>
-      <Wrapper>
-        <div className="flex flex-row gap-8 w-full justify-between items-center">
-          <h1 className="my-8 text-5xl font-light text-toolight-paragraph-hover-light">
+      <Wrapper className={"flex flex-col gap-8 pt-8"}>
+        <div className="flex flex-row gap-8 w-full justify-between items-end">
+          <h1 className="text-4xl text-toolight-paragraph-hover-light">
             Produkty
           </h1>
           <Filters

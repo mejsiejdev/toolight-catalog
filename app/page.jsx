@@ -55,20 +55,18 @@ const HomePage = async () => {
             <Link
               href={`/${product.category}`}
               key={key}
-              className="flex shadow w-full relative bg-gradient-to-b from-toolight-disabled/20 via-transparent to-black/40 rounded"
+              className="flex flex-col w-full items-center gap-4 group"
             >
               <Image
                 src={product.images[0]}
                 alt={product.category}
                 width="1000"
                 height="1000"
-                className="aspect-[9/16] object-contain -z-10 rounded"
+                className="aspect-square group-hover:brightness-105 transition object-contain -z-10 rounded-lg shadow border border-toolight-border-gray-light/25"
               />
-              <div className="absolute w-full h-full p-4 flex flex-col items-center justify-end">
-                <p className="text-white font-semibold text-2xl text-center">
-                  {product.category}
-                </p>
-              </div>
+              <p className="text-black text-xl group-hover:text-toolight-secondary/75 transition">
+                {product.category}
+              </p>
             </Link>
           ))}
         </div>

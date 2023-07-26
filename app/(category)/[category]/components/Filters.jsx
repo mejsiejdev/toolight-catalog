@@ -117,7 +117,7 @@ const Filter = ({ id, open, setOpen, name, elements, state, setState }) => {
           {name}
         </p>
         {state && state.length !== 0 && (
-          <p className="select-none py-0.5 px-2 tabular-nums rounded bg-white-hover text-sm ml-0.5">
+          <p className="select-none py-0.5 px-2 tabular-nums font-semibold rounded bg-white-hover text-sm ml-0.5">
             {state.length}
           </p>
         )}
@@ -130,7 +130,7 @@ const Filter = ({ id, open, setOpen, name, elements, state, setState }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="z-10 absolute bg-white py-4 pl-4 pr-6 mt-8 border border-toolight-border-gray-light rounded shadow-lg"
+            className="z-10 absolute bg-white py-4 pl-4 pr-6 mt-8 border border-toolight-border-gray-light/25 rounded-lg shadow-lg"
           >
             <fieldset className="flex flex-col gap-1">
               {elements.map((element, key) => (

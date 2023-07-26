@@ -1,54 +1,67 @@
 .product-tile {
-	@apply bg-white font-supreme flex flex-col overflow-hidden border border-toolight-border-gray-light cursor-pointer transition;
-	margin: -1px;
+  @apply font-supreme flex flex-col gap-6;
 }
 
 .product-tile__thumbnail {
-	@apply flex justify-center items-center overflow-hidden;
-	height: 350px;
+  @apply flex justify-center flex-none items-center overflow-hidden relative border border-toolight-border-gray-light/25 shadow rounded-lg;
+  height: 350px;
 }
 
 .product-tile__image {
-	@apply aspect-square object-contain object-center block p-2 absolute;
-	width: 350px;
-	height: 350px;
-	transition: 0.3s;
+  @apply aspect-square object-contain object-center block absolute;
+  transition: 0.3s;
 }
 
 .product-tile__image--second {
-	@apply absolute;
+  @apply absolute rounded;
 }
 
 .product-tile__details {
-	@apply p-4 flex flex-col justify-between text-toolight-paragraph;
-	height: 175px;
+  @apply inline-flex flex-col text-toolight-paragraph gap-1;
 }
 
 .description__tags {
-	@apply flex justify-between items-center w-full;
+  @apply flex justify-between items-center w-full;
 }
 
 .description__category {
-	@apply text-xs font-medium font-supreme uppercase mb-2 py-1 px-3 bg-toolight-primary block rounded-full;
+  @apply text-toolight-secondary/75;
 }
 
 .description__new {
-	@apply text-sm font-medium font-supreme text-toolight-primary uppercase mb-2 block ;
+  @apply inline-flex px-3 py-1 rounded-full text-sm font-medium font-supreme bg-toolight-primary;
 }
 
 .description__title {
-	@apply uppercase text-base font-medium;
+  @apply uppercase font-bold;
 }
 
 .details__ids-prices {
-	@apply flex justify-between font-supreme text-xs;
+  @apply flex flex-col gap-4;
 }
 
-.ids__ean, .ids__sku, .prices__gross, .prices__net {
-	@apply flex items-center;
+.prices {
+  @apply inline-flex flex-row gap-4;
 }
 
-.ids__ean strong, .ids__sku strong, .prices__net strong, .prices__gross strong {
-	@apply font-bold pr-1;
+.price-label {
+  @apply text-toolight-secondary/75 font-semibold text-xs uppercase;
 }
 
+.price-value {
+  @apply font-bold text-lg;
+}
+
+.ids__ean,
+.ids__sku,
+.prices__gross,
+.prices__net {
+  @apply flex items-center text-xs;
+}
+
+.ids__ean strong,
+.ids__sku strong,
+.prices__net strong,
+.prices__gross strong {
+  @apply font-bold pr-1;
+}

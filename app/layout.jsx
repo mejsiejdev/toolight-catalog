@@ -4,6 +4,7 @@ import Navbar from "@/app/components/layout/navbar/Navbar";
 import Footer from "@/app/components/layout/footer/Footer";
 import useWindowScroll from "@/hooks/useWindowScroll";
 import { usePathname } from "next/navigation";
+import { AnimatePresence } from "framer-motion";
 
 const RootLayout = ({ children }) => {
   const scroll = useWindowScroll();
@@ -18,7 +19,7 @@ const RootLayout = ({ children }) => {
     <html lang="pl">
       {!pathname.includes("signin") && !pathname.includes("admin") ? (
         <body style={dynamicPadding}>
-          {children}
+          <AnimatePresence>{children}</AnimatePresence>
           <Navbar />
           <Footer />
         </body>

@@ -49,22 +49,22 @@ const HomePage = async () => {
         </Wrapper>
       </div>
       <Wrapper className="py-16 flex flex-col gap-8">
-        <h2 className="text-4xl">Kategorie</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-x-4 gap-y-8 md:gap-8">
+        <h2 className="text-4xl">Polecane kategorie</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 grid-flow-row lg:grid-cols-4 gap-x-4 gap-y-8 md:gap-8">
           {featured.map((product, key) => (
             <Link
               href={`/${product.category}`}
               key={key}
-              className="flex flex-col w-full items-center gap-4 group"
+              className="flex flex-col w-full items-start gap-6 group"
             >
               <Image
-                src={product.images[0]}
+                src={product.images[1]}
                 alt={product.category}
                 width="1000"
                 height="1000"
-                className="aspect-square group-hover:brightness-105 transition object-contain -z-10 rounded-lg shadow border border-toolight-border-gray-light/25"
+                className="aspect-square group-hover:brightness-110 transition object-contain -z-10 rounded-lg shadow"
               />
-              <p className="text-black text-xl group-hover:text-toolight-secondary/75 transition">
+              <p className="text-black text-2xl font-medium group-hover:text-toolight-secondary/75 transition">
                 {product.category}
               </p>
             </Link>

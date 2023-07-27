@@ -3,30 +3,30 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: 'Supreme';
-	src: url('../public/fonts/Supreme-Variable.ttf') format('truetype'),
-	url('../public/fonts/Supreme-Variable.woff') format('woff'),
-	url('../public/fonts/Supreme-Variable.woff2') format('woff2');
-	font-weight: auto;
+  font-family: "Supreme";
+  src: url("../public/fonts/Supreme-Variable.ttf") format("truetype"),
+    url("../public/fonts/Supreme-Variable.woff") format("woff"),
+    url("../public/fonts/Supreme-Variable.woff2") format("woff2");
+  font-weight: auto;
+  font-display: fallback;
 }
 
 @font-face {
-	font-family: 'Supreme Italic';
-	src: url('../public/fonts/Supreme-VariableItalic.ttf') format('truetype'),
-	url('../public/fonts/Supreme-VariableItalic.woff') format('woff'),
-	url('../public/fonts/Supreme-VariableItalic.woff2') format('woff2');
-	font-weight: auto;
+  font-family: "Supreme Italic";
+  src: url("../public/fonts/Supreme-VariableItalic.ttf") format("truetype"),
+    url("../public/fonts/Supreme-VariableItalic.woff") format("woff"),
+    url("../public/fonts/Supreme-VariableItalic.woff2") format("woff2");
+  font-weight: auto;
+  font-display: fallback;
 }
 
 * {
-	box-sizing: border-box;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-	@apply font-supreme;
+  @apply font-supreme;
 }
-
-

@@ -5,7 +5,7 @@ import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 const CompanyContact = () => {
   return (
     <div className="footer__contact footer-column">
-      <h5 className="footer-heading">Kontakt</h5>
+      <p className="footer-heading">Kontakt</p>
       <div className="contact-details">
         <div className="contact-details__text">
           <span className="contact-details__line">

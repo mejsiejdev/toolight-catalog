@@ -2,18 +2,26 @@ import "./styles/footer.scss";
 import Wrapper from "@/app/components/layout/Wrapper";
 import CompanyContact from "@/app/components/layout/footer/components/columns/CompanyContact";
 import CompanyDetails from "@/app/components/layout/footer/components/columns/CompanyDetails";
-import CompanyDescription from "@/app/components/layout/footer/components/columns/CompanyDescription";
+import Image from "next/image";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <Wrapper>
         <section className="footer-content">
-          <CompanyDescription />
+          <Image
+            className="company-logo"
+            src="/assets/logo.png"
+            width={250}
+            height={100}
+            alt="Logo Toolight"
+          />
           <CompanyDetails />
           <CompanyContact />
         </section>
-        <small>© Toolight.pl - Wszystkie prawa zastrzezone.</small>
+        <small className="text-toolight-secondary">
+          © Toolight.pl - Wszystkie prawa zastrzeżone.
+        </small>
       </Wrapper>
     </footer>
   );

@@ -4,7 +4,7 @@ import { FiHome } from "react-icons/fi";
 const CompanyDetails = () => {
   return (
     <div className="footer__details footer-column">
-      <h5 className="footer-heading">Dane firmy</h5>
+      <p className="footer-heading">Dane firmy</p>
       <div className="company-details">
         <p className="footer__paragraph">Podlasiak Andrzej Cylwik sp. k.</p>
         <p className="footer__paragraph">ul.Przędzalniana 60</p>

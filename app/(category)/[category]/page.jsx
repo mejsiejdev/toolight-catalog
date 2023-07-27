@@ -71,14 +71,13 @@ const ProductsPage = ({ params }) => {
           data.length > 0 ? (
             <div className="flex flex-col gap-8">
               <div className="products-container">
-                {data.map(
-                  (products) =>
-                    products &&
-                    setIsNew(products).map((dat, key) => (
-                      <ProductTile product={dat} key={key} />
-                    ))
+                {data.map((products) =>
+                  setIsNew(products).map((dat, key) => (
+                    <ProductTile product={dat} key={key} />
+                  ))
                 )}
               </div>
+              <div ref={ref} />
               {isValidating && <Spinner />}
             </div>
           ) : (
@@ -89,7 +88,6 @@ const ProductsPage = ({ params }) => {
         ) : (
           <Spinner />
         )}
-        <div ref={ref} />
         <div>{error && "Error"}</div>
       </Wrapper>
     </>

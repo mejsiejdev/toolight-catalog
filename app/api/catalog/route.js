@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import prisma from "@/dp";
 
-export const dynamic = "force-dynamic";
-
 /**
  * Function for checking if a string is empty (`""`), `null` or `undefined`.
  * @param {string} value string to check

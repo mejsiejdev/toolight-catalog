@@ -5,7 +5,11 @@ import { MdHome, MdArrowForwardIos } from "react-icons/md";
 const Breadcrumbs = ({ category, title }) => {
   return (
     <span className="breadcrumbs">
-      <Link href={`/`} className="breadcrumb__link">
+      <Link
+        href={`/`}
+        className="breadcrumb__link"
+        title="Powrót do strony głównej"
+      >
         <MdHome className="text-xl" />
       </Link>
       <div className="breadcrumb__category">

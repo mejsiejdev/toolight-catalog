@@ -14,10 +14,6 @@ const Breadcrumbs = ({ category, title }) => {
           {category}
         </Link>
       </div>
-      <span className="breadcrumb__category">
-        <MdArrowForwardIos className="text-xs text-toolight-secondary/75" />
-        <span>{title}</span>
-      </span>
     </span>
   );
 };

@@ -29,7 +29,7 @@ const LabelContainer = ({ label }) => {
     },
     noLabel: {
       height: active ? isDesktop : 0,
-      border: isMobile ? "1px solid #c6c6c6" : 0,
+      border: isMobile ? "" : 0,
     },
   };
   return (

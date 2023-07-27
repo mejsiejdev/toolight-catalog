@@ -22,17 +22,14 @@ const Categories = () => {
     <>
       {!isLoading && (
         <div className="navbar__dropdown" style={style}>
-          {categories.map((category) => {
+          {categories.map((category, key) => {
             return (
               <Link
                 className="navbar__dropdown-link"
                 onMouseEnter={handleArrow}
                 onMouseLeave={handleArrow}
-                href={`/${slugify(category, {
-                  replacement: "-",
-                  lower: true,
-                })}`}
-                key={crypto.randomUUID()}
+                href={category}
+                key={key}
               >
                 {category}{" "}
                 <FiArrowRight className="navbar__dropdown-link--arrow" />

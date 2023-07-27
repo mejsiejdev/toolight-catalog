@@ -1,17 +1,15 @@
 .input-container {
-	@apply relative;
+  @apply relative;
 }
 
 .input {
-	@apply text-2xl py-4 outline-none w-full text-toolight-paragraph transition font-light;
+  @apply text-2xl py-4 outline-none focus:ring-0 focus:border-none border-0 w-full text-toolight-paragraph transition font-light;
 
-
-	&::placeholder {
-		@apply text-toolight-border-gray-light;
-	}
-
+  &::placeholder {
+    @apply text-toolight-border-gray-light;
+  }
 }
 
 .searchbar-button {
-	@apply absolute m-4 right-0 text-toolight-border-gray-dark;
+  @apply absolute m-4 right-0 text-toolight-border-gray-dark;
 }

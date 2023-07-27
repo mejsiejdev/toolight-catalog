@@ -1,27 +1,34 @@
-import "./styles/footer.scss";
 import Wrapper from "@/app/components/layout/Wrapper";
-import CompanyContact from "@/app/components/layout/footer/components/columns/CompanyContact";
-import CompanyDetails from "@/app/components/layout/footer/components/columns/CompanyDetails";
+import Link from "next/link";
 import Image from "next/image";
+import Logo from "@/public/assets/toolight.svg";
+import { MdCall, MdEmail, MdLocationOn } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <Wrapper>
-        <section className="footer-content">
+    <footer className="border-t border-toolight-border-gray-light/50">
+      <Wrapper className="py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-8">
+        <div className="flex flex-col gap-2">
           <Image
             className="company-logo"
-            src="/assets/logo.png"
-            width={250}
-            height={100}
+            width={175}
+            height={75}
+            src={Logo}
             alt="Logo Toolight"
           />
-          <CompanyDetails />
-          <CompanyContact />
-        </section>
-        <small className="text-toolight-secondary">
-          © Toolight.pl - Wszystkie prawa zastrzeżone.
-        </small>
+          <p className="font-extralight">
+            Dla domu, dla łazienki,{" "}
+            <strong className="font-semibold text-toolight-secondary">
+              dla ciebie.
+            </strong>
+          </p>
+        </div>
+        <div className="flex flex-col gap-2 text-toolight-secondary text-sm">
+          <p className="text-toolight-secondary text-sm">
+            Podlasiak Andrzej Cylwik sp. k., NIP 966-216-01-21
+          </p>
+          <p>© Toolight.pl - Wszystkie prawa zastrzeżone.</p>
+        </div>
       </Wrapper>
     </footer>
   );

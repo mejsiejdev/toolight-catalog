@@ -1,9 +1,8 @@
-import Image from "next/image";
 import prisma from "@/dp";
-import Link from "next/link";
 // Moment for date formatting
-import moment from "moment/moment";
+import moment from "moment";
 import "moment/locale/pl";
+import Card from "./components/Card";
 
 const getLastModifiedProducts = async () => {
   const products = await prisma.products.findMany({
@@ -15,6 +14,12 @@ const getLastModifiedProducts = async () => {
     take: 6,
     orderBy: {
       updatedAt: "desc",
+    },
+    select: {
+      id: true,
+      title: true,
+      images: true,
+      updatedAt: true,
     },
   });
   return products;
@@ -29,6 +34,12 @@ const getMissingProducts = async () => {
       quantity: {
         lt: 20,
       },
+    },
+    select: {
+      id: true,
+      title: true,
+      images: true,
+      quantity: true,
     },
     take: 12,
   });
@@ -52,25 +63,13 @@ const Admin = async () => {
         </h3>
         <div className="grid grid-cols-6 gap-4">
           {lastModifiedProducts.map((product, key) => (
-            <Link
+            <Card
               href={`/admin/products/${product.id}`}
               key={key}
-              className="shadow transition gap-2 flex flex-col bg-white rounded-lg border border-toolight-border-gray-light/50 hover:border-toolight-border-gray-light"
-            >
-              <Image
-                src={product.images[0]}
-                alt={product.title}
-                width="300"
-                height="300"
-                className="object-contain w-full aspect-square rounded-t-lg"
-              />
-              <div className="p-6 w-full flex flex-col h-full justify-between gap-2">
-                <p className="">{product.title}</p>
-                <p className="text-toolight-secondary/75 text-sm">
-                  Zmodyfikowane {moment(product.updatedAt).fromNow()}
-                </p>
-              </div>
-            </Link>
+              image={product.images[0]}
+              title={product.title}
+              text={`Zmodyfikowane ${moment(product.updatedAt).fromNow()}`}
+            />
           ))}
         </div>
       </div>
@@ -78,25 +77,13 @@ const Admin = async () => {
         <h3 className="text-2xl text-toolight-secondary">Brakujące produkty</h3>
         <div className="grid grid-cols-6 gap-4">
           {missingProducts.map((product, key) => (
-            <Link
+            <Card
               href={`/admin/products/${product.id}`}
               key={key}
-              className="shadow transition gap-2 flex flex-col bg-white rounded-lg border border-toolight-border-gray-light/50 hover:border-toolight-border-gray-light"
-            >
-              <Image
-                src={product.images[0]}
-                alt={product.title}
-                width="300"
-                height="300"
-                className="object-contain w-full aspect-square rounded-t-lg"
-              />
-              <div className="p-6 w-full flex flex-col h-full justify-between gap-2">
-                <p>{product.title}</p>
-                <p className="text-toolight-secondary/75 text-sm">
-                  {`Pozostało ${product.quantity} sztuk produktu`}
-                </p>
-              </div>
-            </Link>
+              image={product.images[0]}
+              title={product.title}
+              text={`Pozostało ${product.quantity} sztuk produktu`}
+            />
           ))}
         </div>
       </div>

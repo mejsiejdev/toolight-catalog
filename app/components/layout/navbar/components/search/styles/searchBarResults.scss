@@ -1,5 +1,5 @@
 .search-bar-results {
-  @apply bg-white border-t border-t-toolight-border-gray-light border-b border-b-toolight-border-gray-light transition rounded-b-lg;
+  @apply bg-white border-t border-t-toolight-border-gray-light/25 border-b border-b-toolight-border-gray-light/25 transition rounded-b-lg;
   z-index: -5;
   top: 0;
 }
@@ -13,7 +13,7 @@
 }
 
 .search-items__item {
-  @apply px-2 border-b border-toolight-border-gray-light hover:bg-toolight-primary-hover-light transition;
+  @apply px-2 border-b border-toolight-border-gray-light/25 hover:bg-toolight-primary-hover-light transition;
 }
 
 .search-items__item:last-child {

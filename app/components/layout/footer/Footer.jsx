@@ -1,8 +1,6 @@
 import Wrapper from "@/app/components/layout/Wrapper";
-import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/assets/toolight.svg";
-import { MdCall, MdEmail, MdLocationOn } from "react-icons/md";
 
 const Footer = () => {
   return (

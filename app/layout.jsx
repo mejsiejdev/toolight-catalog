@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 
 export const metadata = {
+  title: "tooLight",
   description: "Sprawdź najlepsze oświetlenie wewnętrzne w sklepie tooLight.",
 };
 

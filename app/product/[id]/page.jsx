@@ -42,6 +42,14 @@ const getProduct = async (id) => {
   return product;
 };
 
+export const generateMetadata = async ({ params: { id } }) => {
+  const product = await getProduct(id);
+  return {
+    title: `${product.title} | tooLight`,
+    description: product.description,
+  };
+};
+
 const ProductPage = async ({ params: { id } }) => {
   const product = await getProduct(id);
   return (

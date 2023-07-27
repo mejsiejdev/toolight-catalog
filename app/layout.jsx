@@ -6,6 +6,10 @@ import useWindowScroll from "@/hooks/useWindowScroll";
 import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 
+export const metadata = {
+  description: "Sprawdź najlepsze oświetlenie wewnętrzne w sklepie tooLight.",
+};
+
 const RootLayout = ({ children }) => {
   const scroll = useWindowScroll();
   const pathname = usePathname();

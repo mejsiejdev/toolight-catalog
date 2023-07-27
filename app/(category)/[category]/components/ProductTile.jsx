@@ -23,7 +23,7 @@ const ProductTile = ({ product, productRef }) => {
       </div>
       <div className="flex flex-col gap-1 h-full justify-between">
         <div className="flex flex-col gap-1">
-          <h3 className="description__title">{product.title}</h3>
+          <p className="description__title">{product.title}</p>
           <p className="description__category">{product.category}</p>
         </div>
         <div className="product-tile__details">

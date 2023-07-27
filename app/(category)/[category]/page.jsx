@@ -1,21 +1,17 @@
 "use client";
-import { useRef, useState, useEffect } from "react";
-import useOnScreen from "@/hooks/useOnScreen";
+import { useEffect, useState } from "react";
 import "./styles/catalogPage.scss";
 import "@/app/components/layout/styles/loading.scss";
 import ProductTile from "@/app/(category)/[category]/components/ProductTile";
 import setIsNew from "@/utilities/setIsNew";
-import useSWRInfinite from "swr/infinite";
-import fetcher from "@/app/lib/fetcher";
+import useGetData from "@/hooks/useGetData";
 import Wrapper from "@/app/components/layout/Wrapper";
 import Spinner from "@/app/components/layout/spinners/Spinner";
 import { PrimaryButton } from "@/app/components/layout/buttons/Buttons";
 import Filters from "./components/Filters";
 
 const ProductsPage = ({ params }) => {
-  const ref = useRef(null);
-  const isVisible = useOnScreen(ref);
-
+  const [page, setPage] = useState(1);
   // Rodzaj lampy
   const [category, setCategory] = useState(
     params.category !== "catalog" ? [decodeURI(params.category)] : undefined
@@ -28,24 +24,24 @@ const ProductsPage = ({ params }) => {
   const [hue, setHue] = useState();
   // Liczba punktów światła
   const [numberOfLightPoints, setNumberOfLightPoints] = useState();
+  const { isLoading, error, products, hasMore } = useGetData(
+    page,
+    undefined,
+    category,
+    color,
+    thread,
+    hue,
+    numberOfLightPoints
+  );
 
-  const getKey = (pageIndex, previousPageData) => {
-    if (previousPageData && !previousPageData.length) return null;
-    return `/api/catalog?page=${pageIndex}&limit=32&category=${category}&color=${color}&thread=${thread}&hue=${hue}&numberOfLightPoints=${numberOfLightPoints}`;
-  };
-
-  const { data, error, isLoading, isValidating, size, setSize } =
-    useSWRInfinite(getKey, fetcher);
-
-  useEffect(() => {
-    if (isVisible && data) {
-      setSize(size + 1);
-    }
-  }, [isVisible]);
+  useEffect(
+    () => setPage(1),
+    [category, color, thread, hue, numberOfLightPoints]
+  );
 
   return (
     <>
-      <Wrapper className={"flex flex-col gap-8 py-8"}>
+      <Wrapper className={"flex flex-col gap-8 pt-8"}>
         <div className="flex flex-row gap-8 w-full justify-between items-end">
           <h1 className="text-4xl text-toolight-paragraph-hover-light">
             Produkty
@@ -68,17 +64,11 @@ const ProductsPage = ({ params }) => {
           />
         </div>
         {!isLoading ? (
-          data.length > 0 ? (
-            <div className="flex flex-col gap-8">
-              <div className="products-container">
-                {data.map((products) =>
-                  setIsNew(products).map((dat, key) => (
-                    <ProductTile product={dat} key={key} />
-                  ))
-                )}
-              </div>
-              <div ref={ref} />
-              {isValidating && <Spinner />}
+          products.length > 0 ? (
+            <div className="products-container">
+              {setIsNew(products).map((dat, key) => (
+                <ProductTile product={dat} key={key} />
+              ))}
             </div>
           ) : (
             <p className="pb-8">
@@ -86,10 +76,20 @@ const ProductsPage = ({ params }) => {
             </p>
           )
         ) : (
-          <Spinner />
+          <Spinner fullPage={true} pageHeight={"80vh"} />
         )}
-        <div>{error && "Error"}</div>
       </Wrapper>
+      {!isLoading && hasMore && (
+        <Wrapper className="flex items-center justify-center py-8">
+          <PrimaryButton
+            actionOnClick={() => setPage((prevPage) => prevPage + 1)}
+          >
+            Załaduj więcej...
+          </PrimaryButton>
+        </Wrapper>
+      )}
+
+      <div>{error && "Error"}</div>
     </>
   );
 };

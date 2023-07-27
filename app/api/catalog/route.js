@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 import prisma from "@/dp";
+import pagination from "@/app/middleware/pagination";
+
+export const dynamic = "force-dynamic";
 
 /**
  * Function for checking if a string is empty (`""`), `null` or `undefined`.
@@ -24,14 +27,26 @@ const isAnyFilterSet = (array) => {
 
 export async function GET(request) {
   try {
+    const getCount = await prisma.products.count();
     const { searchParams } = new URL(request.url);
-    const page = parseInt(searchParams.get("page"));
-    const limit = parseInt(searchParams.get("limit"));
+    const page = searchParams.get("page");
     const categories = searchParams.getAll("category[]");
     const color = searchParams.getAll("color[]");
     const numberOfLightPoints = searchParams.getAll("numberOfLightPoints[]");
     const thread = searchParams.getAll("thread[]");
     const hue = searchParams.getAll("hue[]");
+    const startIndex = searchParams.get("lastIndex");
+    const pag = await pagination(getCount, page)
+      .then((res) => res)
+      .catch((error) => error);
+    console.log("color:", color);
+    /*
+    console.log(
+      "startIndexes:",
+      !isAnyFilterSet([type, numberOfLightPoints, thread, color, hue]),
+      pag.startIndex,
+      startIndex
+    );*/
     const getProducts = await prisma.products.findMany({
       where: {
         /**
@@ -48,11 +63,16 @@ export async function GET(request) {
               })
             : [{ category: { not: "" } }],
       },
-      skip: page * limit !== 0 ? page * limit : undefined,
-      take: limit,
+      skip: !isAnyFilterSet([numberOfLightPoints, thread, color, hue])
+        ? pag.startIndex
+        : parseInt(startIndex),
+      take: !isAnyFilterSet([numberOfLightPoints, thread, color, hue])
+        ? pag.limit
+        : undefined,
     });
 
     let filtered = [];
+    let lastProductIndex = 0;
 
     if (isAnyFilterSet([numberOfLightPoints, thread, color, hue])) {
       console.time("Filtering");
@@ -71,6 +91,7 @@ export async function GET(request) {
       }
       // ! Wcześniej wspomniane filtrowanie
       for (const product of getProducts) {
+        lastProductIndex++;
         let check = amountOfChecksToPass;
         // Sprawdzanie atrybutów
         product.attributes.forEach((attribute) => {
@@ -99,7 +120,16 @@ export async function GET(request) {
     } else {
       filtered = getProducts;
     }
-    return NextResponse.json(filtered);
+    return NextResponse.json({
+      products:
+        lastProductIndex >= startIndex ||
+        !isAnyFilterSet([numberOfLightPoints, thread, color, hue])
+          ? filtered
+          : [],
+      count: lastProductIndex >= startIndex ? filtered.length : 0,
+      pages: pag.getPages,
+      lastIndex: lastProductIndex,
+    });
   } catch (error) {
     return NextResponse.json(error);
   }

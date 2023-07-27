@@ -11,7 +11,7 @@ const SubmitButton = ({ text }) => {
       disabled={pending}
       className={`px-4 py-2 ${
         !pending ? "bg-toolight-primary" : "bg-toolight-primary-hover-light"
-      } rounded font-semibold text-black hover:bg-toolight-primary-hover-dark transition`}
+      } rounded font-semibold text-black hover:bg-toolight-primary-hover-dark transition w-full md:w-auto`}
     >
       {!pending ? (
         <p>{text}</p>

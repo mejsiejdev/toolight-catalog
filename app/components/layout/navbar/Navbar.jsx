@@ -91,8 +91,10 @@ const Navbar = () => {
               )}
               <Logo />
               {size.width >= 1024 && <MenuDesktop items={test} />}
-              <SearchButton getRef={secRef} />
-              <LogInButton />
+              <div className="flex flex-row justify-end gap-2 lg:max-w-[180px] lg:w-full">
+                <SearchButton getRef={secRef} />
+                <LogInButton />
+              </div>
             </nav>
           </Wrapper>
           <SearchBar getRef={ref} isOpen={searchBar} />

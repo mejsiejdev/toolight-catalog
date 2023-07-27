@@ -1,23 +1,17 @@
 .header {
-	@apply w-full fixed top-0 z-10;
+  @apply w-full fixed top-0 z-10;
 }
 
 .navbar-container {
-	@apply w-full bg-white;
+  @apply w-full bg-white;
 }
 
 .nav {
-	@apply grid items-center;
-	grid-template-columns: 200px 1fr 52px 52px;
-	@media screen and (max-width: 1024px) {
-		grid-template-columns: 104px 2fr 52px 52px;
-	}
-	@media screen and (max-width: 768px) {
-		grid-template-columns: 56px 2fr 40px 40px;
-	}
+  @apply flex flex-row justify-between items-center;
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 104px 2fr 52px 52px;
+  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 56px 2fr 40px 40px;
+  }
 }
-
-
-
-
-

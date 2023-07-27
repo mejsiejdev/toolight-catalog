@@ -27,7 +27,7 @@ const SearchBarResults = ({ results, isActive, searchBarClosed }) => {
   };
 
   const heightStyle = {
-    maxHeight: active ? `400px` : "0",
+    maxHeight: active ? `388px` : "0",
     transition: "0.3s",
   };
   return (
@@ -35,10 +35,10 @@ const SearchBarResults = ({ results, isActive, searchBarClosed }) => {
       <div className="search-bar-results" style={style}>
         <ul ref={ref} className="search-items" style={heightStyle}>
           {results &&
-            results.map((result) => {
+            results.map((result, key) => {
               return (
-                <li className="search-items__item" key={crypto.randomUUID()}>
-                  <Link href={`/catalog/product/${result.id}`}>
+                <li className="search-items__item" key={key}>
+                  <Link href={`/product/${result.id}`}>
                     <Wrapper className="search-bar__wrapper">
                       <div className="search-items__image-bg">
                         <Image

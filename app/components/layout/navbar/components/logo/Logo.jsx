@@ -7,10 +7,11 @@ import "./styles/logo.scss";
 const Logo = () => {
   return (
     <>
+      <h1 className="sr-only">tooLight</h1>
       <div className="navbar__logo">
         <Link href="/">
           <Image
-            className="logo"
+            className="logo flex-none"
             src="/assets/logo.png"
             width={200}
             height={20}

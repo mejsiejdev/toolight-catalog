@@ -1,42 +1,41 @@
 .navbar__menu {
-	@apply h-full justify-self-center;
-	@media screen and (max-width: 1024px) {
-		display: none;
-	}
-	grid-column: 2/3;
+  @apply h-full justify-self-center max-w-2xl;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+  grid-column: 2/3;
 }
 
 .menu-container {
-	@apply h-full px-4;
+  @apply h-full;
 }
 
 .menu {
-	@apply flex items-center h-full;
+  @apply flex items-center h-full;
 }
 
 .menu-item {
-	@apply h-full z-10;
-	&__link {
-		@apply flex justify-center items-center text-xs  h-full px-4 uppercase hover:text-toolight-primary transition;
+  @apply h-full z-10;
+  &__link {
+    @apply flex justify-center px-4 items-center text-xs h-full uppercase hover:text-toolight-primary transition;
+  }
 
-	}
-
-	.menu-hover &__link:active {
-		background-color: rgba(241, 194, 27, 0.25);
-	}
+  .menu-hover &__link:active {
+    background-color: rgba(241, 194, 27, 0.25);
+  }
 }
 
 .menu-item__link--dropdown {
-	@apply relative;
+  @apply relative;
 }
 
 .menu-hover {
-	@apply absolute block pointer-events-none bg-toolight-primary;
-	z-index: 0;
-	bottom: 0;
-	//background-color: rgba(241, 194, 27, 0.35);
+  @apply absolute block pointer-events-none bg-toolight-primary;
+  z-index: 0;
+  bottom: 0;
+  //background-color: rgba(241, 194, 27, 0.35);
 
-	&:active {
-		@apply bg-toolight-primary-active
-	}
+  &:active {
+    @apply bg-toolight-primary-active;
+  }
 }

@@ -4,10 +4,8 @@ import "./styles/logInButton.scss";
 
 const LogInButton = () => {
   return (
-    <Link href={"/signin"} className="navbar__user">
-      <button className="login-button">
-        <FiUser className="login-icon" size={28} />
-      </button>
+    <Link href={"/signin"} title="Zaloguj się" className="login-button">
+      <FiUser className="login-icon" size={28} />
     </Link>
   );
 };

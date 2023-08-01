@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import SubmitButton from "../../components/SubmitButton";
-import { MdAdd, MdAddPhotoAlternate, MdClear } from "react-icons/md";
+import { MdAdd, MdClear } from "react-icons/md";
 import { editProduct } from "../actions";
+import { MdExpandMore } from "react-icons/md";
 
 const Form = ({ product, categories }) => {
   const id = useId();
@@ -31,16 +32,20 @@ const Form = ({ product, categories }) => {
           </div>
           <div className="flex flex-col gap-2">
             <label htmlFor={`${id}-category`}>Kategoria</label>
-            <select
-              defaultValue={product.category}
-              id={`${id}-category`}
+            {/*
+            <input
+              type="text"
               name="category"
+              defaultValue={product.category}
               className="placeholder:text-toolight-border-gray-dark border border-toolight-border-gray-light px-2 py-1 rounded"
-            >
+              list="categories"
+            />
+            <datalist id="categories">
               {categories.map((category, key) => (
-                <option key={key}>{category}</option>
+                <option key={key} value={category} />
               ))}
-            </select>
+              </datalist>*/}
+            <Categories category={product.category} categories={categories} />
           </div>
         </div>
         <div className="flex flex-col gap-2 w-full">
@@ -186,6 +191,47 @@ const Form = ({ product, categories }) => {
         </div>
       </div>
     </form>
+  );
+};
+
+const Categories = ({ category, categories }) => {
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(category);
+  useEffect(() => {
+    setOpen(false);
+  }, [value]);
+  return (
+    <div className="flex flex-col items-end">
+      <div className="flex flex-row items-center rounded">
+        <input
+          type="text"
+          name="category"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          className="placeholder:text-toolight-border-gray-dark border-toolight-border-gray-light border-t border-b border-l px-2 py-1 rounded-l"
+        />
+        <button className="bg-toolight-border-gray-dark/10 border-toolight-border-gray-light hover:bg-toolight-border-gray-dark/20 transition h-full border-y border-r rounded-r">
+          <MdExpandMore
+            onClick={() => setOpen(!open)}
+            className="text-toolight-secondary/50 group-hover:text-toolight-secondary transition text-3xl px-1"
+          />
+        </button>
+      </div>
+      {open && (
+        <div className="absolute bg-white mt-12 rounded border border-toolight-border-gray-light shadow-lg select-none">
+          {categories.map((category, key) => (
+            <option
+              key={key}
+              value={category}
+              className="py-3 px-4 hover:bg-toolight-border-gray-light/25 cursor-pointer transition"
+              onClick={() => setValue(category)}
+            >
+              {category}
+            </option>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 

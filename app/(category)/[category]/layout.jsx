@@ -12,7 +12,7 @@ const getCategories = async () => {
 
 const Layout = async ({ children, params: { category } }) => {
   const categories = await getCategories();
-  if (!categories.includes(category) && category !== "catalog") {
+  if (!categories.includes(decodeURI(category)) && category !== "catalog") {
     notFound();
   }
   return children;

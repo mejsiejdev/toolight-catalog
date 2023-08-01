@@ -37,7 +37,7 @@
 }
 
 .details__ids-prices {
-  @apply flex flex-col gap-4;
+  @apply flex flex-row justify-between gap-4;
 }
 
 .prices {
@@ -45,11 +45,11 @@
 }
 
 .price-label {
-  @apply text-toolight-secondary/75 font-semibold text-xs uppercase;
+  @apply text-toolight-secondary/75 font-semibold text-[0.625rem] uppercase;
 }
 
 .price-value {
-  @apply font-bold text-lg;
+  @apply font-bold text-base;
 }
 
 .ids__ean,

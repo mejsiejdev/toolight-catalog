@@ -21,7 +21,7 @@ const ProductTile = ({ product, productRef }) => {
           {product.isNew && <p className="description__new">Nowość</p>}
         </div>
       </div>
-      <div className="flex flex-col gap-1 h-full justify-between">
+      <div className="flex flex-col gap-4 h-full justify-between">
         <div className="flex flex-col gap-1">
           <p className="description__title">{product.title}</p>
           <p className="description__category">{product.category}</p>
@@ -29,19 +29,18 @@ const ProductTile = ({ product, productRef }) => {
         <div className="product-tile__details">
           <div className="details__ids-prices">
             <div className="flex flex-col gap-4">
-              {/*
-            <div>
-              <p className="ids__ean">
-                <strong>EAN: </strong>
-                {product.ean}
-              </p>
-              <p className="ids__sku">
-                <strong>SKU: </strong>
-                {product.sku}
-              </p>
+              <div>
+                <p className="ids__ean">
+                  <strong>EAN: </strong>
+                  {product.ean}
+                </p>
+                <p className="ids__sku">
+                  <strong>SKU: </strong>
+                  {product.sku}
+                </p>
+              </div>
             </div>
-  */}
-            </div>
+            {/*
             <div className="prices">
               <div>
                 <p className="price-label">Netto</p>
@@ -55,6 +54,17 @@ const ProductTile = ({ product, productRef }) => {
                   {currencyFormatter.format(product.priceGros, { code: "PLN" })}
                 </p>
               </div>
+            </div>
+  */}
+            <div>
+              <p className="prices__net">
+                <strong>NETTO: </strong>
+                {currencyFormatter.format(product.priceNet, { code: "PLN" })}
+              </p>
+              <p className="prices__gross">
+                <strong>BRUTTO: </strong>
+                {currencyFormatter.format(product.priceGros, { code: "PLN" })}
+              </p>
             </div>
           </div>
         </div>

@@ -23,9 +23,14 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="pl">
       {!pathname.includes("signin") && !pathname.includes("admin") ? (
-        <body style={dynamicPadding}>
-          <AnimatePresence>{children}</AnimatePresence>
-          <Navbar />
+        <body
+          style={dynamicPadding}
+          className="flex flex-col justify-between h-full min-h-screen"
+        >
+          <div>
+            <AnimatePresence>{children}</AnimatePresence>
+            <Navbar />
+          </div>
           <Footer />
         </body>
       ) : (

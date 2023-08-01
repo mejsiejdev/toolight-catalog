@@ -4,7 +4,7 @@ import Logo from "@/public/assets/toolight.svg";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-toolight-border-gray-light/50">
+    <footer className="border-t border-toolight-border-gray-light/50 bottom-0">
       <Wrapper className="py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-8">
         <div className="flex flex-col gap-2">
           <Image

@@ -1,13 +1,13 @@
 "use client";
 import "./styles/categories.scss";
-import useGetCategories from "@/hooks/useGetCategories";
 import Link from "next/link";
-import slugify from "slugify";
 import { FiArrowRight } from "react-icons/fi";
 import useWindowScroll from "@/hooks/useWindowScroll";
+import fetcher from "@/app/lib/fetcher";
+import useSWR from "swr";
 
 const Categories = () => {
-  const { isLoading, error, categories } = useGetCategories("test");
+  const { data, isLoading } = useSWR("/api/categories", fetcher);
   const scroll = useWindowScroll();
   const handleArrow = (e) => {
     e.currentTarget.classList.toggle("navbar__dropdown-link--active");
@@ -19,35 +19,55 @@ const Categories = () => {
   };
 
   return (
-    <>
-      {!isLoading && (
-        <div className="navbar__dropdown" style={style}>
-          {categories.map((category, key) => {
-            return (
-              <Link
-                className="navbar__dropdown-link"
-                onMouseEnter={handleArrow}
-                onMouseLeave={handleArrow}
-                href={category}
-                key={key}
-              >
-                {category}{" "}
-                <FiArrowRight className="navbar__dropdown-link--arrow" />
-              </Link>
-            );
-          })}
-          <Link
-            onMouseEnter={handleArrow}
-            onMouseLeave={handleArrow}
-            className="navbar__dropdown-link navbar__dropdown-link--all"
-            href="/wszystkie"
-          >
-            Zobacz wszystkie{" "}
-            <FiArrowRight className="navbar__dropdown-link--arrow" />
-          </Link>
-        </div>
+    <div className="navbar__dropdown" style={style}>
+      {!isLoading ? (
+        data &&
+        data.categories.map((category, key) => {
+          return (
+            <Link
+              className="navbar__dropdown-link"
+              onMouseEnter={handleArrow}
+              onMouseLeave={handleArrow}
+              href={category}
+              key={key}
+            >
+              {category}{" "}
+              <FiArrowRight className="navbar__dropdown-link--arrow" />
+            </Link>
+          );
+        })
+      ) : (
+        <>
+          <div className="navbar__dropdown-link">
+            <span className="h-5 bg-toolight-border-gray-light/50 rounded w-[30%] animate-pulse" />
+          </div>
+          <div className="navbar__dropdown-link">
+            <span className="h-5 bg-toolight-border-gray-light/50 rounded w-[35%] animate-pulse" />
+          </div>
+          <div className="navbar__dropdown-link">
+            <span className="h-5 bg-toolight-border-gray-light/50 rounded w-[20%] animate-pulse" />
+          </div>
+          <div className="navbar__dropdown-link">
+            <span className="h-5 bg-toolight-border-gray-light/50 rounded w-[40%] animate-pulse" />
+          </div>
+          <div className="navbar__dropdown-link">
+            <span className="h-5 bg-toolight-border-gray-light/50 rounded w-[30%] animate-pulse" />
+          </div>
+          <div className="navbar__dropdown-link">
+            <span className="h-5 bg-toolight-border-gray-light/50 rounded w-[50%] animate-pulse" />
+          </div>
+        </>
       )}
-    </>
+      <Link
+        onMouseEnter={handleArrow}
+        onMouseLeave={handleArrow}
+        className="navbar__dropdown-link navbar__dropdown-link--all"
+        href="/"
+      >
+        Zobacz wszystkie{" "}
+        <FiArrowRight className="navbar__dropdown-link--arrow" />
+      </Link>
+    </div>
   );
 };
 

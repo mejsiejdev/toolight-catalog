@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import SubmitButton from "../../components/SubmitButton";
-import { MdAdd, MdClear } from "react-icons/md";
+import { MdAdd, MdClear, MdEdit } from "react-icons/md";
 import { editProduct } from "../actions";
 import { MdExpandMore } from "react-icons/md";
 
@@ -217,17 +217,23 @@ const Categories = ({ category, categories }) => {
           />
         </button>
       </div>
-      {open && (
+      {!open && (
         <div className="absolute bg-white mt-12 rounded border border-toolight-border-gray-light shadow-lg select-none">
           {categories.map((category, key) => (
-            <option
+            <div
               key={key}
-              value={category}
-              className="py-3 px-4 hover:bg-toolight-border-gray-light/25 cursor-pointer transition"
-              onClick={() => setValue(category)}
+              className="group hover:bg-toolight-border-gray-light/25 transition flex flex-row w-full gap-4 justify-between items-center cursor-pointer"
             >
-              {category}
-            </option>
+              <p
+                className="py-3 pl-4 w-full"
+                onClick={() => setValue(category)}
+              >
+                {category}
+              </p>
+              <button className="py-3 pr-4">
+                <MdEdit className="invisible group-hover:visible text-2xl hover:text-toolight-border-gray-dark" />
+              </button>
+            </div>
           ))}
         </div>
       )}

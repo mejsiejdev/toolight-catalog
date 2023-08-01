@@ -7,7 +7,7 @@ import Label from "@/app/product/[id]/components/details/components/label/compon
 import NoLabel from "@/app/product/[id]/components/details/components/label/components/nolabel/NoLabel";
 import Dropdown from "@/app/product/[id]/components/details/components/card/dropdown";
 
-const LabelContainer = ({ label }) => {
+const LabelContainer = ({ label, solid }) => {
   const [active, setActive] = useState(true);
   const { width } = useWindowResize();
   const ref = useRef(null);
@@ -29,7 +29,11 @@ const LabelContainer = ({ label }) => {
     },
     noLabel: {
       height: active ? isDesktop : 0,
-      border: isMobile ? "" : 0,
+      border: isMobile
+        ? solid
+          ? "1px solid #c6c6c6"
+          : "border border-toolight-border-gray-light/50 rounded-lg shadow"
+        : "",
     },
   };
   return (

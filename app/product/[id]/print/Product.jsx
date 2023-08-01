@@ -49,7 +49,7 @@ const Product = ({ product }) => {
               height={400}
               className="flex-none border-toolight-border-gray-dark border"
             />
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center border border-[#c6c6c6]">
               {product.euLabel !== "" ? (
                 <Label label={label} styles={styles.label} />
               ) : (

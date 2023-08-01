@@ -6,6 +6,7 @@ import LabelContainer from "@/app/product/[id]/components/details/components/lab
 import Gallery from "@/app/product/[id]/components/gallery/Gallery";
 import { PrimaryButton } from "@/app/components/layout/buttons/Buttons";
 import currencyFormatter from "currency-formatter";
+import Link from "next/link";
 
 import prisma from "@/dp";
 import { MdPrint } from "react-icons/md";
@@ -85,11 +86,14 @@ const ProductPage = async ({ params: { id } }) => {
                         </p>
                       </div>
                     </div>
-                    <div className="hidden xl:block">
+                    <Link
+                      href={`/product/${product.id}/print`}
+                      className="hidden xl:block"
+                    >
                       <PrimaryButton icon={<MdPrint />}>
                         Karta produktu
                       </PrimaryButton>
-                    </div>
+                    </Link>
                   </div>
                   <p className="product-description__text">
                     {product.description}

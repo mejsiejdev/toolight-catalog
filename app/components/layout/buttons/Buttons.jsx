@@ -1,18 +1,24 @@
-'use client';
-import './styles/buttons.scss';
+"use client";
+import "./styles/buttons.scss";
 
 const TextWithIcon = {
-  paddingLeft: '12px',
-  paddingRight: '8px',
+  paddingLeft: "12px",
+  paddingRight: "8px",
 };
 
 const PrimaryButton = ({ actionOnClick, children, icon }) => {
   return (
-    <button onClick={actionOnClick} className="button button--primary">
+    <button
+      onClick={actionOnClick}
+      className="button button--primary w-full md:w-auto"
+    >
       <span className="button-content">
         {icon && <span className="button-icon">{icon}</span>}
         {children && (
-          <span className="button-title" style={icon && TextWithIcon}>
+          <span
+            className="button-title whitespace-nowrap"
+            style={icon && TextWithIcon}
+          >
             {children}
           </span>
         )}

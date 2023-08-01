@@ -1,12 +1,12 @@
-'use client';
-import './styles/imageAnimation.scss';
+"use client";
+import "./styles/imageAnimation.scss";
 
 const ImageAnimation = ({ isActive, images }) => {
   const isAciveStyle = {
-    opacity: '1',
+    opacity: "1",
   };
   const isInactiveStyle = {
-    opacity: '0',
+    opacity: "0",
   };
   const handleImagesCount = () => {
     if (images.length >= 2) return !isActive ? isAciveStyle : isInactiveStyle;
@@ -19,6 +19,8 @@ const ImageAnimation = ({ isActive, images }) => {
         className="product-tile__image"
         src={`${images[0]}`}
         alt="Zdjęcie"
+        width="350"
+        height="350"
         style={handleImagesCount()}
       />
       {images.length >= 2 && (
@@ -26,6 +28,8 @@ const ImageAnimation = ({ isActive, images }) => {
           className="product-tile__image product-tile__image--second"
           src={`${images[1]}`}
           alt="Zdjęcie"
+          width="350"
+          height="350"
           style={isActive ? isAciveStyle : isInactiveStyle}
         />
       )}

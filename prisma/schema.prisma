@@ -30,6 +30,7 @@ model Products {
     url         String   @default("")
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
+    featured    Boolean  @default(false)
 }
 
 model User {

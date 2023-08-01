@@ -1,9 +1,12 @@
-import './styles/noLabel.scss';
-import { FiAlertTriangle } from 'react-icons/fi';
+import "./styles/noLabel.scss";
+import { FiAlertTriangle } from "react-icons/fi";
 
 const NoLabel = ({ labelRef, styles }) => {
   return (
-    <div className="nolabel__container" style={styles}>
+    <div
+      className="nolabel__container border border-toolight-border-gray-light/50 rounded-lg shadow"
+      style={styles}
+    >
       <div ref={labelRef} className="nolabel">
         <FiAlertTriangle size={32} />
         <p className="nolabel__placeholder nolabel__placeholder--heading">

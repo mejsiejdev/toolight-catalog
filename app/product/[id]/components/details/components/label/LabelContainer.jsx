@@ -21,18 +21,17 @@ const LabelContainer = ({ label }) => {
   const isMobile = width <= 1024 ? 0 : 532;
   const isDesktop = width > 1024 ? 500 : 200;
   const mobilePadding = width <= 1024 ? 16 : 0;
-  
+
   const styles = {
     label: {
       height: active ? "500px" : isMobile,
-      padding: active ? mobilePadding : 0
+      padding: active ? mobilePadding : 0,
     },
     noLabel: {
       height: active ? isDesktop : 0,
-      border: isMobile ? "1px solid #c6c6c6" : 0
-    }
+      border: isMobile ? "" : 0,
+    },
   };
-  
   return (
     <div className="product__eulabel-container" ref={ref}>
       {width <= 1024 && (
@@ -40,8 +39,8 @@ const LabelContainer = ({ label }) => {
           Etykieta energetyczna
         </Dropdown>
       )}
-      
-      {!label ? (
+
+      {label !== "" ? (
         <Label labelRef={labelRef} label={label} styles={styles.label} />
       ) : (
         <NoLabel labelRef={labelRef} styles={styles.noLabel} />

@@ -20,14 +20,14 @@ const Navbar = () => {
   const [searchBar, setSearchBar] = useState(false);
   const ref = useRef(null);
   const secRef = useRef(null);
-  
+
   const clickedItem = (e) => {
     if (e.target.classList.contains("mobile-menu__link")) {
       setToggle(false);
       setOpen(false);
     }
   };
-  
+
   const handleToggle = () => {
     if (toggle) {
       setToggle(false);
@@ -37,57 +37,49 @@ const Navbar = () => {
       setOpen(true);
     }
   };
-  
+
+  // Hook controlling the search bar state
   useClickOutside(ref, secRef, setSearchBar, true);
-  const toggleSearch = (e) => {
-    if (!searchBar && e.currentTarget.classList.contains("search-button")) {
-      console.log("przycisk");
-      setSearchBar(true);
-    } else {
-      console.log("otwarte i przycisk");
-      setSearchBar(false);
-    }
-  };
-  
+
   const size = useWindowSize();
   const scroll = useWindowScroll();
-  
+
   const test = [
     {
       title: "Strona główna",
-      link: "/"
+      link: "/",
     },
     {
       title: "Katalog",
-      link: "/"
+      link: "/catalog",
     },
     {
       title: "Punkty sprzedaży",
-      link: "/"
+      link: "/",
     },
     {
       title: "Sklep internetowy",
-      link: "https://toolight.pl/"
+      link: "https://toolight.pl/",
     },
     {
       title: "Kontakt",
-      link: "/"
-    }
+      link: "/contact",
+    },
   ];
-  
+
   const navbarSize = {
     height: scroll > 1 ? "70px" : "100px",
-    transition: "0.3s"
+    transition: "0.3s",
   };
-  
+
   const navbarShadow = {
     boxShadow:
       scroll > 1 && !searchBar
         ? "0 2.3px 5.3px rgba(0, 0, 0, 0.04), 0 7.8px 17.9px rgba(0, 0, 0, 0.06),0 35px 80px rgba(0, 0, 0, 0.1)"
         : "0 0 0 rgba(0,0,0,0)",
-    transition: "0.3s"
+    transition: "0.3s",
   };
-  
+
   return (
     <>
       <header className="header">
@@ -99,8 +91,10 @@ const Navbar = () => {
               )}
               <Logo />
               {size.width >= 1024 && <MenuDesktop items={test} />}
-              <SearchButton getRef={secRef} toggleSearch={toggleSearch} />
-              <LogInButton />
+              <div className="flex flex-row justify-end gap-2 lg:max-w-[180px] lg:w-full">
+                <SearchButton getRef={secRef} />
+                <LogInButton />
+              </div>
             </nav>
           </Wrapper>
           <SearchBar getRef={ref} isOpen={searchBar} />

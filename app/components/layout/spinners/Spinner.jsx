@@ -8,7 +8,6 @@ const Spinner = ({ fullPage, pageHeight, size }) => {
     width: fullPage && "100%",
     height: pageHeight,
     background: "#ffffff",
-    border: "1px solid #c6c6c6",
     margin: "-1px",
   };
   return (

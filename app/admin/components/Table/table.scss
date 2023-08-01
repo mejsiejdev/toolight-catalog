@@ -1,0 +1,11 @@
+.table {
+  @apply shadow table-auto border border-toolight-border-gray-light rounded border-separate border-spacing-0 w-full;
+}
+
+.header-row {
+  @apply bg-toolight-border-gray-light/20;
+}
+
+.header-cell {
+  @apply first:pl-4 py-4 last:pr-4 border-b border-toolight-border-gray-light;
+}

@@ -1,3 +1,4 @@
+import prisma from "@/dp";
 import { notFound } from "next/navigation";
 
 const getCategories = async () => {

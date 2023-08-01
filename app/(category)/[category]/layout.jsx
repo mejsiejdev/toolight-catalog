@@ -1,5 +1,5 @@
 import prisma from "@/dp";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 
 // Get all categories
 const getCategories = async () => {
@@ -15,8 +15,8 @@ const Layout = async ({ children, params: { category } }) => {
   const categories = await getCategories();
   // Check if the category parameter is valid
   if (!categories.includes(decodeURI(category)) && category !== "catalog") {
-    // If not, throw "Not Found" error.
-    notFound();
+    // If not, redirect to all categories
+    redirect("/catalog");
   }
   return children;
 };
